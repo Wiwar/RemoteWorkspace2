@@ -302,6 +302,30 @@ public class ChantProcedure {
 					}
 					return "";
 				}
+			}.getText()).contains("Pull")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 5);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+				PullProcedure
+						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:Chant");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
 			}.getText()).contains("Healing")) {
 				if (entity instanceof PlayerEntity)
 					((PlayerEntity) entity).closeScreen();
@@ -473,6 +497,29 @@ public class ChantProcedure {
 					}
 					return "";
 				}
+			}.getText()).contains("Flame Slice")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+				FlameSliceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:Chant");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
 			}.getText()).contains("Flamethrower")) {
 				if (entity instanceof PlayerEntity)
 					((PlayerEntity) entity).closeScreen();
@@ -558,6 +605,78 @@ public class ChantProcedure {
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
 				FeastProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:Chant");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText()).contains("Wind Bind")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+				WindBindProcedure
+						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:Chant");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText()).contains("Wind Slice")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+				WindSliceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:Chant");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText()).contains("Sonic Boom")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+				SonicBoomProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}
 		if (entity.getPersistentData().getDouble("Mana") > 200) {
@@ -754,6 +873,56 @@ public class ChantProcedure {
 				AddFallNegationProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
+			if ((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:Chant");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText()).contains("Tornado Impact")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 10);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 200));
+				TornadoImpactProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:Chant");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText()).contains("Sonic Blast")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 10);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 200));
+				SonicBlastProcedure
+						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
 		}
 		if (entity.getPersistentData().getDouble("Mana") > 400) {
 			if ((new Object() {
@@ -854,6 +1023,55 @@ public class ChantProcedure {
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
+			if ((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:Chant");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText()).contains("Desert Storm")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 800));
+				DesertStormProcedure
+						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:Chant");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText()).contains("Tornado")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 800));
+				TornadoIdleProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
 		}
 		if (entity.getPersistentData().getDouble("Mana") > 1600) {
 			if ((new Object() {
@@ -901,8 +1119,9 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 1600));
-				ElectricProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
-						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				ElectricProcedure
+						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 			if ((new Object() {
 				public String getText() {
@@ -950,6 +1169,31 @@ public class ChantProcedure {
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 1600));
 				EarthDrillProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:Chant");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText()).contains("Eye of the Storm")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 1600));
+				EyeoftheStormProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
+								new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}

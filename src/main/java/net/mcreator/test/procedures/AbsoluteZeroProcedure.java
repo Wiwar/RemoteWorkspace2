@@ -63,5 +63,16 @@ public class AbsoluteZeroProcedure {
 						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 			world.addEntity(entityToSpawn);
 		}
+		if (world instanceof ServerWorld) {
+			Entity entityToSpawn = new AbsoluteZeroEntityEntity.CustomEntity(AbsoluteZeroEntityEntity.entity, (World) world);
+			entityToSpawn.setLocationAndAngles((x + 2), (y + 1), z, (float) 0, (float) 0);
+			entityToSpawn.setRenderYawOffset((float) 0);
+			entityToSpawn.setRotationYawHead((float) 0);
+			entityToSpawn.setMotion(0, 0, 0);
+			if (entityToSpawn instanceof MobEntity)
+				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
+						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+			world.addEntity(entityToSpawn);
+		}
 	}
 }

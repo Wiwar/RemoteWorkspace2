@@ -19,6 +19,6 @@ public class AddFallNegationProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		if (entity instanceof LivingEntity)
-			((LivingEntity) entity).addPotionEffect(new EffectInstance(FallNegationPotionEffect.potion, (int) 60, (int) 1));
+			((LivingEntity) entity).addPotionEffect(new EffectInstance(FallNegationPotionEffect.potion, (int) 10, (int) 1));
 	}
 }

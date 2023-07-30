@@ -19,6 +19,267 @@
           "x": 82,
           "y": 28
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Elementary",
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "name": "Elementary",
+          "x": 123,
+          "y": 44
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Push",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Push",
+          "x": 114,
+          "y": 53
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Blast",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Blast",
+          "x": 114,
+          "y": 62
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Pull",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Pull",
+          "x": 114,
+          "y": 71
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Intermediate",
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "name": "Intermediate",
+          "x": 123,
+          "y": 89
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Wind Blast",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Wind Blast",
+          "x": 114,
+          "y": 98
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Wind Bind",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Wind Bind",
+          "x": 114,
+          "y": 107
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Sonic Boom",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Sonic Boom",
+          "x": 114,
+          "y": 125
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Wind Slice",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Wind Slice",
+          "x": 114,
+          "y": 116
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Advanced",
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "name": "Advanced",
+          "x": 258,
+          "y": 44
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Fall Negation",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Fall Negation",
+          "x": 240,
+          "y": 53
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Tornado Imapct",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Tornado Imapct",
+          "x": 240,
+          "y": 62
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Sonic Blast",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Sonic Blast",
+          "x": 240,
+          "y": 71
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Saint",
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "name": "Saint",
+          "x": 258,
+          "y": 89
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Violent Storm",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Violent Storm",
+          "x": 240,
+          "y": 98
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "King",
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "name": "King",
+          "x": 258,
+          "y": 116
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Tornado",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Tornado",
+          "x": 240,
+          "y": 125
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "OpenGrim"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 105,
+          "y": 170
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Imperial",
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "name": "Imperial",
+          "x": 258,
+          "y": 143
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Eye of the Storm",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Eye of the Storm",
+          "x": 240,
+          "y": 152
+        }
       }
     ],
     "gridSettings": {
@@ -26,7 +287,7 @@
       "sy": 18,
       "ox": 11,
       "oy": 15,
-      "snapOnGrid": false
+      "snapOnGrid": true
     }
   }
 }
