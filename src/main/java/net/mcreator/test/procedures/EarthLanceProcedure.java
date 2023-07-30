@@ -8,6 +8,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Block;
 
 import net.mcreator.test.MushokuMod;
 
@@ -69,8 +70,11 @@ public class EarthLanceProcedure {
 
 			private void run() {
 				world.setBlockState(new BlockPos(x, y, z), Blocks.STONE.getDefaultState(), 3);
+				world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.STONE.getDefaultState()));
 				world.setBlockState(new BlockPos(x, y + 1, z), Blocks.DIRT.getDefaultState(), 3);
+				world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.DIRT.getDefaultState()));
 				world.setBlockState(new BlockPos(x, y + 2, z), Blocks.DIRT.getDefaultState(), 3);
+				world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.DIRT.getDefaultState()));
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
 		}.start(world, (int) 10);

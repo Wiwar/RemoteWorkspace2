@@ -624,6 +624,18 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
             "name": "world",
             "type": "world"
           }
@@ -676,6 +688,18 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
           },
           {
             "name": "world",
@@ -1477,6 +1501,18 @@
             "type": "entity"
           },
           {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
             "name": "world",
             "type": "world"
           }
@@ -1807,7 +1843,7 @@
           }
         ]
       },
-      "path": "~/Healing Magic/Advanced"
+      "path": "~/Healing Magic/Advanced/Shine Healing"
     },
     {
       "name": "Onerise",
@@ -1828,7 +1864,195 @@
           }
         ]
       },
-      "path": "~/Incantations"
+      "path": "~/silly white men"
+    },
+    {
+      "name": "FallNegation",
+      "type": "potioneffect",
+      "sortid": 93,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fall_negation",
+      "path": "~/Wind Magic/Advanced"
+    },
+    {
+      "name": "FallNegationEf",
+      "type": "procedure",
+      "sortid": 94,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fall_negation_ef",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Advanced"
+    },
+    {
+      "name": "AddFallNegation",
+      "type": "procedure",
+      "sortid": 95,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_fall_negation",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Advanced"
+    },
+    {
+      "name": "WaterArrowHit",
+      "type": "procedure",
+      "sortid": 96,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_arrow_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Elementary/Water Arrow"
+    },
+    {
+      "name": "IceSmashHit",
+      "type": "procedure",
+      "sortid": 97,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_smash_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Elementary/Ice Smash"
+    },
+    {
+      "name": "IcicleLanceHit",
+      "type": "procedure",
+      "sortid": 98,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "icicle_lance_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Intermediate/Icicle Lance"
+    },
+    {
+      "name": "RockBulletHit",
+      "type": "procedure",
+      "sortid": 99,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rock_bullet_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Elememtary/Rock Bullet"
+    },
+    {
+      "name": "StoneCannonHit",
+      "type": "procedure",
+      "sortid": 100,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stone_cannon_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Intermediate/Stone Cannon"
     }
   ],
   "variable_elements": [
@@ -1855,6 +2079,7 @@
       "entity.mushoku.waterball_entity": "Waterball Entity",
       "entity.mushoku.earth_drill_entity": "Earth Drill Entity",
       "effect.electric_ef_ef": "Electric",
+      "effect.fall_negation": "Fall Negation",
       "item.mushoku.ice_smash_proj": "Ice Smash Proj",
       "item.mushoku.mountian_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
       "item.mushoku.earth_blade": "Earth Blade",
@@ -2137,7 +2362,12 @@
           },
           {
             "name": "Advanced",
-            "children": []
+            "children": [
+              {
+                "name": "Shine Healing",
+                "children": []
+              }
+            ]
           }
         ]
       },

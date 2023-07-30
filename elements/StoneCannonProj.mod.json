@@ -35,6 +35,12 @@
     "customBulletModelTexture": "stone_cannon.png",
     "onBulletHitsBlock": {
       "name": "StoneCannonProjboom"
+    },
+    "onBulletHitsPlayer": {
+      "name": "StoneCannonHit"
+    },
+    "onBulletHitsEntity": {
+      "name": "StoneCannonHit"
     }
   }
 }

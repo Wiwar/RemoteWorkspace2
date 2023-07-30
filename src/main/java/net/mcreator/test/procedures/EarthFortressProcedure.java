@@ -9,6 +9,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Block;
 
 import net.mcreator.test.MushokuMod;
 
@@ -71,6 +72,11 @@ public class EarthFortressProcedure {
 					}
 					world.setBlockState(_bp, _bs, 3);
 				}
+				world.playEvent(2001,
+						new BlockPos(entity.getPosX() + entity.getPersistentData().getDouble("EarthFortX"),
+								entity.getPosY() + entity.getPersistentData().getDouble("EarthFortY"),
+								entity.getPosZ() + entity.getPersistentData().getDouble("EarthFortZ")),
+						Block.getStateId(Blocks.DIRT.getDefaultState()));
 			} else {
 				if (world instanceof ServerWorld) {
 					((ServerWorld) world).spawnParticle(ParticleTypes.EXPLOSION, x, y, z, (int) 5, 3, 3, 3, 1);
@@ -98,6 +104,11 @@ public class EarthFortressProcedure {
 					}
 					world.setBlockState(_bp, _bs, 3);
 				}
+				world.playEvent(2001,
+						new BlockPos(entity.getPosX() + entity.getPersistentData().getDouble("EarthFortX"),
+								entity.getPosY() + entity.getPersistentData().getDouble("EarthFortY"),
+								entity.getPosZ() + entity.getPersistentData().getDouble("EarthFortZ")),
+						Block.getStateId(Blocks.STONE.getDefaultState()));
 			} else {
 				if (world instanceof ServerWorld) {
 					((ServerWorld) world).spawnParticle(ParticleTypes.EXPLOSION, x, y, z, (int) 5, 3, 3, 3, 1);
