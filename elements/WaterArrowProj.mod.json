@@ -17,7 +17,7 @@
     "shootConstantly": false,
     "usageCount": 100,
     "actionSound": {
-      "value": "entity.arrow.shoot"
+      "value": ""
     },
     "hasGlow": false,
     "animation": "bow",
@@ -32,6 +32,15 @@
       "value": "Blocks.ICE"
     },
     "bulletModel": "Modelspikey",
-    "customBulletModelTexture": "waterarrow2.png"
+    "customBulletModelTexture": "waterarrow2.png",
+    "onBulletHitsBlock": {
+      "name": "WaterArrowHit"
+    },
+    "onBulletHitsPlayer": {
+      "name": "WaterArrowHit"
+    },
+    "onBulletHitsEntity": {
+      "name": "WaterArrowHit"
+    }
   }
 }

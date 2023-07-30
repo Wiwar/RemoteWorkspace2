@@ -17,7 +17,7 @@
     "shootConstantly": false,
     "usageCount": 100,
     "actionSound": {
-      "value": "entity.arrow.shoot"
+      "value": ""
     },
     "hasGlow": false,
     "animation": "bow",
@@ -32,6 +32,15 @@
       "value": "Blocks.ICE"
     },
     "bulletModel": "Modelsmall_orb",
-    "customBulletModelTexture": "ice_orb_small.png"
+    "customBulletModelTexture": "ice_orb_small.png",
+    "onBulletHitsBlock": {
+      "name": "IceSmashHit"
+    },
+    "onBulletHitsPlayer": {
+      "name": "IceSmashHit"
+    },
+    "onBulletHitsEntity": {
+      "name": "IceSmashHit"
+    }
   }
 }

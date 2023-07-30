@@ -9,6 +9,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Block;
 
 import net.mcreator.test.MushokuMod;
 
@@ -71,6 +72,7 @@ public class IceFortressProcedure {
 					}
 					world.setBlockState(_bp, _bs, 3);
 				}
+				world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.ICE.getDefaultState()));
 			} else {
 				if (world instanceof ServerWorld) {
 					((ServerWorld) world).spawnParticle(ParticleTypes.SPLASH, x, y, z, (int) 5, 3, 3, 3, 1);

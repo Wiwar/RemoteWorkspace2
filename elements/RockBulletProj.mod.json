@@ -32,6 +32,15 @@
       "value": ""
     },
     "bulletModel": "Modelsmall_orb",
-    "customBulletModelTexture": "stonebullet.png"
+    "customBulletModelTexture": "stonebullet.png",
+    "onBulletHitsBlock": {
+      "name": "RockBulletHit"
+    },
+    "onBulletHitsPlayer": {
+      "name": "RockBulletHit"
+    },
+    "onBulletHitsEntity": {
+      "name": "RockBulletHit"
+    }
   }
 }

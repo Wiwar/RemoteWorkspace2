@@ -664,6 +664,39 @@ public class ScrollInscribtionProcedure {
 				}
 				return "";
 			}
+		}.getText()).equals("Feast")) {
+			((new Object() {
+				public ItemStack getItemStack(int sltid) {
+					Entity _ent = entity;
+					if (_ent instanceof ServerPlayerEntity) {
+						Container _current = ((ServerPlayerEntity) _ent).openContainer;
+						if (_current instanceof Supplier) {
+							Object invobj = ((Supplier) _current).get();
+							if (invobj instanceof Map) {
+								return ((Slot) ((Map) invobj).get(sltid)).getStack();
+							}
+						}
+					}
+					return ItemStack.EMPTY;
+				}
+			}.getItemStack((int) (1)))).setDisplayName(new StringTextComponent((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText())));
+		}
+		if ((new Object() {
+			public String getText() {
+				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+				if (_tf != null) {
+					return _tf.getText();
+				}
+				return "";
+			}
 		}.getText()).equals("Blizzard Storm")) {
 			((new Object() {
 				public ItemStack getItemStack(int sltid) {
@@ -797,6 +830,39 @@ public class ScrollInscribtionProcedure {
 				return "";
 			}
 		}.getText()).equals("Shine Healing")) {
+			((new Object() {
+				public ItemStack getItemStack(int sltid) {
+					Entity _ent = entity;
+					if (_ent instanceof ServerPlayerEntity) {
+						Container _current = ((ServerPlayerEntity) _ent).openContainer;
+						if (_current instanceof Supplier) {
+							Object invobj = ((Supplier) _current).get();
+							if (invobj instanceof Map) {
+								return ((Slot) ((Map) invobj).get(sltid)).getStack();
+							}
+						}
+					}
+					return ItemStack.EMPTY;
+				}
+			}.getItemStack((int) (1)))).setDisplayName(new StringTextComponent((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText())));
+		}
+		if ((new Object() {
+			public String getText() {
+				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+				if (_tf != null) {
+					return _tf.getText();
+				}
+				return "";
+			}
+		}.getText()).equals("Fall Negation")) {
 			((new Object() {
 				public ItemStack getItemStack(int sltid) {
 					Entity _ent = entity;

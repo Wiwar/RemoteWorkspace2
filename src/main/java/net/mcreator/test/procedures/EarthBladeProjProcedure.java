@@ -2,8 +2,11 @@ package net.mcreator.test.procedures;
 
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.Block;
 
 import net.mcreator.test.item.EarthBladeItem;
 import net.mcreator.test.MushokuMod;
@@ -42,5 +45,6 @@ public class EarthBladeProjProcedure {
 			entityToSpawn.setPickupDelay((int) 0.1);
 			world.addEntity(entityToSpawn);
 		}
+		world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.DIRT.getDefaultState()));
 	}
 }

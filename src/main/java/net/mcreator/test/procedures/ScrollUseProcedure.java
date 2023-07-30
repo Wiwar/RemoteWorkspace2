@@ -286,8 +286,9 @@ public class ScrollUseProcedure {
 						_ist.setDamage(0);
 					}
 				}
-				HealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
-						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				HealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}
 		if (entity.getPersistentData().getDouble("Mana") > 80) {
@@ -503,8 +504,30 @@ public class ScrollUseProcedure {
 						_ist.setDamage(0);
 					}
 				}
-				XHealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
-						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				XHealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
+					.equals("Feast")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+				{
+					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+						_ist.shrink(1);
+						_ist.setDamage(0);
+					}
+				}
 			}
 		}
 		if (entity.getPersistentData().getDouble("Mana") > 200) {
@@ -628,6 +651,29 @@ public class ScrollUseProcedure {
 				EarthWallProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
+					.equals("Fall Negation")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 10);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 200));
+				{
+					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+						_ist.shrink(1);
+						_ist.setDamage(0);
+					}
+				}
+				AddFallNegationProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}
 		if (entity.getPersistentData().getDouble("Mana") > 400) {

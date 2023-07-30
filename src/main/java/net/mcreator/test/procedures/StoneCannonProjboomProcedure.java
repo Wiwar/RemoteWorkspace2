@@ -3,6 +3,9 @@ package net.mcreator.test.procedures;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.Explosion;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.Block;
 
 import net.mcreator.test.MushokuMod;
 
@@ -38,5 +41,6 @@ public class StoneCannonProjboomProcedure {
 		if (world instanceof World && !((World) world).isRemote) {
 			((World) world).createExplosion(null, (int) x, (int) y, (int) z, (float) 0.5, Explosion.Mode.BREAK);
 		}
+		world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.STONE.getDefaultState()));
 	}
 }

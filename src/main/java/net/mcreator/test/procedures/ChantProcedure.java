@@ -1,17 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.client.gui.widget.TextFieldWidget;
-
-import net.mcreator.test.MushokuModVariables;
-import net.mcreator.test.MushokuMod;
-
-import java.util.stream.Stream;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.AbstractMap;
+import net.minecraftforge.eventbus.api.Event;
 
 public class ChantProcedure {
 
@@ -46,12 +35,14 @@ public class ChantProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency guistate for procedure Chant!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
 		HashMap guistate = (HashMap) dependencies.get("guistate");
+
 		if (entity.getPersistentData().getDouble("Mana") > 30) {
 			if ((new Object() {
 				public String getText() {
@@ -73,6 +64,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+
 				WaterballProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
 								new AbstractMap.SimpleEntry<>("entity", entity))
@@ -98,6 +90,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+
 				IceSmashProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -122,6 +115,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+
 				WaterArrowProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -146,6 +140,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+
 				IceBladeproProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -171,6 +166,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+
 				RockBulletProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -195,6 +191,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+
 				FireBallProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -219,6 +216,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+
 				EarthBladeProjProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -244,6 +242,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+
 				BlastProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
@@ -267,6 +266,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+
 				PushProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
@@ -290,6 +290,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+
 				HealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -314,6 +315,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+
 				OneriseProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -338,6 +340,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+
 				SKULLSHOTProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
@@ -363,6 +366,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+
 				IcePillarProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -387,6 +391,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+
 				WaterCannonProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
 								new AbstractMap.SimpleEntry<>("entity", entity))
@@ -412,6 +417,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+
 				IcicleLanceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -436,6 +442,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+
 				StoneCannonProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -460,6 +467,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+
 				EarthPillarProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -484,6 +492,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+
 				ExplosionProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -508,6 +517,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+
 				FlamethrowerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
@@ -531,6 +541,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+
 				EarthLanceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -555,6 +566,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+
 				XHealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -581,6 +593,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 200));
+
 				BlizardStormProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -605,6 +618,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 200));
+
 				SquallProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
@@ -628,6 +642,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 200));
+
 				IceFortressProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -652,6 +667,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 200));
+
 				EarthFortressProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -678,6 +694,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 200));
+
 				EarthWallProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -702,6 +719,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 200));
+
 				ShineHealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
@@ -727,6 +745,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 400));
+
 				CumulonimbusProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -751,6 +770,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 400));
+
 				SandStormProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -775,6 +795,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 400));
+
 				ViolentStormProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -801,6 +822,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 800));
+
 				LightningStrikeProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -827,6 +849,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 1600));
+
 				AbsoluteZeroProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -852,6 +875,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 1600));
+
 				ElectricProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
@@ -875,6 +899,7 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 1600));
+
 				MountianProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -899,10 +924,12 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 1600));
+
 				EarthDrillProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}
 	}
+
 }

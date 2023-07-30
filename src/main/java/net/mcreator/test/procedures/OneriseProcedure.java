@@ -1,27 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.entity.monster.SkeletonEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.ILivingEntityData;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.Entity;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Block;
-
-import net.mcreator.test.MushokuMod;
-
-import java.util.Map;
+import net.minecraftforge.eventbus.api.Event;
 
 public class OneriseProcedure {
 
@@ -36,8 +15,10 @@ public class OneriseProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure Onerise!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		world.playEvent(2001,
 				new BlockPos(
 						entity.world
@@ -63,6 +44,7 @@ public class OneriseProcedure {
 								RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 				Block.getStateId(Blocks.POLISHED_DIORITE.getDefaultState()));
 		new Object() {
+
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
@@ -114,6 +96,7 @@ public class OneriseProcedure {
 										RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 						false);
 				new Object() {
+
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
@@ -162,10 +145,12 @@ public class OneriseProcedure {
 							entityToSpawn.setRenderYawOffset((float) 0);
 							entityToSpawn.setRotationYawHead((float) 0);
 							entityToSpawn.setMotion(0, 0, 0);
+
 							if (entityToSpawn instanceof MobEntity)
 								((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world,
 										world.getDifficultyForLocation(entityToSpawn.getPosition()), SpawnReason.MOB_SUMMONED,
 										(ILivingEntityData) null, (CompoundNBT) null);
+
 							world.addEntity(entityToSpawn);
 						}
 						world.playEvent(2001,
@@ -182,9 +167,14 @@ public class OneriseProcedure {
 								Block.getStateId(Blocks.POLISHED_DIORITE.getDefaultState()));
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
+
 				}.start(world, (int) 10);
+
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
+
 		}.start(world, (int) 10);
+
 	}
+
 }

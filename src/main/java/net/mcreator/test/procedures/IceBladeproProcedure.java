@@ -1,7 +1,12 @@
 package net.mcreator.test.procedures;
 
+import net.minecraftforge.registries.ForgeRegistries;
+
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.item.ItemEntity;
 
@@ -41,6 +46,15 @@ public class IceBladeproProcedure {
 			ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(IceBladeItem.block));
 			entityToSpawn.setPickupDelay((int) 0.1);
 			world.addEntity(entityToSpawn);
+		}
+		if (world instanceof World && !world.isRemote()) {
+			((World) world).playSound(null, new BlockPos(x, y, z),
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
+					SoundCategory.NEUTRAL, (float) 1, (float) 1);
+		} else {
+			((World) world).playSound(x, y, z,
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
+					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 		}
 	}
 }

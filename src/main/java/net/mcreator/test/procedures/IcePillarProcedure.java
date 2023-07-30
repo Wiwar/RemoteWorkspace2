@@ -1,23 +1,20 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
 
-import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Block;
 
 import net.mcreator.test.MushokuMod;
 
@@ -85,15 +82,7 @@ public class IcePillarProcedure {
 									entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
 									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 					Blocks.ICE.getDefaultState(), 3);
-			if (world instanceof World && !world.isRemote()) {
-				((World) world).playSound(null, new BlockPos(x, y, z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
-			} else {
-				((World) world).playSound(x, y, z,
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-			}
+			world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.ICE.getDefaultState()));
 			if (((Entity) world
 					.getEntitiesWithinAABB(MobEntity.class,
 							new AxisAlignedBB(
@@ -183,15 +172,7 @@ public class IcePillarProcedure {
 													entity.getLook(1f).z * 3),
 											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 							Blocks.ICE.getDefaultState(), 3);
-					if (world instanceof World && !world.isRemote()) {
-						((World) world).playSound(null, new BlockPos(x, y, z),
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1);
-					} else {
-						((World) world).playSound(x, y, z,
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-					}
+					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.ICE.getDefaultState()));
 					if (((Entity) world
 							.getEntitiesWithinAABB(LivingEntity.class,
 									new AxisAlignedBB(
@@ -297,15 +278,7 @@ public class IcePillarProcedure {
 													entity.getLook(1f).z * 3),
 											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 							Blocks.ICE.getDefaultState(), 3);
-					if (world instanceof World && !world.isRemote()) {
-						((World) world).playSound(null, new BlockPos(x, y, z),
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1);
-					} else {
-						((World) world).playSound(x, y, z,
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-					}
+					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.ICE.getDefaultState()));
 					if (((Entity) world
 							.getEntitiesWithinAABB(MobEntity.class, new AxisAlignedBB(
 									(entity.world.rayTraceBlocks(new RayTraceContext(
@@ -406,15 +379,7 @@ public class IcePillarProcedure {
 													entity.getLook(1f).z * 3),
 											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 							Blocks.ICE.getDefaultState(), 3);
-					if (world instanceof World && !world.isRemote()) {
-						((World) world).playSound(null, new BlockPos(x, y, z),
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1);
-					} else {
-						((World) world).playSound(x, y, z,
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-					}
+					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.ICE.getDefaultState()));
 					if (((Entity) world
 							.getEntitiesWithinAABB(LivingEntity.class, new AxisAlignedBB(
 									(entity.world.rayTraceBlocks(new RayTraceContext(

@@ -1,8 +1,10 @@
 package net.mcreator.test.procedures;
 
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
@@ -49,6 +51,9 @@ public class FireballprojHitProcedure {
 		if (!entity.world.isRemote())
 			entity.remove();
 		world.setBlockState(new BlockPos(x, y, z), Blocks.FIRE.getDefaultState(), 3);
+		if (world instanceof ServerWorld) {
+			((ServerWorld) world).spawnParticle(ParticleTypes.LAVA, x, y, z, (int) 15, 1, 1, 1, 1);
+		}
 		if (((Entity) world
 				.getEntitiesWithinAABB(LivingEntity.class,
 						new AxisAlignedBB(x - (2 / 2d), y - (2 / 2d), z - (2 / 2d), x + (2 / 2d), y + (2 / 2d), z + (2 / 2d)), null)

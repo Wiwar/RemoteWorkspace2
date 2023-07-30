@@ -1828,16 +1828,7 @@
           }
         ]
       },
-      "path": "~/silly white men"
-    },
-    {
-      "name": "Skullprojectile",
-      "type": "rangeditem",
-      "sortid": 93,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "skullprojectile",
-      "path": "~/silly white men"
+      "path": "~/Incantations"
     },
     {
       "name": "SKULLSHOT",
@@ -1855,6 +1846,203 @@
         ]
       },
       "path": "~/silly white men"
+    },
+    {
+      "name": "Skullprojectile",
+      "type": "rangeditem",
+      "sortid": 93,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skullprojectile",
+      "path": "~/silly white men"
+    },
+    {
+      "name": "IceSmashHit",
+      "type": "procedure",
+      "sortid": 97,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_smash_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Elementary/Ice Smash"
+    },
+    {
+      "name": "IcicleLanceHit",
+      "type": "procedure",
+      "sortid": 98,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "icicle_lance_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Intermediate/Icicle Lance"
+    },
+    {
+      "name": "FallNegation",
+      "type": "potioneffect",
+      "sortid": 93,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fall_negation",
+      "path": "~/Wind Magic/Advanced"
+    },
+    {
+      "name": "WaterArrowHit",
+      "type": "procedure",
+      "sortid": 96,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_arrow_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Elementary/Water Arrow"
+    },
+    {
+      "name": "StoneCannonHit",
+      "type": "procedure",
+      "sortid": 100,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stone_cannon_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Intermediate/Stone Cannon"
+    },
+    {
+      "name": "FallNegationEf",
+      "type": "procedure",
+      "sortid": 94,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fall_negation_ef",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Advanced"
+    },
+    {
+      "name": "RockBulletHit",
+      "type": "procedure",
+      "sortid": 99,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rock_bullet_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Elememtary/Rock Bullet"
+    },
+    {
+      "name": "AddFallNegation",
+      "type": "procedure",
+      "sortid": 95,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_fall_negation",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Advanced"
     }
   ],
   "variable_elements": [
@@ -1885,7 +2073,6 @@
       "item.mushoku.mountian_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
       "item.mushoku.earth_blade": "Earth Blade",
       "entity.test.waterball_entity": "Waterball Entity",
-      "item.mushoku.skullprojectile": "Skullprojectile",
       "item.mushoku.stone_cannon_proj": "Stone Cannon Proj",
       "effect.flamethrower_ef": "Flamethrower",
       "item.mushoku.sand_storm_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
@@ -1909,14 +2096,6 @@
     "name": "~",
     "children": [
       {
-        "name": "Incantations",
-        "children": []
-      },
-      {
-        "name": "Mana",
-        "children": []
-      },
-      {
         "name": "Books",
         "children": [
           {
@@ -1924,6 +2103,150 @@
             "children": []
           }
         ]
+      },
+      {
+        "name": "Healing Magic",
+        "children": [
+          {
+            "name": "intermediate",
+            "children": []
+          },
+          {
+            "name": "Elementary",
+            "children": [
+              {
+                "name": "Healing",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "children": [
+              {
+                "name": "Shine Healing",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Earth Magic",
+        "children": [
+          {
+            "name": "Intermediate",
+            "children": [
+              {
+                "name": "EarthPillar",
+                "children": []
+              },
+              {
+                "name": "Earth Lance",
+                "children": []
+              },
+              {
+                "name": "Stone Cannon",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "children": [
+              {
+                "name": "Earth Wall",
+                "children": []
+              },
+              {
+                "name": "Earth Fortress",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Imperial",
+            "children": [
+              {
+                "name": "Earth Drill",
+                "children": []
+              },
+              {
+                "name": "Mountian",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "King",
+            "children": []
+          },
+          {
+            "name": "Saint",
+            "children": [
+              {
+                "name": "SandStorm",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Elememtary",
+            "children": [
+              {
+                "name": "Earth Blade",
+                "children": []
+              },
+              {
+                "name": "Rock Bullet",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mana",
+        "children": []
+      },
+      {
+        "name": "silly white men",
+        "children": []
+      },
+      {
+        "name": "Fire Magic",
+        "children": [
+          {
+            "name": "Elemenrary",
+            "children": [
+              {
+                "name": "Heat Hand",
+                "children": []
+              },
+              {
+                "name": "Fire Ball",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Intermediate",
+            "children": [
+              {
+                "name": "Explosion",
+                "children": []
+              },
+              {
+                "name": "Flamethrower",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Incantations",
+        "children": []
       },
       {
         "name": "Water Magic",
@@ -1936,11 +2259,11 @@
                 "children": []
               },
               {
-                "name": "Water Arrow",
+                "name": "Ice Smash",
                 "children": []
               },
               {
-                "name": "Ice Smash",
+                "name": "Water Arrow",
                 "children": []
               },
               {
@@ -1967,31 +2290,6 @@
             ]
           },
           {
-            "name": "Advanced",
-            "children": [
-              {
-                "name": "BlizzardStorm",
-                "children": []
-              },
-              {
-                "name": "Squall",
-                "children": []
-              },
-              {
-                "name": "Ice Fortress",
-                "children": []
-              }
-            ]
-          },
-          {
-            "name": "Saint",
-            "children": []
-          },
-          {
-            "name": "King",
-            "children": []
-          },
-          {
             "name": "Imperial",
             "children": [
               {
@@ -2003,108 +2301,28 @@
                 "children": []
               }
             ]
-          }
-        ]
-      },
-      {
-        "name": "Earth Magic",
-        "children": [
-          {
-            "name": "Elememtary",
-            "children": [
-              {
-                "name": "Rock Bullet",
-                "children": []
-              },
-              {
-                "name": "Earth Blade",
-                "children": []
-              }
-            ]
-          },
-          {
-            "name": "Intermediate",
-            "children": [
-              {
-                "name": "Stone Cannon",
-                "children": []
-              },
-              {
-                "name": "EarthPillar",
-                "children": []
-              },
-              {
-                "name": "Earth Lance",
-                "children": []
-              }
-            ]
-          },
-          {
-            "name": "Advanced",
-            "children": [
-              {
-                "name": "Earth Fortress",
-                "children": []
-              },
-              {
-                "name": "Earth Wall",
-                "children": []
-              }
-            ]
-          },
-          {
-            "name": "Saint",
-            "children": [
-              {
-                "name": "SandStorm",
-                "children": []
-              }
-            ]
           },
           {
             "name": "King",
             "children": []
           },
           {
-            "name": "Imperial",
-            "children": [
-              {
-                "name": "Mountian",
-                "children": []
-              },
-              {
-                "name": "Earth Drill",
-                "children": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Fire Magic",
-        "children": [
-          {
-            "name": "Elemenrary",
-            "children": [
-              {
-                "name": "Fire Ball",
-                "children": []
-              },
-              {
-                "name": "Heat Hand",
-                "children": []
-              }
-            ]
+            "name": "Saint",
+            "children": []
           },
           {
-            "name": "Intermediate",
+            "name": "Advanced",
             "children": [
               {
-                "name": "Explosion",
+                "name": "Squall",
                 "children": []
               },
               {
-                "name": "Flamethrower",
+                "name": "Ice Fortress",
+                "children": []
+              },
+              {
+                "name": "BlizzardStorm",
                 "children": []
               }
             ]
@@ -2115,17 +2333,25 @@
         "name": "Wind Magic",
         "children": [
           {
+            "name": "Saint",
+            "children": []
+          },
+          {
             "name": "Elementary",
             "children": [
               {
-                "name": "Blast",
+                "name": "Push",
                 "children": []
               },
               {
-                "name": "Push",
+                "name": "Blast",
                 "children": []
               }
             ]
+          },
+          {
+            "name": "Advanced",
+            "children": []
           },
           {
             "name": "Intermediate",
@@ -2135,42 +2361,8 @@
                 "children": []
               }
             ]
-          },
-          {
-            "name": "Advanced",
-            "children": []
-          },
-          {
-            "name": "Saint",
-            "children": []
           }
         ]
-      },
-      {
-        "name": "Healing Magic",
-        "children": [
-          {
-            "name": "Elementary",
-            "children": [
-              {
-                "name": "Healing",
-                "children": []
-              }
-            ]
-          },
-          {
-            "name": "intermediate",
-            "children": []
-          },
-          {
-            "name": "Advanced",
-            "children": []
-          }
-        ]
-      },
-      {
-        "name": "silly white men",
-        "children": []
       }
     ]
   },

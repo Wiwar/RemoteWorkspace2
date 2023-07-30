@@ -32,6 +32,15 @@
       "value": "CUSTOM:IceSmashProj"
     },
     "bulletModel": "Modelspikey",
-    "customBulletModelTexture": "iciclelance.png"
+    "customBulletModelTexture": "iciclelance.png",
+    "onBulletHitsBlock": {
+      "name": "IcicleLanceHit"
+    },
+    "onBulletHitsPlayer": {
+      "name": "IcicleLanceHit"
+    },
+    "onBulletHitsEntity": {
+      "name": "IcicleLanceHit"
+    }
   }
 }

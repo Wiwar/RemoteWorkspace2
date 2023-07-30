@@ -12,6 +12,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Entity;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.Block;
 
 import net.mcreator.test.MushokuMod;
 
@@ -25,14 +27,33 @@ public class CumulonimbusProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency world for procedure Cumulonimbus!");
 			return;
 		}
+		if (dependencies.get("x") == null) {
+			if (!dependencies.containsKey("x"))
+				MushokuMod.LOGGER.warn("Failed to load dependency x for procedure Cumulonimbus!");
+			return;
+		}
+		if (dependencies.get("y") == null) {
+			if (!dependencies.containsKey("y"))
+				MushokuMod.LOGGER.warn("Failed to load dependency y for procedure Cumulonimbus!");
+			return;
+		}
+		if (dependencies.get("z") == null) {
+			if (!dependencies.containsKey("z"))
+				MushokuMod.LOGGER.warn("Failed to load dependency z for procedure Cumulonimbus!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure Cumulonimbus!");
 			return;
 		}
 		IWorld world = (IWorld) dependencies.get("world");
+		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
+		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
+		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
 		world.getWorldInfo().setRaining((true));
+		world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.ICE.getDefaultState()));
 		if (world instanceof ServerWorld) {
 			LightningBoltEntity _ent = EntityType.LIGHTNING_BOLT.create((World) world);
 			_ent.moveForced(Vector3d.copyCenteredHorizontally(new BlockPos(entity.getPosX() + 0, entity.getPosY(), entity.getPosZ() + 100)));
