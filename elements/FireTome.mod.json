@@ -3,7 +3,7 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "firebook",
+    "texture": "firebook2",
     "customModelName": "Normal",
     "name": "Fire Tome",
     "rarity": "COMMON",
