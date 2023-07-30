@@ -17,7 +17,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.network.IPacket;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -58,8 +57,7 @@ public class WaterballEntityEntity extends MushokuModElements.ModElement {
 	@Override
 	public void initElements() {
 		elements.entities.add(() -> entity);
-		elements.items.add(
-				() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("waterball_entity_spawn_egg"));
+		elements.items.add(() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(null)).setRegistryName("waterball_entity_spawn_egg"));
 	}
 
 	@Override
