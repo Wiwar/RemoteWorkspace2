@@ -1,0 +1,12 @@
+{
+  "_fv": 28,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "R",
+    "keyBindingName": "Fill Mana",
+    "keyBindingCategoryKey": "misc",
+    "onKeyPressed": {
+      "name": "SetMana"
+    }
+  }
+}

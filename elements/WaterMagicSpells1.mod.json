@@ -1,0 +1,292 @@
+{
+  "_fv": 28,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "bookback.png",
+          "use1Xscale": false,
+          "name": "bookback.png",
+          "x": 78,
+          "y": 26
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Waterball",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Waterball",
+          "x": 105,
+          "y": 53
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Water Arrow",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Water Arrow",
+          "x": 105,
+          "y": 62
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Ice Smash",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Ice Smash",
+          "x": 105,
+          "y": 71
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Ice Blade",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Ice Blade",
+          "x": 105,
+          "y": 80
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Elementary",
+          "color": {
+            "value": -16776961,
+            "falpha": 0.0
+          },
+          "name": "Elementary",
+          "x": 123,
+          "y": 44
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Intermediate",
+          "color": {
+            "value": -16776961,
+            "falpha": 0.0
+          },
+          "name": "Intermediate",
+          "x": 123,
+          "y": 98
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Water Cannon",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Water Cannon",
+          "x": 105,
+          "y": 107
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Ice Pillar",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Ice Pillar",
+          "x": 105,
+          "y": 116
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Icicle Lance",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Icicle Lance",
+          "x": 105,
+          "y": 125
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Advanced",
+          "color": {
+            "value": -16776961,
+            "falpha": 0.0
+          },
+          "name": "Advanced",
+          "x": 258,
+          "y": 44
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Blizzard Storm",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Blizzard Storm",
+          "x": 240,
+          "y": 53
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Squall",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Squall",
+          "x": 240,
+          "y": 62
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Saint",
+          "color": {
+            "value": -16776961,
+            "falpha": 0.0
+          },
+          "name": "Saint",
+          "x": 258,
+          "y": 89
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Cumulonimbus",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Cumulonimbus",
+          "x": 240,
+          "y": 98
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "King",
+          "color": {
+            "value": -16776961,
+            "falpha": 0.0
+          },
+          "name": "King",
+          "x": 258,
+          "y": 116
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Lightning Strike",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Lightning Strike",
+          "x": 240,
+          "y": 125
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Ice Fortress",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Ice Fortress",
+          "x": 240,
+          "y": 71
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Imperial",
+          "color": {
+            "value": -16776961,
+            "falpha": 0.0
+          },
+          "name": "Imperial",
+          "x": 258,
+          "y": 143
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Absolute Zero",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Absolute Zero",
+          "x": 240,
+          "y": 152
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Electric",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Electric",
+          "x": 240,
+          "y": 161
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

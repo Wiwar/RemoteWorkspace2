@@ -1,0 +1,26 @@
+{
+  "_fv": 28,
+  "_type": "potioneffect",
+  "definition": {
+    "effectName": "Electric",
+    "icon": "ice_orb_small.png",
+    "color": {
+      "value": -1,
+      "falpha": 0.0
+    },
+    "isInstant": false,
+    "isBad": false,
+    "isBenefitical": true,
+    "renderStatusInInventory": true,
+    "renderStatusInHUD": true,
+    "onStarted": {
+      "name": "ElectricEff"
+    },
+    "onActiveTick": {
+      "name": "ElectricEff"
+    },
+    "onExpired": {
+      "name": "ElectricEff"
+    }
+  }
+}

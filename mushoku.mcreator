@@ -1,0 +1,2144 @@
+{
+  "mod_elements": [
+    {
+      "name": "WaterballEntity",
+      "type": "livingentity",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "waterball_entity",
+      "path": "~/Water Magic/Elementary/Waterball"
+    },
+    {
+      "name": "ChantGUI",
+      "type": "gui",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chant_gui",
+      "path": "~/Incantations"
+    },
+    {
+      "name": "Chant",
+      "type": "procedure",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chant",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Incantations"
+    },
+    {
+      "name": "OpenChantGUI",
+      "type": "procedure",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_chant_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Incantations"
+    },
+    {
+      "name": "ChantKey",
+      "type": "keybind",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chant_key",
+      "path": "~/Incantations"
+    },
+    {
+      "name": "WaterballMovement",
+      "type": "procedure",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "waterball_movement",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Elementary/Waterball"
+    },
+    {
+      "name": "WaterballCol",
+      "type": "procedure",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "waterball_col",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Elementary/Waterball"
+    },
+    {
+      "name": "Waterballidle",
+      "type": "procedure",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "waterballidle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Elementary/Waterball"
+    },
+    {
+      "name": "Waterball",
+      "type": "procedure",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "waterball",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Elementary/Waterball"
+    },
+    {
+      "name": "IceSmash",
+      "type": "procedure",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_smash",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Elementary/Ice Smash"
+    },
+    {
+      "name": "IceSmashProj",
+      "type": "rangeditem",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_smash_proj",
+      "path": "~/Water Magic/Elementary/Ice Smash"
+    },
+    {
+      "name": "WaterArrowProj",
+      "type": "rangeditem",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_arrow_proj",
+      "path": "~/Water Magic/Elementary/Water Arrow"
+    },
+    {
+      "name": "WaterArrow",
+      "type": "procedure",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_arrow",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Elementary/Water Arrow"
+    },
+    {
+      "name": "IceBladepro",
+      "type": "procedure",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_bladepro",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Elementary/Ice Blade"
+    },
+    {
+      "name": "IceBlade",
+      "type": "tool",
+      "sortid": 22,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_blade",
+      "path": "~/Water Magic/Elementary/Ice Blade"
+    },
+    {
+      "name": "ManaDisp",
+      "type": "procedure",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mana_disp",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Mana"
+    },
+    {
+      "name": "Manahud",
+      "type": "overlay",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "manahud",
+      "path": "~/Mana"
+    },
+    {
+      "name": "SetMana",
+      "type": "procedure",
+      "sortid": 24,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_mana",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Mana"
+    },
+    {
+      "name": "SetMaxMana",
+      "type": "procedure",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_max_mana",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Mana"
+    },
+    {
+      "name": "GrimoireGui",
+      "type": "gui",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grimoire_gui",
+      "path": "~/Books"
+    },
+    {
+      "name": "Grimoire",
+      "type": "item",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grimoire",
+      "path": "~/Books"
+    },
+    {
+      "name": "IcePillar",
+      "type": "procedure",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_pillar",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Intermediate/Ice Pillar"
+    },
+    {
+      "name": "WaterCannon",
+      "type": "procedure",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_cannon",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Intermediate/Water Cannon"
+    },
+    {
+      "name": "WaterCannonEntity",
+      "type": "livingentity",
+      "sortid": 31,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_cannon_entity",
+      "path": "~/Water Magic/Intermediate/Water Cannon"
+    },
+    {
+      "name": "WaterCannonMovement",
+      "type": "procedure",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_cannon_movement",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Intermediate/Water Cannon"
+    },
+    {
+      "name": "WaterCannonidle",
+      "type": "procedure",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_cannonidle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Intermediate/Water Cannon"
+    },
+    {
+      "name": "IcicleLanceProj",
+      "type": "rangeditem",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "icicle_lance_proj",
+      "path": "~/Water Magic/Intermediate/Icicle Lance"
+    },
+    {
+      "name": "IcicleLance",
+      "type": "procedure",
+      "sortid": 36,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "icicle_lance",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Intermediate/Icicle Lance"
+    },
+    {
+      "name": "BlizardStorm",
+      "type": "procedure",
+      "sortid": 37,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blizard_storm",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Advanced/BlizzardStorm"
+    },
+    {
+      "name": "FillMana",
+      "type": "keybind",
+      "sortid": 38,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fill_mana",
+      "path": "~/Mana"
+    },
+    {
+      "name": "Squall",
+      "type": "procedure",
+      "sortid": 39,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "squall",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Advanced/Squall"
+    },
+    {
+      "name": "IceFortress",
+      "type": "procedure",
+      "sortid": 40,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_fortress",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Advanced/Ice Fortress"
+    },
+    {
+      "name": "Cumulonimbus",
+      "type": "procedure",
+      "sortid": 41,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cumulonimbus",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Saint"
+    },
+    {
+      "name": "LightningStrike",
+      "type": "procedure",
+      "sortid": 42,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lightning_strike",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/King"
+    },
+    {
+      "name": "AbsoluteZeroEntity",
+      "type": "livingentity",
+      "sortid": 43,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "absolute_zero_entity",
+      "path": "~/Water Magic/Imperial/Absolute Zero"
+    },
+    {
+      "name": "AbsoluteZero",
+      "type": "procedure",
+      "sortid": 43,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "absolute_zero",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Imperial/Absolute Zero"
+    },
+    {
+      "name": "AbZeroEntityIdle",
+      "type": "procedure",
+      "sortid": 44,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ab_zero_entity_idle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Imperial/Absolute Zero"
+    },
+    {
+      "name": "RockBulletProj",
+      "type": "rangeditem",
+      "sortid": 45,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rock_bullet_proj",
+      "path": "~/Earth Magic/Elememtary/Rock Bullet"
+    },
+    {
+      "name": "RockBullet",
+      "type": "procedure",
+      "sortid": 46,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rock_bullet",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Elememtary/Rock Bullet"
+    },
+    {
+      "name": "StoneCannonProj",
+      "type": "rangeditem",
+      "sortid": 47,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stone_cannon_proj",
+      "path": "~/Earth Magic/Intermediate/Stone Cannon"
+    },
+    {
+      "name": "StoneCannon",
+      "type": "procedure",
+      "sortid": 48,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stone_cannon",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Intermediate/Stone Cannon"
+    },
+    {
+      "name": "StoneCannonProjboom",
+      "type": "procedure",
+      "sortid": 49,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stone_cannon_projboom",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Intermediate/Stone Cannon"
+    },
+    {
+      "name": "FireBallProj",
+      "type": "rangeditem",
+      "sortid": 50,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fire_ball_proj",
+      "path": "~/Fire Magic/Elemenrary/Fire Ball"
+    },
+    {
+      "name": "FireBall",
+      "type": "procedure",
+      "sortid": 50,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fire_ball",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Fire Magic/Elemenrary/Fire Ball"
+    },
+    {
+      "name": "FireballprojHit",
+      "type": "procedure",
+      "sortid": 51,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fireballproj_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Fire Magic/Elemenrary/Fire Ball"
+    },
+    {
+      "name": "EarthFortress",
+      "type": "procedure",
+      "sortid": 52,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_fortress",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Advanced/Earth Fortress"
+    },
+    {
+      "name": "EarthWall",
+      "type": "procedure",
+      "sortid": 53,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_wall",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Advanced/Earth Wall"
+    },
+    {
+      "name": "EarthPillar",
+      "type": "procedure",
+      "sortid": 54,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_pillar",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Intermediate/EarthPillar"
+    },
+    {
+      "name": "EarthBlade",
+      "type": "tool",
+      "sortid": 55,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_blade",
+      "path": "~/Earth Magic/Elememtary/Earth Blade"
+    },
+    {
+      "name": "EarthBladeProj",
+      "type": "procedure",
+      "sortid": 56,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_blade_proj",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Elememtary/Earth Blade"
+    },
+    {
+      "name": "ElectricEff",
+      "type": "procedure",
+      "sortid": 58,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "electric_eff",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Imperial/Electric"
+    },
+    {
+      "name": "ElectricEfEf",
+      "type": "potioneffect",
+      "sortid": 59,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "electric_ef_ef",
+      "path": "~/Water Magic/Imperial/Electric"
+    },
+    {
+      "name": "Electric",
+      "type": "procedure",
+      "sortid": 59,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "electric",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Water Magic/Imperial/Electric"
+    },
+    {
+      "name": "Explosion",
+      "type": "procedure",
+      "sortid": 60,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "explosion",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Fire Magic/Intermediate/Explosion"
+    },
+    {
+      "name": "Flamethrower",
+      "type": "procedure",
+      "sortid": 61,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flamethrower",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Fire Magic/Intermediate/Flamethrower"
+    },
+    {
+      "name": "EarthLance",
+      "type": "procedure",
+      "sortid": 62,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_lance",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Intermediate/Earth Lance"
+    },
+    {
+      "name": "FlamethrowerEfEf",
+      "type": "procedure",
+      "sortid": 63,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flamethrower_ef_ef",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Fire Magic/Intermediate/Flamethrower"
+    },
+    {
+      "name": "FlamethrowerEf",
+      "type": "potioneffect",
+      "sortid": 64,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flamethrower_ef",
+      "path": "~/Fire Magic/Intermediate/Flamethrower"
+    },
+    {
+      "name": "Scroll",
+      "type": "item",
+      "sortid": 65,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "scroll",
+      "path": "~/Books/Scroll"
+    },
+    {
+      "name": "ScrollGui",
+      "type": "gui",
+      "sortid": 66,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "scroll_gui",
+      "path": "~/Books/Scroll"
+    },
+    {
+      "name": "ScrollInscribtion",
+      "type": "procedure",
+      "sortid": 67,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "scroll_inscribtion",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Books/Scroll"
+    },
+    {
+      "name": "InkAndQuill",
+      "type": "item",
+      "sortid": 68,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ink_and_quill",
+      "path": "~/Books/Scroll"
+    },
+    {
+      "name": "OpenScrolGUI",
+      "type": "procedure",
+      "sortid": 69,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_scrol_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Books/Scroll"
+    },
+    {
+      "name": "ScrollUse",
+      "type": "procedure",
+      "sortid": 70,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "scroll_use",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Books/Scroll"
+    },
+    {
+      "name": "ScrollRecipe",
+      "type": "recipe",
+      "sortid": 71,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "scroll_recipe",
+      "path": "~/Books/Scroll"
+    },
+    {
+      "name": "InkandQuillRecipe",
+      "type": "recipe",
+      "sortid": 72,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "inkand_quill_recipe",
+      "path": "~/Books/Scroll"
+    },
+    {
+      "name": "SandStormEntity",
+      "type": "livingentity",
+      "sortid": 73,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sand_storm_entity",
+      "path": "~/Earth Magic/Saint/SandStorm"
+    },
+    {
+      "name": "SandStorm",
+      "type": "procedure",
+      "sortid": 73,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sand_storm",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Saint/SandStorm"
+    },
+    {
+      "name": "SandStormIdle",
+      "type": "procedure",
+      "sortid": 74,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sand_storm_idle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Saint/SandStorm"
+    },
+    {
+      "name": "MountianEntity",
+      "type": "livingentity",
+      "sortid": 75,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mountian_entity",
+      "path": "~/Earth Magic/Imperial/Mountian"
+    },
+    {
+      "name": "Mountian",
+      "type": "procedure",
+      "sortid": 76,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mountian",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Imperial/Mountian"
+    },
+    {
+      "name": "Mountianidle",
+      "type": "procedure",
+      "sortid": 77,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mountianidle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Imperial/Mountian"
+    },
+    {
+      "name": "Blast",
+      "type": "procedure",
+      "sortid": 78,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blast",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Elementary/Blast"
+    },
+    {
+      "name": "WaterMagicSpells1",
+      "type": "gui",
+      "sortid": 79,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_magic_spells_1",
+      "path": "~/Books"
+    },
+    {
+      "name": "WatMagGrimClick",
+      "type": "procedure",
+      "sortid": 80,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wat_mag_grim_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Books"
+    },
+    {
+      "name": "EarthDrillEntity",
+      "type": "livingentity",
+      "sortid": 81,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_drill_entity",
+      "path": "~/Earth Magic/Imperial/Earth Drill"
+    },
+    {
+      "name": "EarthDrill",
+      "type": "procedure",
+      "sortid": 81,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_drill",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Imperial/Earth Drill"
+    },
+    {
+      "name": "EarthDrillIdle",
+      "type": "procedure",
+      "sortid": 82,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_drill_idle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Imperial/Earth Drill"
+    },
+    {
+      "name": "Push",
+      "type": "procedure",
+      "sortid": 83,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "push",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Elementary/Push"
+    },
+    {
+      "name": "PushProjEf",
+      "type": "procedure",
+      "sortid": 84,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "push_proj_ef",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Elementary/Push"
+    },
+    {
+      "name": "PushProj",
+      "type": "rangeditem",
+      "sortid": 84,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "push_proj",
+      "path": "~/Wind Magic/Elementary/Push"
+    },
+    {
+      "name": "WindBlast",
+      "type": "procedure",
+      "sortid": 85,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind_blast",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Intermediate/Wind Blast"
+    },
+    {
+      "name": "ViolentStormEntity",
+      "type": "livingentity",
+      "sortid": 86,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "violent_storm_entity",
+      "path": "~/Wind Magic/Saint"
+    },
+    {
+      "name": "ViolentStorm",
+      "type": "procedure",
+      "sortid": 86,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "violent_storm",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Saint"
+    },
+    {
+      "name": "ViolentStormEntityIdle",
+      "type": "procedure",
+      "sortid": 87,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "violent_storm_entity_idle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Saint"
+    },
+    {
+      "name": "Wind",
+      "type": "particle",
+      "sortid": 88,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind",
+      "path": "~/Wind Magic"
+    },
+    {
+      "name": "Healing",
+      "type": "procedure",
+      "sortid": 89,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "healing",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Healing Magic/Elementary/Healing"
+    },
+    {
+      "name": "XHealing",
+      "type": "procedure",
+      "sortid": 90,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "x_healing",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Healing Magic/intermediate"
+    },
+    {
+      "name": "ShineHealing",
+      "type": "procedure",
+      "sortid": 91,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shine_healing",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Healing Magic/Advanced"
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "MaxMana",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "100.0"
+    }
+  ],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "item.mushoku.rock_bullet_proj": "Rock Bullet Proj",
+      "key.test.test": "Test",
+      "item.mushoku.water_cannon_entity_spawn_egg": "Water Cannon Entity Spawn Egg",
+      "item.test.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
+      "item.mushoku.violent_storm_entity_spawn_egg": "Violent Storm Entity Spawn Egg",
+      "entity.mushoku.violent_storm_entity": "Violent Storm Entity",
+      "item.mushoku.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
+      "item.mushoku.scroll": "Scroll",
+      "item.mushoku.absolute_zero_entity_spawn_egg": "Absolute Zero Entity Spawn Egg",
+      "item.mushoku.fire_ball_proj": "Fire Ball Proj",
+      "entity.mushoku.waterball_entity": "Waterball Entity",
+      "entity.mushoku.earth_drill_entity": "Earth Drill Entity",
+      "effect.electric_ef_ef": "Electric",
+      "item.mushoku.ice_smash_proj": "Ice Smash Proj",
+      "item.mushoku.mountian_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
+      "item.mushoku.earth_blade": "Earth Blade",
+      "entity.test.waterball_entity": "Waterball Entity",
+      "item.mushoku.stone_cannon_proj": "Stone Cannon Proj",
+      "effect.flamethrower_ef": "Flamethrower",
+      "item.mushoku.sand_storm_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
+      "key.mushoku.chant_key": "Chant Key",
+      "item.mushoku.icicle_lance_proj": "Icicle Lance Proj",
+      "item.mushoku.earth_drill_entity_spawn_egg": "Earth Drill Entity Spawn Egg",
+      "item.mushoku.grimoire": "Grimoire",
+      "entity.mushoku.absolute_zero_entity": "Absolute Zero Entity",
+      "item.mushoku.ice_blade": "Ice Blade",
+      "key.mushoku.fill_mana": "Fill Mana",
+      "item.mushoku.ink_and_quill": "Ink And Quill",
+      "key.test.chant_key": "Chant Key",
+      "entity.mushoku.sand_storm_entity": "Sand Storm Entity",
+      "item.mushoku.push_proj": "Push Proj",
+      "entity.mushoku.mountian_entity": "Sand Storm Entity",
+      "item.mushoku.water_arrow_proj": "Water Arrow Proj",
+      "entity.mushoku.water_cannon_entity": "Water Cannon Entity"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Incantations",
+        "children": []
+      },
+      {
+        "name": "Mana",
+        "children": []
+      },
+      {
+        "name": "Books",
+        "children": [
+          {
+            "name": "Scroll",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Water Magic",
+        "children": [
+          {
+            "name": "Elementary",
+            "children": [
+              {
+                "name": "Ice Blade",
+                "children": []
+              },
+              {
+                "name": "Water Arrow",
+                "children": []
+              },
+              {
+                "name": "Ice Smash",
+                "children": []
+              },
+              {
+                "name": "Waterball",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Intermediate",
+            "children": [
+              {
+                "name": "Ice Pillar",
+                "children": []
+              },
+              {
+                "name": "Water Cannon",
+                "children": []
+              },
+              {
+                "name": "Icicle Lance",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "children": [
+              {
+                "name": "BlizzardStorm",
+                "children": []
+              },
+              {
+                "name": "Squall",
+                "children": []
+              },
+              {
+                "name": "Ice Fortress",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Saint",
+            "children": []
+          },
+          {
+            "name": "King",
+            "children": []
+          },
+          {
+            "name": "Imperial",
+            "children": [
+              {
+                "name": "Absolute Zero",
+                "children": []
+              },
+              {
+                "name": "Electric",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Earth Magic",
+        "children": [
+          {
+            "name": "Elememtary",
+            "children": [
+              {
+                "name": "Rock Bullet",
+                "children": []
+              },
+              {
+                "name": "Earth Blade",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Intermediate",
+            "children": [
+              {
+                "name": "Stone Cannon",
+                "children": []
+              },
+              {
+                "name": "EarthPillar",
+                "children": []
+              },
+              {
+                "name": "Earth Lance",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "children": [
+              {
+                "name": "Earth Fortress",
+                "children": []
+              },
+              {
+                "name": "Earth Wall",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Saint",
+            "children": [
+              {
+                "name": "SandStorm",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "King",
+            "children": []
+          },
+          {
+            "name": "Imperial",
+            "children": [
+              {
+                "name": "Mountian",
+                "children": []
+              },
+              {
+                "name": "Earth Drill",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Fire Magic",
+        "children": [
+          {
+            "name": "Elemenrary",
+            "children": [
+              {
+                "name": "Fire Ball",
+                "children": []
+              },
+              {
+                "name": "Heat Hand",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Intermediate",
+            "children": [
+              {
+                "name": "Explosion",
+                "children": []
+              },
+              {
+                "name": "Flamethrower",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Wind Magic",
+        "children": [
+          {
+            "name": "Elementary",
+            "children": [
+              {
+                "name": "Blast",
+                "children": []
+              },
+              {
+                "name": "Push",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Intermediate",
+            "children": [
+              {
+                "name": "Wind Blast",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "children": []
+          },
+          {
+            "name": "Saint",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Healing Magic",
+        "children": [
+          {
+            "name": "Elementary",
+            "children": [
+              {
+                "name": "Healing",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "intermediate",
+            "children": []
+          },
+          {
+            "name": "Advanced",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "mushoku",
+    "modName": "Mushoku",
+    "version": "1.0.0",
+    "author": "adamr, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Academic Free License v3.0",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.16.5",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.mcreator.test",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202200120510
+}
