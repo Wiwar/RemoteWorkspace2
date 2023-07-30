@@ -2343,6 +2343,90 @@
       "locked_code": false,
       "registry_name": "wind_magic_gui",
       "path": "~/Books/WindTome"
+    },
+    {
+      "name": "EarthGroundSpike",
+      "type": "livingentity",
+      "sortid": 116,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_ground_spike",
+      "path": "~/Earth Magic/Advanced/Earth Hedgehog"
+    },
+    {
+      "name": "EarthHedgehog",
+      "type": "procedure",
+      "sortid": 116,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_hedgehog",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Advanced/Earth Hedgehog"
+    },
+    {
+      "name": "EarthGroundSpikeIdle",
+      "type": "procedure",
+      "sortid": 117,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_ground_spike_idle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Advanced/Earth Hedgehog"
+    },
+    {
+      "name": "Dig",
+      "type": "procedure",
+      "sortid": 118,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dig",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/Elememtary/Dig"
     }
   ],
   "variable_elements": [
@@ -2383,8 +2467,8 @@
       "item.mushoku.rock_bullet_proj": "Rock Bullet Proj",
       "key.test.test": "Test",
       "item.mushoku.water_cannon_entity_spawn_egg": "Water Cannon Entity Spawn Egg",
-      "item.mushoku.violent_storm_entity_spawn_egg": "Violent Storm Entity Spawn Egg",
       "item.test.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
+      "item.mushoku.violent_storm_entity_spawn_egg": "Violent Storm Entity Spawn Egg",
       "entity.mushoku.violent_storm_entity": "Violent Storm Entity",
       "item.mushoku.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
       "item.mushoku.scroll": "Scroll",
@@ -2405,6 +2489,7 @@
       "item.mushoku.sand_storm_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
       "key.mushoku.chant_key": "Chant Key",
       "item.mushoku.icicle_lance_proj": "Icicle Lance Proj",
+      "item.mushoku.earth_ground_spike_spawn_egg": "Earth Ground Spike Spawn Egg",
       "item.mushoku.earth_drill_entity_spawn_egg": "Earth Drill Entity Spawn Egg",
       "item.mushoku.grimoire": "Grimoire",
       "entity.mushoku.absolute_zero_entity": "Absolute Zero Entity",
@@ -2414,6 +2499,7 @@
       "key.test.chant_key": "Chant Key",
       "entity.mushoku.sand_storm_entity": "Sand Storm Entity",
       "item.mushoku.push_proj": "Push Proj",
+      "entity.mushoku.earth_ground_spike": "Earth Ground Spike",
       "entity.mushoku.mountian_entity": "Sand Storm Entity",
       "item.mushoku.water_arrow_proj": "Water Arrow Proj",
       "item.mushoku.water_magic_tome": "Water Magic Tome",
@@ -2555,6 +2641,10 @@
               {
                 "name": "Earth Blade",
                 "children": []
+              },
+              {
+                "name": "Dig",
+                "children": []
               }
             ]
           },
@@ -2584,6 +2674,10 @@
               },
               {
                 "name": "Earth Wall",
+                "children": []
+              },
+              {
+                "name": "Earth Hedgehog",
                 "children": []
               }
             ]
