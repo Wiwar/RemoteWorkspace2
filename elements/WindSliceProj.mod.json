@@ -1,0 +1,46 @@
+{
+  "_fv": 28,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 0,
+    "texture": "ice",
+    "customModelName": "Normal",
+    "name": "Wind Slice Proj",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "No creative tab entry"
+    },
+    "stackSize": 1,
+    "ammoItem": {
+      "value": ""
+    },
+    "shootConstantly": false,
+    "usageCount": 100,
+    "actionSound": {
+      "value": ""
+    },
+    "hasGlow": false,
+    "animation": "bow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 1.0,
+    "bulletDamage": 5.0,
+    "bulletKnockback": 5,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": ""
+    },
+    "bulletModel": "Modelcresant",
+    "customBulletModelTexture": "windslice.png",
+    "onBulletHitsBlock": {
+      "name": "WindSliceProjHit"
+    },
+    "onBulletHitsPlayer": {
+      "name": "WindSliceProjHit"
+    },
+    "onBulletHitsEntity": {
+      "name": "WindSliceProjHit"
+    }
+  }
+}

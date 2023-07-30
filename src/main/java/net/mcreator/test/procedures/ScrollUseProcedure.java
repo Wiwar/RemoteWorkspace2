@@ -291,6 +291,30 @@ public class ScrollUseProcedure {
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
+					.equals("Pull")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 5);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+				{
+					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+						_ist.shrink(1);
+						_ist.setDamage(0);
+					}
+				}
+				PullProcedure
+						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
 					.equals("Healing")) {
 				if (entity instanceof PlayerEntity)
 					((PlayerEntity) entity).closeScreen();
@@ -462,6 +486,29 @@ public class ScrollUseProcedure {
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
+					.equals("Flame Slice")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+				{
+					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+						_ist.shrink(1);
+						_ist.setDamage(0);
+					}
+				}
+				FlameSliceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
 					.equals("Flamethrower")) {
 				if (entity instanceof PlayerEntity)
 					((PlayerEntity) entity).closeScreen();
@@ -554,6 +601,78 @@ public class ScrollUseProcedure {
 				}
 				FeastProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
+					.equals("Wind Bind")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+				{
+					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+						_ist.shrink(1);
+						_ist.setDamage(0);
+					}
+				}
+				WindBindProcedure
+						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
+					.equals("Wind Slice")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+				{
+					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+						_ist.shrink(1);
+						_ist.setDamage(0);
+					}
+				}
+				WindSliceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
+					.equals("Sonic Boom")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+				{
+					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+						_ist.shrink(1);
+						_ist.setDamage(0);
+					}
+				}
+				SonicBoomProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}
 		if (entity.getPersistentData().getDouble("Mana") > 200) {
@@ -751,6 +870,53 @@ public class ScrollUseProcedure {
 				AddFallNegationProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
+					.equals("Tornado Impact")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 10);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 200));
+				{
+					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+						_ist.shrink(1);
+						_ist.setDamage(0);
+					}
+				}
+				TornadoImpactProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
+					.equals("Sonic Blast")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 10);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 200));
+				{
+					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+						_ist.shrink(1);
+						_ist.setDamage(0);
+					}
+				}
+			}
 		}
 		if (entity.getPersistentData().getDouble("Mana") > 400) {
 			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
@@ -851,6 +1017,55 @@ public class ScrollUseProcedure {
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
+					.equals("Desert Storm")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 800));
+				{
+					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+						_ist.shrink(1);
+						_ist.setDamage(0);
+					}
+				}
+				DesertStormProcedure
+						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName()
+						.getString()).equals("Tornado")) {
+					if (entity instanceof PlayerEntity)
+						((PlayerEntity) entity).closeScreen();
+					{
+						double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+						entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.MaxMana = _setval;
+							capability.syncPlayerVariables(entity);
+						});
+					}
+					entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 800));
+					{
+						ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+						if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+							_ist.shrink(1);
+							_ist.setDamage(0);
+						}
+					}
+					TornadoIdleProcedure.executeProcedure(Stream
+							.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+									new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				}
+			}
 		}
 		if (entity.getPersistentData().getDouble("Mana") > 1600) {
 			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
@@ -898,8 +1113,9 @@ public class ScrollUseProcedure {
 						_ist.setDamage(0);
 					}
 				}
-				ElectricProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
-						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				ElectricProcedure
+						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
 					.equals("Mountain")) {
@@ -947,6 +1163,31 @@ public class ScrollUseProcedure {
 				}
 				EarthDrillProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getDisplayName().getString())
+					.equals("Eye of the Storm")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 1600));
+				{
+					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+						_ist.shrink(1);
+						_ist.setDamage(0);
+					}
+				}
+				EyeoftheStormProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
+								new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}

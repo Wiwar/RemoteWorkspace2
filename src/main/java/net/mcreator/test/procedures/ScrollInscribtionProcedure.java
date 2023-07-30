@@ -367,6 +367,39 @@ public class ScrollInscribtionProcedure {
 				}
 				return "";
 			}
+		}.getText()).equals("Pull")) {
+			((new Object() {
+				public ItemStack getItemStack(int sltid) {
+					Entity _ent = entity;
+					if (_ent instanceof ServerPlayerEntity) {
+						Container _current = ((ServerPlayerEntity) _ent).openContainer;
+						if (_current instanceof Supplier) {
+							Object invobj = ((Supplier) _current).get();
+							if (invobj instanceof Map) {
+								return ((Slot) ((Map) invobj).get(sltid)).getStack();
+							}
+						}
+					}
+					return ItemStack.EMPTY;
+				}
+			}.getItemStack((int) (1)))).setDisplayName(new StringTextComponent((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText())));
+		}
+		if ((new Object() {
+			public String getText() {
+				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+				if (_tf != null) {
+					return _tf.getText();
+				}
+				return "";
+			}
 		}.getText()).equals("Healing")) {
 			((new Object() {
 				public ItemStack getItemStack(int sltid) {
@@ -598,6 +631,39 @@ public class ScrollInscribtionProcedure {
 				}
 				return "";
 			}
+		}.getText()).equals("Flame Slice")) {
+			((new Object() {
+				public ItemStack getItemStack(int sltid) {
+					Entity _ent = entity;
+					if (_ent instanceof ServerPlayerEntity) {
+						Container _current = ((ServerPlayerEntity) _ent).openContainer;
+						if (_current instanceof Supplier) {
+							Object invobj = ((Supplier) _current).get();
+							if (invobj instanceof Map) {
+								return ((Slot) ((Map) invobj).get(sltid)).getStack();
+							}
+						}
+					}
+					return ItemStack.EMPTY;
+				}
+			}.getItemStack((int) (1)))).setDisplayName(new StringTextComponent((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText())));
+		}
+		if ((new Object() {
+			public String getText() {
+				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+				if (_tf != null) {
+					return _tf.getText();
+				}
+				return "";
+			}
 		}.getText()).equals("Flamethrower")) {
 			((new Object() {
 				public ItemStack getItemStack(int sltid) {
@@ -698,6 +764,105 @@ public class ScrollInscribtionProcedure {
 				return "";
 			}
 		}.getText()).equals("Feast")) {
+			((new Object() {
+				public ItemStack getItemStack(int sltid) {
+					Entity _ent = entity;
+					if (_ent instanceof ServerPlayerEntity) {
+						Container _current = ((ServerPlayerEntity) _ent).openContainer;
+						if (_current instanceof Supplier) {
+							Object invobj = ((Supplier) _current).get();
+							if (invobj instanceof Map) {
+								return ((Slot) ((Map) invobj).get(sltid)).getStack();
+							}
+						}
+					}
+					return ItemStack.EMPTY;
+				}
+			}.getItemStack((int) (1)))).setDisplayName(new StringTextComponent((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText())));
+		}
+		if ((new Object() {
+			public String getText() {
+				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+				if (_tf != null) {
+					return _tf.getText();
+				}
+				return "";
+			}
+		}.getText()).equals("Wind Bind")) {
+			((new Object() {
+				public ItemStack getItemStack(int sltid) {
+					Entity _ent = entity;
+					if (_ent instanceof ServerPlayerEntity) {
+						Container _current = ((ServerPlayerEntity) _ent).openContainer;
+						if (_current instanceof Supplier) {
+							Object invobj = ((Supplier) _current).get();
+							if (invobj instanceof Map) {
+								return ((Slot) ((Map) invobj).get(sltid)).getStack();
+							}
+						}
+					}
+					return ItemStack.EMPTY;
+				}
+			}.getItemStack((int) (1)))).setDisplayName(new StringTextComponent((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText())));
+		}
+		if ((new Object() {
+			public String getText() {
+				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+				if (_tf != null) {
+					return _tf.getText();
+				}
+				return "";
+			}
+		}.getText()).equals("Wind Slice")) {
+			((new Object() {
+				public ItemStack getItemStack(int sltid) {
+					Entity _ent = entity;
+					if (_ent instanceof ServerPlayerEntity) {
+						Container _current = ((ServerPlayerEntity) _ent).openContainer;
+						if (_current instanceof Supplier) {
+							Object invobj = ((Supplier) _current).get();
+							if (invobj instanceof Map) {
+								return ((Slot) ((Map) invobj).get(sltid)).getStack();
+							}
+						}
+					}
+					return ItemStack.EMPTY;
+				}
+			}.getItemStack((int) (1)))).setDisplayName(new StringTextComponent((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText())));
+		}
+		if ((new Object() {
+			public String getText() {
+				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+				if (_tf != null) {
+					return _tf.getText();
+				}
+				return "";
+			}
+		}.getText()).equals("Sonic Boom")) {
 			((new Object() {
 				public ItemStack getItemStack(int sltid) {
 					Entity _ent = entity;
@@ -961,6 +1126,72 @@ public class ScrollInscribtionProcedure {
 				}
 				return "";
 			}
+		}.getText()).equals("Tornado Impact")) {
+			((new Object() {
+				public ItemStack getItemStack(int sltid) {
+					Entity _ent = entity;
+					if (_ent instanceof ServerPlayerEntity) {
+						Container _current = ((ServerPlayerEntity) _ent).openContainer;
+						if (_current instanceof Supplier) {
+							Object invobj = ((Supplier) _current).get();
+							if (invobj instanceof Map) {
+								return ((Slot) ((Map) invobj).get(sltid)).getStack();
+							}
+						}
+					}
+					return ItemStack.EMPTY;
+				}
+			}.getItemStack((int) (1)))).setDisplayName(new StringTextComponent((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText())));
+		}
+		if ((new Object() {
+			public String getText() {
+				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+				if (_tf != null) {
+					return _tf.getText();
+				}
+				return "";
+			}
+		}.getText()).equals("Sonic Blast")) {
+			((new Object() {
+				public ItemStack getItemStack(int sltid) {
+					Entity _ent = entity;
+					if (_ent instanceof ServerPlayerEntity) {
+						Container _current = ((ServerPlayerEntity) _ent).openContainer;
+						if (_current instanceof Supplier) {
+							Object invobj = ((Supplier) _current).get();
+							if (invobj instanceof Map) {
+								return ((Slot) ((Map) invobj).get(sltid)).getStack();
+							}
+						}
+					}
+					return ItemStack.EMPTY;
+				}
+			}.getItemStack((int) (1)))).setDisplayName(new StringTextComponent((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText())));
+		}
+		if ((new Object() {
+			public String getText() {
+				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+				if (_tf != null) {
+					return _tf.getText();
+				}
+				return "";
+			}
 		}.getText()).equals("Cumulonimbus")) {
 			((new Object() {
 				public ItemStack getItemStack(int sltid) {
@@ -1093,6 +1324,72 @@ public class ScrollInscribtionProcedure {
 				}
 				return "";
 			}
+		}.getText()).equals("Desert Storm")) {
+			((new Object() {
+				public ItemStack getItemStack(int sltid) {
+					Entity _ent = entity;
+					if (_ent instanceof ServerPlayerEntity) {
+						Container _current = ((ServerPlayerEntity) _ent).openContainer;
+						if (_current instanceof Supplier) {
+							Object invobj = ((Supplier) _current).get();
+							if (invobj instanceof Map) {
+								return ((Slot) ((Map) invobj).get(sltid)).getStack();
+							}
+						}
+					}
+					return ItemStack.EMPTY;
+				}
+			}.getItemStack((int) (1)))).setDisplayName(new StringTextComponent((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText())));
+		}
+		if ((new Object() {
+			public String getText() {
+				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+				if (_tf != null) {
+					return _tf.getText();
+				}
+				return "";
+			}
+		}.getText()).equals("Tornado")) {
+			((new Object() {
+				public ItemStack getItemStack(int sltid) {
+					Entity _ent = entity;
+					if (_ent instanceof ServerPlayerEntity) {
+						Container _current = ((ServerPlayerEntity) _ent).openContainer;
+						if (_current instanceof Supplier) {
+							Object invobj = ((Supplier) _current).get();
+							if (invobj instanceof Map) {
+								return ((Slot) ((Map) invobj).get(sltid)).getStack();
+							}
+						}
+					}
+					return ItemStack.EMPTY;
+				}
+			}.getItemStack((int) (1)))).setDisplayName(new StringTextComponent((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText())));
+		}
+		if ((new Object() {
+			public String getText() {
+				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+				if (_tf != null) {
+					return _tf.getText();
+				}
+				return "";
+			}
 		}.getText()).equals("Absolute Zero")) {
 			((new Object() {
 				public ItemStack getItemStack(int sltid) {
@@ -1193,6 +1490,39 @@ public class ScrollInscribtionProcedure {
 				return "";
 			}
 		}.getText()).equals("Earth Drill")) {
+			((new Object() {
+				public ItemStack getItemStack(int sltid) {
+					Entity _ent = entity;
+					if (_ent instanceof ServerPlayerEntity) {
+						Container _current = ((ServerPlayerEntity) _ent).openContainer;
+						if (_current instanceof Supplier) {
+							Object invobj = ((Supplier) _current).get();
+							if (invobj instanceof Map) {
+								return ((Slot) ((Map) invobj).get(sltid)).getStack();
+							}
+						}
+					}
+					return ItemStack.EMPTY;
+				}
+			}.getItemStack((int) (1)))).setDisplayName(new StringTextComponent((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText())));
+		}
+		if ((new Object() {
+			public String getText() {
+				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:ScrollInscribtion");
+				if (_tf != null) {
+					return _tf.getText();
+				}
+				return "";
+			}
+		}.getText()).equals("Eye of the Storm")) {
 			((new Object() {
 				public ItemStack getItemStack(int sltid) {
 					Entity _ent = entity;

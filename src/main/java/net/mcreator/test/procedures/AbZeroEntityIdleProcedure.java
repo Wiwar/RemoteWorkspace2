@@ -36,9 +36,9 @@ public class AbZeroEntityIdleProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.INVISIBILITY, (int) 10, (int) 1, (false), (false)));
-		entity.getPersistentData().putDouble("AbZeroX", (MathHelper.nextInt(new Random(), -10, 10)));
+		entity.getPersistentData().putDouble("AbZeroX", (MathHelper.nextInt(new Random(), -30, 30)));
 		entity.getPersistentData().putDouble("AbZeroY", (MathHelper.nextInt(new Random(), -3, 3)));
-		entity.getPersistentData().putDouble("AbZeroZ", (MathHelper.nextInt(new Random(), -10, 10)));
+		entity.getPersistentData().putDouble("AbZeroZ", (MathHelper.nextInt(new Random(), -30, 30)));
 		if ((world.getBlockState(new BlockPos(entity.getPosX() + entity.getPersistentData().getDouble("AbZeroX"),
 				entity.getPosY() + entity.getPersistentData().getDouble("AbZeroY"),
 				entity.getPosZ() + entity.getPersistentData().getDouble("AbZeroZ")))).getBlock() == Blocks.AIR) {

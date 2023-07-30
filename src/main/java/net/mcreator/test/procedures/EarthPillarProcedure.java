@@ -12,8 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.potion.Effects;
-import net.minecraft.potion.EffectInstance;
+import net.minecraft.util.DamageSource;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
@@ -22,8 +21,10 @@ import net.minecraft.block.Block;
 
 import net.mcreator.test.MushokuMod;
 
+import java.util.stream.Collectors;
 import java.util.function.Function;
 import java.util.Map;
+import java.util.List;
 import java.util.Comparator;
 
 public class EarthPillarProcedure {
@@ -105,44 +106,6 @@ public class EarthPillarProcedure {
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
 						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 			}
-			if (((Entity) world
-					.getEntitiesWithinAABB(MobEntity.class,
-							new AxisAlignedBB(
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f)
-													.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()) - (2 / 2d),
-									(y - 1) - (2 / 2d),
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-													entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()) - (2 / 2d),
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f)
-													.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()) + (2 / 2d),
-									(y - 1) + (2 / 2d),
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-													entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()) + (2 / 2d)),
-							null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(
-							(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-									entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()),
-							(y - 1),
-							(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-									entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ())))
-					.findFirst().orElse(null)) != null) {
-				if (entity instanceof LivingEntity)
-					((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.POISON, (int) 60, (int) 1, (false), (false)));
-			}
 		}
 		if ((world.getBlockState(new BlockPos(
 				entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
@@ -214,55 +177,6 @@ public class EarthPillarProcedure {
 						((World) world).playSound(x, y, z,
 								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
 								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-					}
-					if (((Entity) world
-							.getEntitiesWithinAABB(LivingEntity.class,
-									new AxisAlignedBB(
-											(entity.world
-													.rayTraceBlocks(
-															new RayTraceContext(entity.getEyePosition(1f),
-																	entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-																			entity.getLook(1f).z * 3),
-																	RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
-													.getPos().getX()) - (2 / 2d),
-											y - (2 / 2d),
-											(entity.world
-													.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-															entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-																	entity.getLook(1f).z * 3),
-															RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
-													.getPos().getZ()) - (2 / 2d),
-											(entity.world
-													.rayTraceBlocks(
-															new RayTraceContext(entity.getEyePosition(1f),
-																	entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-																			entity.getLook(1f).z * 3),
-																	RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
-													.getPos().getX()) + (2 / 2d),
-											y + (2 / 2d),
-											(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-													entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-															entity.getLook(1f).z * 3),
-													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ())
-													+ (2 / 2d)),
-									null)
-							.stream().sorted(new Object() {
-								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-								}
-							}.compareDistOf(
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-													entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()),
-									y,
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-													entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ())))
-							.findFirst().orElse(null)) != null) {
-						if (entity instanceof LivingEntity)
-							((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.POISON, (int) 60, (int) 1, (false), (false)));
 					}
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
@@ -343,49 +257,18 @@ public class EarthPillarProcedure {
 								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
 								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 					}
-					if (((Entity) world
-							.getEntitiesWithinAABB(MobEntity.class, new AxisAlignedBB(
-									(entity.world.rayTraceBlocks(new RayTraceContext(
-											entity.getEyePosition(1f),
-											entity.getEyePosition(1f)
-													.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()) - (2 / 2d),
-									(y + 1) - (2 / 2d),
-									(entity.world
-											.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-													entity.getEyePosition(1f)
-															.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
-											.getPos().getZ()) - (2 / 2d),
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f)
-													.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()) + (2 / 2d),
-									(y + 1) + (2 / 2d),
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-													entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()) + (2 / 2d)),
-									null)
-							.stream().sorted(new Object() {
-								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-								}
-							}.compareDistOf(
-									(entity.world
-											.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-													entity.getEyePosition(1f)
-															.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
-											.getPos().getX()),
-									(y + 1),
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-													entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ())))
-							.findFirst().orElse(null)) != null) {
-						if (entity instanceof LivingEntity)
-							((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.POISON, (int) 60, (int) 1, (false), (false)));
+					{
+						List<Entity> _entfound = world
+								.getEntitiesWithinAABB(Entity.class,
+										new AxisAlignedBB(x - (1 / 2d), y - (1 / 2d), z - (1 / 2d), x + (1 / 2d), y + (1 / 2d), z + (1 / 2d)), null)
+								.stream().sorted(new Object() {
+									Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+										return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+									}
+								}.compareDistOf(x, y, z)).collect(Collectors.toList());
+						for (Entity entityiterator : _entfound) {
+							entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 2);
+						}
 					}
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
@@ -465,50 +348,6 @@ public class EarthPillarProcedure {
 						((World) world).playSound(x, y, z,
 								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
 								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-					}
-					if (((Entity) world
-							.getEntitiesWithinAABB(LivingEntity.class, new AxisAlignedBB(
-									(entity.world.rayTraceBlocks(new RayTraceContext(
-											entity.getEyePosition(1f),
-											entity.getEyePosition(1f)
-													.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()) - (2 / 2d),
-									(y + 2) - (2 / 2d),
-									(entity.world
-											.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-													entity.getEyePosition(1f)
-															.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
-											.getPos().getZ()) - (2 / 2d),
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f)
-													.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()) + (2 / 2d),
-									(y + 2) + (2 / 2d),
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-													entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()) + (2 / 2d)),
-									null)
-							.stream().sorted(new Object() {
-								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-								}
-							}.compareDistOf(
-									(entity.world
-											.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-													entity.getEyePosition(1f)
-															.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
-											.getPos().getX()),
-									(y + 2),
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-													entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ())))
-							.findFirst().orElse(null)) != null) {
-						if (entity instanceof LivingEntity)
-							((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.POISON, (int) 60, (int) 1, (false), (false)));
 					}
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}

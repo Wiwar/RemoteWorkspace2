@@ -196,18 +196,5 @@ public class AbsoluteZeroEntityEntity extends MushokuModElements.ModElement {
 		public boolean isPushedByWater() {
 			return false;
 		}
-
-		@Override
-		public boolean canBePushed() {
-			return false;
-		}
-
-		@Override
-		protected void collideWithEntity(Entity entityIn) {
-		}
-
-		@Override
-		protected void collideWithNearbyEntities() {
-		}
 	}
 }

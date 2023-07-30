@@ -279,6 +279,20 @@
           "x": 240,
           "y": 161
         }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "OpenGrim"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 105,
+          "y": 170
+        }
       }
     ],
     "gridSettings": {

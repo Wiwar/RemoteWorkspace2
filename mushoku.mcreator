@@ -1144,6 +1144,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1438,18 +1442,6 @@
             "type": "entity"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -1709,7 +1701,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "violent_storm_entity",
-      "path": "~/Wind Magic/Saint"
+      "path": "~/Wind Magic/Saint/Violent Storm"
     },
     {
       "name": "ViolentStorm",
@@ -1730,28 +1722,7 @@
           }
         ]
       },
-      "path": "~/Wind Magic/Saint"
-    },
-    {
-      "name": "ViolentStormEntityIdle",
-      "type": "procedure",
-      "sortid": 87,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "violent_storm_entity_idle",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Wind Magic/Saint"
+      "path": "~/Wind Magic/Saint/Violent Storm"
     },
     {
       "name": "Wind",
@@ -1852,7 +1823,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "fall_negation",
-      "path": "~/Wind Magic/Advanced"
+      "path": "~/Wind Magic/Advanced/Fall Negation"
     },
     {
       "name": "FallNegationEf",
@@ -1869,7 +1840,7 @@
           }
         ]
       },
-      "path": "~/Wind Magic/Advanced"
+      "path": "~/Wind Magic/Advanced/Fall Negation"
     },
     {
       "name": "AddFallNegation",
@@ -1886,7 +1857,7 @@
           }
         ]
       },
-      "path": "~/Wind Magic/Advanced"
+      "path": "~/Wind Magic/Advanced/Fall Negation"
     },
     {
       "name": "WaterArrowHit",
@@ -2427,6 +2398,534 @@
         ]
       },
       "path": "~/Earth Magic/Elememtary/Dig"
+    },
+    {
+      "name": "DesertStormIdle",
+      "type": "procedure",
+      "sortid": 119,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "desert_storm_idle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/King/Desert Storm"
+    },
+    {
+      "name": "DesertStorm",
+      "type": "procedure",
+      "sortid": 120,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "desert_storm",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Earth Magic/King/Desert Storm"
+    },
+    {
+      "name": "DestertStormEntity",
+      "type": "livingentity",
+      "sortid": 121,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "destert_storm_entity",
+      "path": "~/Earth Magic/King/Desert Storm"
+    },
+    {
+      "name": "ViolentStormEntityIdle",
+      "type": "procedure",
+      "sortid": 122,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "violent_storm_entity_idle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Saint/Violent Storm"
+    },
+    {
+      "name": "OpenGrim",
+      "type": "procedure",
+      "sortid": 123,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_grim",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Books/Grimoire"
+    },
+    {
+      "name": "TornadoImpactProj",
+      "type": "rangeditem",
+      "sortid": 124,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tornado_impact_proj",
+      "path": "~/Wind Magic/Advanced/Tornado Imapact"
+    },
+    {
+      "name": "TornadoImpact",
+      "type": "procedure",
+      "sortid": 125,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tornado_impact",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Advanced/Tornado Imapact"
+    },
+    {
+      "name": "TornadoImpactHit",
+      "type": "procedure",
+      "sortid": 126,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tornado_impact_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Advanced/Tornado Imapact"
+    },
+    {
+      "name": "TornadoIdle",
+      "type": "procedure",
+      "sortid": 128,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tornado_idle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/King"
+    },
+    {
+      "name": "SonicBlast",
+      "type": "procedure",
+      "sortid": 129,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sonic_blast",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Advanced/Sonic Blast"
+    },
+    {
+      "name": "WindBind",
+      "type": "procedure",
+      "sortid": 130,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind_bind",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Intermediate/Wind Bind"
+    },
+    {
+      "name": "EyeoftheStorm",
+      "type": "procedure",
+      "sortid": 131,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "eyeofthe_storm",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Imperial"
+    },
+    {
+      "name": "Pull",
+      "type": "procedure",
+      "sortid": 132,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pull",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Elementary/Pull"
+    },
+    {
+      "name": "FlameSliceProj",
+      "type": "rangeditem",
+      "sortid": 133,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flame_slice_proj",
+      "path": "~/Fire Magic/Intermediate/Flame Slice"
+    },
+    {
+      "name": "FlameSlice",
+      "type": "procedure",
+      "sortid": 134,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flame_slice",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Fire Magic/Intermediate/Flame Slice"
+    },
+    {
+      "name": "WindSliceProj",
+      "type": "rangeditem",
+      "sortid": 135,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind_slice_proj",
+      "path": "~/Wind Magic/Intermediate/Wind Slice"
+    },
+    {
+      "name": "WindSlice",
+      "type": "procedure",
+      "sortid": 136,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind_slice",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Intermediate/Wind Slice"
+    },
+    {
+      "name": "WindSliceProjHit",
+      "type": "procedure",
+      "sortid": 137,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind_slice_proj_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Intermediate/Wind Slice"
+    },
+    {
+      "name": "SonicBoomProj",
+      "type": "rangeditem",
+      "sortid": 138,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sonic_boom_proj",
+      "path": "~/Wind Magic/Intermediate/Sonic Boom"
+    },
+    {
+      "name": "SonicBoom",
+      "type": "procedure",
+      "sortid": 138,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sonic_boom",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Intermediate/Sonic Boom"
+    },
+    {
+      "name": "SonicBoomHit",
+      "type": "procedure",
+      "sortid": 139,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sonic_boom_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Wind Magic/Intermediate/Sonic Boom"
+    },
+    {
+      "name": "ExFlameProj",
+      "type": "rangeditem",
+      "sortid": 140,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ex_flame_proj",
+      "path": "~/Fire Magic/Intermediate/Ex Flame"
+    },
+    {
+      "name": "ExFlame",
+      "type": "procedure",
+      "sortid": 141,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ex_flame",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Fire Magic/Intermediate/Ex Flame"
+    },
+    {
+      "name": "ExFlameProjHit",
+      "type": "procedure",
+      "sortid": 142,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ex_flame_proj_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Fire Magic/Intermediate/Ex Flame"
     }
   ],
   "variable_elements": [
@@ -2464,46 +2963,53 @@
   "sound_elements": [],
   "language_map": {
     "en_us": {
-      "item.mushoku.rock_bullet_proj": "Rock Bullet Proj",
       "key.test.test": "Test",
       "item.mushoku.water_cannon_entity_spawn_egg": "Water Cannon Entity Spawn Egg",
-      "item.test.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
       "item.mushoku.violent_storm_entity_spawn_egg": "Violent Storm Entity Spawn Egg",
       "entity.mushoku.violent_storm_entity": "Violent Storm Entity",
       "item.mushoku.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
       "item.mushoku.scroll": "Scroll",
       "item.mushoku.fire_tome": "Fire Tome",
       "item.mushoku.absolute_zero_entity_spawn_egg": "Absolute Zero Entity Spawn Egg",
-      "item.mushoku.fire_ball_proj": "Fire Ball Proj",
-      "entity.mushoku.waterball_entity": "Waterball Entity",
-      "entity.mushoku.earth_drill_entity": "Earth Drill Entity",
       "effect.electric_ef_ef": "Electric",
-      "effect.fall_negation": "Fall Negation",
-      "item.mushoku.ice_smash_proj": "Ice Smash Proj",
       "item.mushoku.mountian_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
       "item.mushoku.earth_tomeitem": "Earth Tome",
-      "item.mushoku.earth_blade": "Earth Blade",
       "entity.test.waterball_entity": "Waterball Entity",
       "item.mushoku.stone_cannon_proj": "Stone Cannon Proj",
-      "effect.flamethrower_ef": "Flamethrower",
+      "entity.mushoku.destert_storm_entity": "Sand Storm Entity",
       "item.mushoku.sand_storm_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
-      "key.mushoku.chant_key": "Chant Key",
       "item.mushoku.icicle_lance_proj": "Icicle Lance Proj",
-      "item.mushoku.earth_ground_spike_spawn_egg": "Earth Ground Spike Spawn Egg",
+      "key.mushoku.chant_key": "Chant Key",
       "item.mushoku.earth_drill_entity_spawn_egg": "Earth Drill Entity Spawn Egg",
       "item.mushoku.grimoire": "Grimoire",
       "entity.mushoku.absolute_zero_entity": "Absolute Zero Entity",
+      "item.mushoku.sonic_boom_proj": "Sonic Boom Proj",
       "item.mushoku.ice_blade": "Ice Blade",
       "key.mushoku.fill_mana": "Fill Mana",
-      "item.mushoku.ink_and_quill": "Ink And Quill",
       "key.test.chant_key": "Chant Key",
-      "entity.mushoku.sand_storm_entity": "Sand Storm Entity",
+      "item.mushoku.wind_slice_proj": "Wind Slice Proj",
       "item.mushoku.push_proj": "Push Proj",
       "entity.mushoku.earth_ground_spike": "Earth Ground Spike",
+      "entity.mushoku.water_cannon_entity": "Water Cannon Entity",
+      "item.mushoku.rock_bullet_proj": "Rock Bullet Proj",
+      "item.test.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
+      "item.mushoku.fire_ball_proj": "Fire Ball Proj",
+      "entity.mushoku.waterball_entity": "Waterball Entity",
+      "entity.mushoku.earth_drill_entity": "Earth Drill Entity",
+      "effect.fall_negation": "Fall Negation",
+      "item.mushoku.destert_storm_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
+      "item.mushoku.ice_smash_proj": "Ice Smash Proj",
+      "item.mushoku.earth_blade": "Earth Blade",
+      "item.mushoku.ex_flame_proj": "Ex Flame Proj",
+      "effect.flamethrower_ef": "Flamethrower",
+      "item.mushoku.earth_ground_spike_spawn_egg": "Earth Ground Spike Spawn Egg",
+      "item.mushoku.flame_slice_proj": "Flame Slice Proj",
+      "item.mushoku.tornado_impact_proj": "Tornado Impact Proj",
+      "item.mushoku.ink_and_quill": "Ink And Quill",
+      "entity.mushoku.sand_storm_entity": "Sand Storm Entity",
       "entity.mushoku.mountian_entity": "Sand Storm Entity",
       "item.mushoku.water_arrow_proj": "Water Arrow Proj",
       "item.mushoku.water_magic_tome": "Water Magic Tome",
-      "entity.mushoku.water_cannon_entity": "Water Cannon Entity",
       "item.mushoku.wind_tome": "Wind Tome"
     }
   },
@@ -2693,7 +3199,12 @@
           },
           {
             "name": "King",
-            "children": []
+            "children": [
+              {
+                "name": "Desert Storm",
+                "children": []
+              }
+            ]
           },
           {
             "name": "Imperial",
@@ -2736,6 +3247,14 @@
               {
                 "name": "Flamethrower",
                 "children": []
+              },
+              {
+                "name": "Flame Slice",
+                "children": []
+              },
+              {
+                "name": "Ex Flame",
+                "children": []
               }
             ]
           }
@@ -2754,6 +3273,10 @@
               {
                 "name": "Push",
                 "children": []
+              },
+              {
+                "name": "Pull",
+                "children": []
               }
             ]
           },
@@ -2763,15 +3286,53 @@
               {
                 "name": "Wind Blast",
                 "children": []
+              },
+              {
+                "name": "Wind Bind",
+                "children": []
+              },
+              {
+                "name": "Wind Slice",
+                "children": []
+              },
+              {
+                "name": "Sonic Boom",
+                "children": []
               }
             ]
           },
           {
             "name": "Advanced",
-            "children": []
+            "children": [
+              {
+                "name": "Fall Negation",
+                "children": []
+              },
+              {
+                "name": "Tornado Imapact",
+                "children": []
+              },
+              {
+                "name": "Sonic Blast",
+                "children": []
+              }
+            ]
           },
           {
             "name": "Saint",
+            "children": [
+              {
+                "name": "Violent Storm",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "King",
+            "children": []
+          },
+          {
+            "name": "Imperial",
             "children": []
           }
         ]
