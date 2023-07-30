@@ -1808,6 +1808,27 @@
         ]
       },
       "path": "~/Healing Magic/Advanced"
+    },
+    {
+      "name": "Onerise",
+      "type": "procedure",
+      "sortid": 92,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "onerise",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Incantations"
     }
   ],
   "variable_elements": [
@@ -2119,6 +2140,10 @@
             "children": []
           }
         ]
+      },
+      {
+        "name": "silly white men",
+        "children": []
       }
     ]
   },
