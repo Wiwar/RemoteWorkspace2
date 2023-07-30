@@ -294,6 +294,30 @@ public class ChantProcedure {
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
+			if ((new Object() {
+				public String getText() {
+					TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:Chant");
+					if (_tf != null) {
+						return _tf.getText();
+					}
+					return "";
+				}
+			}.getText()).contains("1")) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).closeScreen();
+				{
+					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 5);
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.MaxMana = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
+				OneriseProcedure
+						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			}
 		}
 		if (entity.getPersistentData().getDouble("Mana") > 80) {
 			if ((new Object() {

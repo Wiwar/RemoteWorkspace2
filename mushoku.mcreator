@@ -1808,6 +1808,27 @@
         ]
       },
       "path": "~/Healing Magic/Advanced"
+    },
+    {
+      "name": "Onerise",
+      "type": "procedure",
+      "sortid": 92,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "onerise",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Incantations"
     }
   ],
   "variable_elements": [
@@ -1824,11 +1845,11 @@
       "item.mushoku.rock_bullet_proj": "Rock Bullet Proj",
       "key.test.test": "Test",
       "item.mushoku.water_cannon_entity_spawn_egg": "Water Cannon Entity Spawn Egg",
-      "item.test.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
       "item.mushoku.violent_storm_entity_spawn_egg": "Violent Storm Entity Spawn Egg",
+      "item.test.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
       "entity.mushoku.violent_storm_entity": "Violent Storm Entity",
-      "item.mushoku.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
       "item.mushoku.scroll": "Scroll",
+      "item.mushoku.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
       "item.mushoku.absolute_zero_entity_spawn_egg": "Absolute Zero Entity Spawn Egg",
       "item.mushoku.fire_ball_proj": "Fire Ball Proj",
       "entity.mushoku.waterball_entity": "Waterball Entity",
@@ -2119,6 +2140,10 @@
             "children": []
           }
         ]
+      },
+      {
+        "name": "silly white men",
+        "children": []
       }
     ]
   },
