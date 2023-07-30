@@ -64,6 +64,9 @@
         "type": "button",
         "data": {
           "text": "Fire Magic",
+          "onClick": {
+            "name": "FireMagicGrimClick"
+          },
           "width": 77,
           "height": 20,
           "name": "Fire Magic",
@@ -75,6 +78,9 @@
         "type": "button",
         "data": {
           "text": "Earth Magic",
+          "onClick": {
+            "name": "EarthMagicGrimClick"
+          },
           "width": 82,
           "height": 20,
           "name": "Earth Magic",
@@ -86,6 +92,9 @@
         "type": "button",
         "data": {
           "text": "Wind Magic",
+          "onClick": {
+            "name": "WindMagicGrimClick"
+          },
           "width": 82,
           "height": 20,
           "name": "Wind Magic",

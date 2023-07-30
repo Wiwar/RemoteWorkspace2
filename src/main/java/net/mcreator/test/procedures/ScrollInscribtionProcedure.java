@@ -1093,7 +1093,7 @@ public class ScrollInscribtionProcedure {
 				}
 				return "";
 			}
-		}.getText()).equals("Mountian")) {
+		}.getText()).equals("Mountain")) {
 			((new Object() {
 				public ItemStack getItemStack(int sltid) {
 					Entity _ent = entity;

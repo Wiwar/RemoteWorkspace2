@@ -58,11 +58,11 @@ public class WaterArrowProcedure {
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("ambient.underwater.enter")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1);
+					SoundCategory.NEUTRAL, (float) 0.5, (float) 1);
 		} else {
 			((World) world).playSound(x, y, z,
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("ambient.underwater.enter")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+					SoundCategory.NEUTRAL, (float) 0.5, (float) 1, false);
 		}
 	}
 }

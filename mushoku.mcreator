@@ -398,7 +398,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "grimoire_gui",
-      "path": "~/Books"
+      "path": "~/Books/Grimoire"
     },
     {
       "name": "Grimoire",
@@ -407,7 +407,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "grimoire",
-      "path": "~/Books"
+      "path": "~/Books/Grimoire"
     },
     {
       "name": "IcePillar",
@@ -1544,7 +1544,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "water_magic_spells_1",
-      "path": "~/Books"
+      "path": "~/Books/WaterTome"
     },
     {
       "name": "WatMagGrimClick",
@@ -1577,7 +1577,7 @@
           }
         ]
       },
-      "path": "~/Books"
+      "path": "~/Books/WaterTome"
     },
     {
       "name": "EarthDrillEntity",
@@ -1826,7 +1826,7 @@
           }
         ]
       },
-      "path": "~/Healing Magic/intermediate"
+      "path": "~/Healing Magic/intermediate/X Healing"
     },
     {
       "name": "ShineHealing",
@@ -1844,27 +1844,6 @@
         ]
       },
       "path": "~/Healing Magic/Advanced/Shine Healing"
-    },
-    {
-      "name": "Onerise",
-      "type": "procedure",
-      "sortid": 92,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "onerise",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/silly white men"
     },
     {
       "name": "FallNegation",
@@ -2053,6 +2032,317 @@
         ]
       },
       "path": "~/Earth Magic/Intermediate/Stone Cannon"
+    },
+    {
+      "name": "Feast",
+      "type": "procedure",
+      "sortid": 101,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "feast",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Healing Magic/intermediate/Feast"
+    },
+    {
+      "name": "WaterMagicTome",
+      "type": "item",
+      "sortid": 102,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_magic_tome",
+      "path": "~/Books/WaterTome"
+    },
+    {
+      "name": "WaterTomeUse",
+      "type": "procedure",
+      "sortid": 103,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_tome_use",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Books/WaterTome"
+    },
+    {
+      "name": "EarthTome",
+      "type": "procedure",
+      "sortid": 104,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_tome",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Books/EarthTome"
+    },
+    {
+      "name": "EarthTomeitem",
+      "type": "item",
+      "sortid": 105,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_tomeitem",
+      "path": "~/Books/EarthTome"
+    },
+    {
+      "name": "WindTomeUse",
+      "type": "procedure",
+      "sortid": 106,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind_tome_use",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Books/WindTome"
+    },
+    {
+      "name": "FireTomeUse",
+      "type": "procedure",
+      "sortid": 107,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fire_tome_use",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Books/FireTome"
+    },
+    {
+      "name": "FireTome",
+      "type": "item",
+      "sortid": 108,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fire_tome",
+      "path": "~/Books/FireTome"
+    },
+    {
+      "name": "WindTome",
+      "type": "item",
+      "sortid": 109,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind_tome",
+      "path": "~/Books/WindTome"
+    },
+    {
+      "name": "EarthMagicGrimClick",
+      "type": "procedure",
+      "sortid": 110,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_magic_grim_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Books/EarthTome"
+    },
+    {
+      "name": "EarthMagicGUI",
+      "type": "gui",
+      "sortid": 111,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "earth_magic_gui",
+      "path": "~/Books/EarthTome"
+    },
+    {
+      "name": "FireMagicGrimClick",
+      "type": "procedure",
+      "sortid": 112,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fire_magic_grim_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Books/FireTome"
+    },
+    {
+      "name": "FireMagicGUI",
+      "type": "gui",
+      "sortid": 113,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fire_magic_gui",
+      "path": "~/Books/FireTome"
+    },
+    {
+      "name": "WindMagicGrimClick",
+      "type": "procedure",
+      "sortid": 114,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind_magic_grim_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Books/WindTome"
+    },
+    {
+      "name": "WindMagicGUI",
+      "type": "gui",
+      "sortid": 115,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind_magic_gui",
+      "path": "~/Books/WindTome"
     }
   ],
   "variable_elements": [
@@ -2061,6 +2351,30 @@
       "type": "number",
       "scope": "player_lifetime",
       "value": "100.0"
+    },
+    {
+      "name": "WaterMagic",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    },
+    {
+      "name": "FireMagic",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    },
+    {
+      "name": "EarthMagic",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    },
+    {
+      "name": "WindMagic",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
     }
   ],
   "sound_elements": [],
@@ -2069,11 +2383,12 @@
       "item.mushoku.rock_bullet_proj": "Rock Bullet Proj",
       "key.test.test": "Test",
       "item.mushoku.water_cannon_entity_spawn_egg": "Water Cannon Entity Spawn Egg",
-      "item.test.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
       "item.mushoku.violent_storm_entity_spawn_egg": "Violent Storm Entity Spawn Egg",
+      "item.test.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
       "entity.mushoku.violent_storm_entity": "Violent Storm Entity",
       "item.mushoku.waterball_entity_spawn_egg": "Waterball Entity Spawn Egg",
       "item.mushoku.scroll": "Scroll",
+      "item.mushoku.fire_tome": "Fire Tome",
       "item.mushoku.absolute_zero_entity_spawn_egg": "Absolute Zero Entity Spawn Egg",
       "item.mushoku.fire_ball_proj": "Fire Ball Proj",
       "entity.mushoku.waterball_entity": "Waterball Entity",
@@ -2082,6 +2397,7 @@
       "effect.fall_negation": "Fall Negation",
       "item.mushoku.ice_smash_proj": "Ice Smash Proj",
       "item.mushoku.mountian_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
+      "item.mushoku.earth_tomeitem": "Earth Tome",
       "item.mushoku.earth_blade": "Earth Blade",
       "entity.test.waterball_entity": "Waterball Entity",
       "item.mushoku.stone_cannon_proj": "Stone Cannon Proj",
@@ -2100,7 +2416,9 @@
       "item.mushoku.push_proj": "Push Proj",
       "entity.mushoku.mountian_entity": "Sand Storm Entity",
       "item.mushoku.water_arrow_proj": "Water Arrow Proj",
-      "entity.mushoku.water_cannon_entity": "Water Cannon Entity"
+      "item.mushoku.water_magic_tome": "Water Magic Tome",
+      "entity.mushoku.water_cannon_entity": "Water Cannon Entity",
+      "item.mushoku.wind_tome": "Wind Tome"
     }
   },
   "foldersRoot": {
@@ -2119,6 +2437,26 @@
         "children": [
           {
             "name": "Scroll",
+            "children": []
+          },
+          {
+            "name": "Grimoire",
+            "children": []
+          },
+          {
+            "name": "WaterTome",
+            "children": []
+          },
+          {
+            "name": "EarthTome",
+            "children": []
+          },
+          {
+            "name": "WindTome",
+            "children": []
+          },
+          {
+            "name": "FireTome",
             "children": []
           }
         ]
@@ -2358,7 +2696,16 @@
           },
           {
             "name": "intermediate",
-            "children": []
+            "children": [
+              {
+                "name": "X Healing",
+                "children": []
+              },
+              {
+                "name": "Feast",
+                "children": []
+              }
+            ]
           },
           {
             "name": "Advanced",
@@ -2370,10 +2717,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "silly white men",
-        "children": []
       }
     ]
   },

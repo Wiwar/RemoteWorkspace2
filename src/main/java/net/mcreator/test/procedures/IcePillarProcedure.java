@@ -82,7 +82,16 @@ public class IcePillarProcedure {
 									entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
 									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 					Blocks.ICE.getDefaultState(), 3);
-			world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.ICE.getDefaultState()));
+			world.playEvent(2001,
+					new BlockPos(
+							entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+									entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
+									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX(),
+							y - 1,
+							entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+									entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
+									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+					Block.getStateId(Blocks.ICE.getDefaultState()));
 			if (((Entity) world
 					.getEntitiesWithinAABB(MobEntity.class,
 							new AxisAlignedBB(
@@ -172,7 +181,18 @@ public class IcePillarProcedure {
 													entity.getLook(1f).z * 3),
 											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 							Blocks.ICE.getDefaultState(), 3);
-					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.ICE.getDefaultState()));
+					world.playEvent(2001,
+							new BlockPos(
+									entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+													entity.getLook(1f).z * 3),
+											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX(),
+									y,
+									entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+													entity.getLook(1f).z * 3),
+											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+							Block.getStateId(Blocks.ICE.getDefaultState()));
 					if (((Entity) world
 							.getEntitiesWithinAABB(LivingEntity.class,
 									new AxisAlignedBB(
@@ -278,7 +298,20 @@ public class IcePillarProcedure {
 													entity.getLook(1f).z * 3),
 											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 							Blocks.ICE.getDefaultState(), 3);
-					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.ICE.getDefaultState()));
+					world.playEvent(2001,
+							new BlockPos(
+									entity.world.rayTraceBlocks(
+											new RayTraceContext(entity.getEyePosition(1f),
+													entity.getEyePosition(1f)
+															.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
+													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
+											.getPos().getX(),
+									y + 1,
+									entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+													entity.getLook(1f).z * 3),
+											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+							Block.getStateId(Blocks.ICE.getDefaultState()));
 					if (((Entity) world
 							.getEntitiesWithinAABB(MobEntity.class, new AxisAlignedBB(
 									(entity.world.rayTraceBlocks(new RayTraceContext(
@@ -379,7 +412,20 @@ public class IcePillarProcedure {
 													entity.getLook(1f).z * 3),
 											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 							Blocks.ICE.getDefaultState(), 3);
-					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.ICE.getDefaultState()));
+					world.playEvent(2001,
+							new BlockPos(
+									entity.world.rayTraceBlocks(
+											new RayTraceContext(entity.getEyePosition(1f),
+													entity.getEyePosition(1f)
+															.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
+													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
+											.getPos().getX(),
+									y + 2,
+									entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+													entity.getLook(1f).z * 3),
+											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+							Block.getStateId(Blocks.ICE.getDefaultState()));
 					if (((Entity) world
 							.getEntitiesWithinAABB(LivingEntity.class, new AxisAlignedBB(
 									(entity.world.rayTraceBlocks(new RayTraceContext(

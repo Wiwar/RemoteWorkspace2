@@ -3,7 +3,7 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "fire",
+    "texture": "scroll",
     "customModelName": "Normal",
     "name": "Scroll",
     "rarity": "COMMON",

@@ -51,5 +51,110 @@ public class MountianProcedure {
 						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 			world.addEntity(entityToSpawn);
 		}
+		if (world instanceof ServerWorld) {
+			Entity entityToSpawn = new MountianEntityEntity.CustomEntity(MountianEntityEntity.entity, (World) world);
+			entityToSpawn.setLocationAndAngles(
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()),
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getY() + 2),
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+					(float) 0, (float) 0);
+			entityToSpawn.setRenderYawOffset((float) 0);
+			entityToSpawn.setRotationYawHead((float) 0);
+			entityToSpawn.setMotion(0, 0, 0);
+			if (entityToSpawn instanceof MobEntity)
+				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
+						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+			world.addEntity(entityToSpawn);
+		}
+		if (world instanceof ServerWorld) {
+			Entity entityToSpawn = new MountianEntityEntity.CustomEntity(MountianEntityEntity.entity, (World) world);
+			entityToSpawn.setLocationAndAngles(
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()),
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getY() + 2),
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+					(float) 0, (float) 0);
+			entityToSpawn.setRenderYawOffset((float) 0);
+			entityToSpawn.setRotationYawHead((float) 0);
+			entityToSpawn.setMotion(0, 0, 0);
+			if (entityToSpawn instanceof MobEntity)
+				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
+						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+			world.addEntity(entityToSpawn);
+		}
+		if (world instanceof ServerWorld) {
+			Entity entityToSpawn = new MountianEntityEntity.CustomEntity(MountianEntityEntity.entity, (World) world);
+			entityToSpawn.setLocationAndAngles(
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()),
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getY() + 2),
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+					(float) 0, (float) 0);
+			entityToSpawn.setRenderYawOffset((float) 0);
+			entityToSpawn.setRotationYawHead((float) 0);
+			entityToSpawn.setMotion(0, 0, 0);
+			if (entityToSpawn instanceof MobEntity)
+				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
+						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+			world.addEntity(entityToSpawn);
+		}
+		if (world instanceof ServerWorld) {
+			Entity entityToSpawn = new MountianEntityEntity.CustomEntity(MountianEntityEntity.entity, (World) world);
+			entityToSpawn.setLocationAndAngles(
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()),
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getY() + 2),
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+					(float) 0, (float) 0);
+			entityToSpawn.setRenderYawOffset((float) 0);
+			entityToSpawn.setRotationYawHead((float) 0);
+			entityToSpawn.setMotion(0, 0, 0);
+			if (entityToSpawn instanceof MobEntity)
+				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
+						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+			world.addEntity(entityToSpawn);
+		}
+		if (world instanceof ServerWorld) {
+			Entity entityToSpawn = new MountianEntityEntity.CustomEntity(MountianEntityEntity.entity, (World) world);
+			entityToSpawn.setLocationAndAngles(
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()),
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getY() + 2),
+					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+							entity.getEyePosition(1f).add(entity.getLook(1f).x * 50, entity.getLook(1f).y * 50, entity.getLook(1f).z * 50),
+							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+					(float) 0, (float) 0);
+			entityToSpawn.setRenderYawOffset((float) 0);
+			entityToSpawn.setRotationYawHead((float) 0);
+			entityToSpawn.setMotion(0, 0, 0);
+			if (entityToSpawn instanceof MobEntity)
+				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
+						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+			world.addEntity(entityToSpawn);
+		}
 	}
 }

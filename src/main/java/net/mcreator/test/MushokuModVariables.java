@@ -72,6 +72,10 @@ public class MushokuModVariables {
 		public INBT writeNBT(Capability<PlayerVariables> capability, PlayerVariables instance, Direction side) {
 			CompoundNBT nbt = new CompoundNBT();
 			nbt.putDouble("MaxMana", instance.MaxMana);
+			nbt.putBoolean("WaterMagic", instance.WaterMagic);
+			nbt.putBoolean("FireMagic", instance.FireMagic);
+			nbt.putBoolean("EarthMagic", instance.EarthMagic);
+			nbt.putBoolean("WindMagic", instance.WindMagic);
 			return nbt;
 		}
 
@@ -79,11 +83,19 @@ public class MushokuModVariables {
 		public void readNBT(Capability<PlayerVariables> capability, PlayerVariables instance, Direction side, INBT inbt) {
 			CompoundNBT nbt = (CompoundNBT) inbt;
 			instance.MaxMana = nbt.getDouble("MaxMana");
+			instance.WaterMagic = nbt.getBoolean("WaterMagic");
+			instance.FireMagic = nbt.getBoolean("FireMagic");
+			instance.EarthMagic = nbt.getBoolean("EarthMagic");
+			instance.WindMagic = nbt.getBoolean("WindMagic");
 		}
 	}
 
 	public static class PlayerVariables {
 		public double MaxMana = 100.0;
+		public boolean WaterMagic = false;
+		public boolean FireMagic = false;
+		public boolean EarthMagic = false;
+		public boolean WindMagic = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -120,6 +132,10 @@ public class MushokuModVariables {
 		PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 		if (!event.isWasDeath()) {
 			clone.MaxMana = original.MaxMana;
+			clone.WaterMagic = original.WaterMagic;
+			clone.FireMagic = original.FireMagic;
+			clone.EarthMagic = original.EarthMagic;
+			clone.WindMagic = original.WindMagic;
 		}
 	}
 
@@ -146,6 +162,10 @@ public class MushokuModVariables {
 					PlayerVariables variables = ((PlayerVariables) Minecraft.getInstance().player.getCapability(PLAYER_VARIABLES_CAPABILITY, null)
 							.orElse(new PlayerVariables()));
 					variables.MaxMana = message.data.MaxMana;
+					variables.WaterMagic = message.data.WaterMagic;
+					variables.FireMagic = message.data.FireMagic;
+					variables.EarthMagic = message.data.EarthMagic;
+					variables.WindMagic = message.data.WindMagic;
 				}
 			});
 			context.setPacketHandled(true);

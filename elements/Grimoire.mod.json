@@ -3,7 +3,7 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "grimoire",
+    "texture": "mainbook",
     "customModelName": "Normal",
     "name": "Grimoire",
     "rarity": "COMMON",

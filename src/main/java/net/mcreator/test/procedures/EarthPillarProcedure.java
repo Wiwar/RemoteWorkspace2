@@ -86,7 +86,16 @@ public class EarthPillarProcedure {
 									entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
 									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 					Blocks.STONE.getDefaultState(), 3);
-			world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.STONE.getDefaultState()));
+			world.playEvent(2001,
+					new BlockPos(
+							entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+									entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
+									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX(),
+							y - 1,
+							entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+									entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
+									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+					Block.getStateId(Blocks.STONE.getDefaultState()));
 			if (world instanceof World && !world.isRemote()) {
 				((World) world).playSound(null, new BlockPos(x, y, z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
@@ -185,7 +194,18 @@ public class EarthPillarProcedure {
 													entity.getLook(1f).z * 3),
 											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 							Blocks.DIRT.getDefaultState(), 3);
-					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.DIRT.getDefaultState()));
+					world.playEvent(2001,
+							new BlockPos(
+									entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+													entity.getLook(1f).z * 3),
+											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX(),
+									y,
+									entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+													entity.getLook(1f).z * 3),
+											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+							Block.getStateId(Blocks.DIRT.getDefaultState()));
 					if (world instanceof World && !world.isRemote()) {
 						((World) world).playSound(null, new BlockPos(x, y, z),
 								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
@@ -300,7 +320,20 @@ public class EarthPillarProcedure {
 													entity.getLook(1f).z * 3),
 											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 							Blocks.DIRT.getDefaultState(), 3);
-					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.STONE.getDefaultState()));
+					world.playEvent(2001,
+							new BlockPos(
+									entity.world.rayTraceBlocks(
+											new RayTraceContext(entity.getEyePosition(1f),
+													entity.getEyePosition(1f)
+															.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
+													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
+											.getPos().getX(),
+									y + 1,
+									entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+													entity.getLook(1f).z * 3),
+											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+							Block.getStateId(Blocks.STONE.getDefaultState()));
 					if (world instanceof World && !world.isRemote()) {
 						((World) world).playSound(null, new BlockPos(x, y, z),
 								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),
@@ -410,7 +443,20 @@ public class EarthPillarProcedure {
 													entity.getLook(1f).z * 3),
 											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 							Blocks.STONE.getDefaultState(), 3);
-					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.STONE.getDefaultState()));
+					world.playEvent(2001,
+							new BlockPos(
+									entity.world.rayTraceBlocks(
+											new RayTraceContext(entity.getEyePosition(1f),
+													entity.getEyePosition(1f)
+															.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
+													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
+											.getPos().getX(),
+									y + 2,
+									entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+													entity.getLook(1f).z * 3),
+											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+							Block.getStateId(Blocks.STONE.getDefaultState()));
 					if (world instanceof World && !world.isRemote()) {
 						((World) world).playSound(null, new BlockPos(x, y, z),
 								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.place")),

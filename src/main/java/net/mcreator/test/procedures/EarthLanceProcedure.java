@@ -47,7 +47,7 @@ public class EarthLanceProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		entity.setMotion(1, 5, 1);
+		entity.setMotion(0, 5, 0);
 		new Object() {
 			private int ticks = 0;
 			private float waitTicks;

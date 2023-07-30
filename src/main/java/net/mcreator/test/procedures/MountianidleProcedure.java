@@ -73,7 +73,7 @@ public class MountianidleProcedure {
 						entity.getPersistentData().getDouble("MountainY") + entity.getPosY(),
 						entity.getPersistentData().getDouble("MountianZ") + entity.getPosZ()),
 				Block.getStateId(Blocks.DIRT.getDefaultState()));
-		entity.getPersistentData().putDouble("MountanDiamond", (MathHelper.nextInt(new Random(), 1, 60)));
+		entity.getPersistentData().putDouble("MountanDiamond", (MathHelper.nextInt(new Random(), 1, 400)));
 		if (entity.getPersistentData().getDouble("MountanDiamond") == 15) {
 			world.setBlockState(new BlockPos(entity.getPersistentData().getDouble("MountianX") + entity.getPosX(),
 					entity.getPersistentData().getDouble("MountainY") + entity.getPosY(),

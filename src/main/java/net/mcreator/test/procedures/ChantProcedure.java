@@ -532,6 +532,8 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 80));
+				FeastProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}
 		if (entity.getPersistentData().getDouble("Mana") > 200) {
@@ -579,8 +581,10 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 200));
-				SquallProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world)).collect(HashMap::new,
-						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				SquallProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 			if ((new Object() {
 				public String getText() {
@@ -724,9 +728,9 @@ public class ChantProcedure {
 					});
 				}
 				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 400));
-				CumulonimbusProcedure
-						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
-								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				CumulonimbusProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 			if ((new Object() {
 				public String getText() {
@@ -860,7 +864,7 @@ public class ChantProcedure {
 					}
 					return "";
 				}
-			}.getText()).contains("Mountian")) {
+			}.getText()).contains("Mountain")) {
 				if (entity instanceof PlayerEntity)
 					((PlayerEntity) entity).closeScreen();
 				{
