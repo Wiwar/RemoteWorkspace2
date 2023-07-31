@@ -1,17 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.MushokuMod;
-
-import java.util.stream.Collectors;
-import java.util.function.Function;
-import java.util.Map;
-import java.util.List;
-import java.util.Comparator;
+import net.minecraftforge.eventbus.api.Event;
 
 public class PullProcedure {
 
@@ -26,8 +15,10 @@ public class PullProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure Pull!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -89,4 +80,5 @@ public class PullProcedure {
 			}
 		}
 	}
+
 }

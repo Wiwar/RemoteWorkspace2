@@ -1,28 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.potion.Effects;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ILivingEntityData;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.entity.ExodusFlameEntityEntity;
-import net.mcreator.test.MushokuMod;
-
-import java.util.function.Function;
-import java.util.Map;
-import java.util.Comparator;
+import net.minecraftforge.eventbus.api.Event;
 
 public class ExodusFlameProcedure {
 
@@ -37,8 +15,10 @@ public class ExodusFlameProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure ExodusFlame!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SLOWNESS, (int) 25, (int) 10, (false), (false)));
 		if (world instanceof ServerWorld) {
@@ -47,12 +27,15 @@ public class ExodusFlameProcedure {
 			entityToSpawn.setRenderYawOffset((float) 0);
 			entityToSpawn.setRotationYawHead((float) 0);
 			entityToSpawn.setMotion(0, 0, 0);
+
 			if (entityToSpawn instanceof MobEntity)
 				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
 						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+
 			world.addEntity(entityToSpawn);
 		}
 		new Object() {
+
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
@@ -87,6 +70,9 @@ public class ExodusFlameProcedure {
 								(entity.getLookVec().z + entity.getLookVec().z));
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
+
 		}.start(world, (int) 20);
+
 	}
+
 }

@@ -1,28 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.registries.ForgeRegistries;
-
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.DamageSource;
-import net.minecraft.state.Property;
-import net.minecraft.potion.Effects;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.BlockState;
-
-import net.mcreator.test.MushokuMod;
-
-import java.util.Random;
-import java.util.Map;
+import net.minecraftforge.eventbus.api.Event;
 
 public class FlashOverIdleProcedure {
 
@@ -52,11 +30,13 @@ public class FlashOverIdleProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure FlashOverIdle!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.INVISIBILITY, (int) 60, (int) 1, (false), (false)));
 		entity.getPersistentData().putDouble("FlashOverX", (MathHelper.nextInt(new Random(), -10, 10)));
@@ -77,7 +57,9 @@ public class FlashOverIdleProcedure {
 						entity.getPosY() + entity.getPersistentData().getDouble("FlashOverY") + 1,
 						entity.getPosZ() + entity.getPersistentData().getDouble("FlashOverZ"));
 				BlockState _bs = Blocks.FIRE.getDefaultState();
+
 				BlockState _bso = world.getBlockState(_bp);
+
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 					Property _property = _bs.getBlock().getStateContainer().getProperty(entry.getKey().getName());
 					if (_property != null && _bs.get(_property) != null)
@@ -86,7 +68,9 @@ public class FlashOverIdleProcedure {
 						} catch (Exception e) {
 						}
 				}
+
 				world.setBlockState(_bp, _bs, 3);
+
 			}
 		}
 		if (entity.getPersistentData().getDouble("FlashOverSound") == 3) {
@@ -101,5 +85,7 @@ public class FlashOverIdleProcedure {
 			}
 		}
 		entity.attackEntityFrom(DamageSource.GENERIC, (float) 0.1);
+
 	}
+
 }

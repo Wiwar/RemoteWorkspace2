@@ -1,10 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.MushokuMod;
-
-import java.util.Map;
+import net.minecraftforge.eventbus.api.Event;
 
 public class FallNegationEfProcedure {
 
@@ -14,7 +10,10 @@ public class FallNegationEfProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure FallNegationEf!");
 			return;
 		}
+
 		Entity entity = (Entity) dependencies.get("entity");
+
 		entity.fallDistance = (float) (0);
 	}
+
 }

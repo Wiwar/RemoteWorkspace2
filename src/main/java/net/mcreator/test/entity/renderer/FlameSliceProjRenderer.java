@@ -1,36 +1,16 @@
 package net.mcreator.test.entity.renderer;
 
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.util.math.vector.Vector3f;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.entity.Entity;
-import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.IRenderTypeBuffer;
-
-import net.mcreator.test.item.FlameSliceProjItem;
-
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.mojang.blaze3d.matrix.MatrixStack;
-
 @OnlyIn(Dist.CLIENT)
 public class FlameSliceProjRenderer {
+
 	public static class ModelRegisterHandler {
+
 		@SubscribeEvent
 		@OnlyIn(Dist.CLIENT)
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(FlameSliceProjItem.arrow, renderManager -> new CustomRender(renderManager));
 		}
+
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -51,6 +31,7 @@ public class FlameSliceProjRenderer {
 			EntityModel model = new Modelcresantbig();
 			model.render(matrixStackIn, vb, packedLightIn, OverlayTexture.NO_OVERLAY, 1, 1, 1, 0.0625f);
 			matrixStackIn.pop();
+
 			super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
 		}
 
@@ -63,6 +44,7 @@ public class FlameSliceProjRenderer {
 	// Made with Blockbench 4.8.0
 	// Exported for Minecraft version 1.15 - 1.16 with MCP mappings
 	// Paste this class into your mod and generate all required imports
+
 	public static class Modelcresantbig extends EntityModel<Entity> {
 		private final ModelRenderer bone;
 		private final ModelRenderer bone3;
@@ -81,15 +63,19 @@ public class FlameSliceProjRenderer {
 		public Modelcresantbig() {
 			textureWidth = 32;
 			textureHeight = 32;
+
 			bone = new ModelRenderer(this);
 			bone.setRotationPoint(0.0F, 24.0F, 0.0F);
 			setRotationAngle(bone, 0.0F, 3.1416F, 1.5708F);
+
 			bone3 = new ModelRenderer(this);
 			bone3.setRotationPoint(0.0F, 0.0F, 0.0F);
 			bone.addChild(bone3);
+
 			bone4 = new ModelRenderer(this);
 			bone4.setRotationPoint(0.0F, 0.0F, 0.0F);
 			bone3.addChild(bone4);
+
 			bone2 = new ModelRenderer(this);
 			bone2.setRotationPoint(0.0F, 0.0F, 0.0F);
 			bone4.addChild(bone2);
@@ -117,16 +103,20 @@ public class FlameSliceProjRenderer {
 			bone2.setTextureOffset(1, 1).addBox(2.0F, -10.0F, -1.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
 			bone2.setTextureOffset(1, 1).addBox(-3.0F, -14.0F, -1.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
 			bone2.setTextureOffset(1, 1).addBox(-3.0F, 9.0F, -1.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+
 			bone5 = new ModelRenderer(this);
 			bone5.setRotationPoint(0.0F, 0.0F, 0.0F);
 			bone.addChild(bone5);
 			setRotationAngle(bone5, 0.0F, 3.1416F, -3.1416F);
+
 			bone6 = new ModelRenderer(this);
 			bone6.setRotationPoint(0.0F, 0.0F, 0.0F);
 			bone5.addChild(bone6);
+
 			bone7 = new ModelRenderer(this);
 			bone7.setRotationPoint(0.0F, 0.0F, 0.0F);
 			bone6.addChild(bone7);
+
 			bone8 = new ModelRenderer(this);
 			bone8.setRotationPoint(0.0F, 0.0F, 0.0F);
 			bone7.addChild(bone8);
@@ -154,16 +144,20 @@ public class FlameSliceProjRenderer {
 			bone8.setTextureOffset(1, 1).addBox(1.0F, -6.0F, -1.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
 			bone8.setTextureOffset(1, 1).addBox(-4.0F, -10.0F, -1.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
 			bone8.setTextureOffset(1, 1).addBox(-4.0F, 13.0F, -1.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+
 			bone9 = new ModelRenderer(this);
 			bone9.setRotationPoint(0.0F, 0.0F, 0.0F);
 			bone5.addChild(bone9);
 			setRotationAngle(bone9, 0.0F, 3.1416F, -3.1416F);
+
 			bone10 = new ModelRenderer(this);
 			bone10.setRotationPoint(0.0F, 0.0F, 0.0F);
 			bone9.addChild(bone10);
+
 			bone11 = new ModelRenderer(this);
 			bone11.setRotationPoint(0.0F, 0.0F, 0.0F);
 			bone10.addChild(bone11);
+
 			bone12 = new ModelRenderer(this);
 			bone12.setRotationPoint(0.0F, 0.0F, 0.0F);
 			bone11.addChild(bone12);
@@ -191,6 +185,7 @@ public class FlameSliceProjRenderer {
 			bone12.setTextureOffset(1, 1).addBox(0.0F, -10.0F, 1.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
 			bone12.setTextureOffset(1, 1).addBox(-5.0F, -14.0F, 1.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
 			bone12.setTextureOffset(1, 1).addBox(-5.0F, 9.0F, 1.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+
 			bone13 = new ModelRenderer(this);
 			bone13.setRotationPoint(0.0F, 0.0F, 0.0F);
 			bone12.addChild(bone13);

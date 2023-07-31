@@ -1,17 +1,9 @@
 
 package net.mcreator.test.itemgroup;
 
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
-
-import net.mcreator.test.item.GrimoireItem;
-import net.mcreator.test.MushokuModElements;
-
 @MushokuModElements.ModElement.Tag
 public class MushokuItemGroup extends MushokuModElements.ModElement {
+
 	public MushokuItemGroup(MushokuModElements instance) {
 		super(instance, 157);
 	}
@@ -33,4 +25,5 @@ public class MushokuItemGroup extends MushokuModElements.ModElement {
 	}
 
 	public static ItemGroup tab;
+
 }

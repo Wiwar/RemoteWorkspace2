@@ -1,16 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.IWorld;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.item.FlameSliceProjItem;
-import net.mcreator.test.MushokuMod;
-
-import java.util.Random;
-import java.util.Map;
+import net.minecraftforge.eventbus.api.Event;
 
 public class FlameSliceProcedure {
 
@@ -40,11 +30,13 @@ public class FlameSliceProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure FlameSlice!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		if (entity instanceof LivingEntity) {
 			LivingEntity _ent = (LivingEntity) entity;
 			if (!_ent.world.isRemote()) {
@@ -55,4 +47,5 @@ public class FlameSliceProcedure {
 			((ServerWorld) world).spawnParticle(ParticleTypes.LAVA, x, y, z, (int) 5, 3, 3, 3, 1);
 		}
 	}
+
 }

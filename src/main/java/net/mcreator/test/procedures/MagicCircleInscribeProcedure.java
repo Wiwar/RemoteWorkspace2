@@ -1,18 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.item.ItemStack;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.client.gui.widget.TextFieldWidget;
-
-import net.mcreator.test.MushokuMod;
-
-import java.util.function.Supplier;
-import java.util.Map;
-import java.util.HashMap;
+import net.minecraftforge.eventbus.api.Event;
 
 public class MagicCircleInscribeProcedure {
 
@@ -27,8 +15,10 @@ public class MagicCircleInscribeProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency guistate for procedure MagicCircleInscribe!");
 			return;
 		}
+
 		Entity entity = (Entity) dependencies.get("entity");
 		HashMap guistate = (HashMap) dependencies.get("guistate");
+
 		if ((new Object() {
 			public String getText() {
 				TextFieldWidget _tf = (TextFieldWidget) guistate.get("text:Circle");
@@ -1812,4 +1802,5 @@ public class MagicCircleInscribeProcedure {
 			}.getText())));
 		}
 	}
+
 }

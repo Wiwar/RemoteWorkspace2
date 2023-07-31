@@ -1,22 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.particle.WindParticle;
-import net.mcreator.test.MushokuMod;
-
-import java.util.stream.Collectors;
-import java.util.function.Function;
-import java.util.Map;
-import java.util.List;
-import java.util.Comparator;
+import net.minecraftforge.eventbus.api.Event;
 
 public class EyeoftheStormProcedure {
 
@@ -36,9 +20,11 @@ public class EyeoftheStormProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure EyeoftheStorm!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		if (world instanceof ServerWorld) {
 			((ServerWorld) world).spawnParticle(WindParticle.particle, (entity.getPosX() + 15), y, (entity.getPosZ() + 15), (int) 40, 15, 3, 15, 1);
 		}
@@ -56,6 +42,7 @@ public class EyeoftheStormProcedure {
 			for (Entity entityiterator : _entfound) {
 				entityiterator.setMotion(0, 5, 0);
 				new Object() {
+
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
@@ -79,7 +66,9 @@ public class EyeoftheStormProcedure {
 						entityiterator.setMotion(0, (-2), 0);
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
+
 				}.start(world, (int) 20);
+
 			}
 		}
 		if (world instanceof ServerWorld) {
@@ -99,6 +88,7 @@ public class EyeoftheStormProcedure {
 			for (Entity entityiterator : _entfound) {
 				entityiterator.setMotion(0, 5, 0);
 				new Object() {
+
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
@@ -122,7 +112,9 @@ public class EyeoftheStormProcedure {
 						entityiterator.setMotion(0, (-2), 0);
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
+
 				}.start(world, (int) 20);
+
 			}
 		}
 		if (world instanceof ServerWorld) {
@@ -142,6 +134,7 @@ public class EyeoftheStormProcedure {
 			for (Entity entityiterator : _entfound) {
 				entityiterator.setMotion(0, 5, 0);
 				new Object() {
+
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
@@ -165,7 +158,9 @@ public class EyeoftheStormProcedure {
 						entityiterator.setMotion(0, (-2), 0);
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
+
 				}.start(world, (int) 20);
+
 			}
 		}
 		if (world instanceof ServerWorld) {
@@ -185,6 +180,7 @@ public class EyeoftheStormProcedure {
 			for (Entity entityiterator : _entfound) {
 				entityiterator.setMotion(0, 5, 0);
 				new Object() {
+
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
@@ -208,8 +204,11 @@ public class EyeoftheStormProcedure {
 						entityiterator.setMotion(0, (-2), 0);
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
+
 				}.start(world, (int) 20);
+
 			}
 		}
 	}
+
 }

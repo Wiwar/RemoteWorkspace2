@@ -34,7 +34,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "mushoku:advanced_stone",
+          "name": "mushoku:deleted_mod_element",
           "weight": 90,
           "functions": [
             {

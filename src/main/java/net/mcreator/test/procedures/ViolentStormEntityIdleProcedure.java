@@ -1,21 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.MushokuMod;
-
-import java.util.stream.Collectors;
-import java.util.function.Function;
-import java.util.Random;
-import java.util.Map;
-import java.util.List;
-import java.util.Comparator;
+import net.minecraftforge.eventbus.api.Event;
 
 public class ViolentStormEntityIdleProcedure {
 
@@ -30,8 +15,10 @@ public class ViolentStormEntityIdleProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure ViolentStormEntityIdle!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		entity.getPersistentData().putDouble("ViolentStormX", (MathHelper.nextInt(new Random(), -20, 20)));
 		entity.getPersistentData().putDouble("ViolentStormY", (MathHelper.nextInt(new Random(), -20, 20)));
 		entity.getPersistentData().putDouble("ViolentStormZ", (MathHelper.nextInt(new Random(), -20, 20)));
@@ -66,5 +53,7 @@ public class ViolentStormEntityIdleProcedure {
 			}
 		}
 		entity.attackEntityFrom(DamageSource.GENERIC, (float) 0.1);
+
 	}
+
 }

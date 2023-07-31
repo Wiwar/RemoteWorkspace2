@@ -1,22 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.registries.ForgeRegistries;
-
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.item.ExFlameProjItem;
-import net.mcreator.test.MushokuMod;
-
-import java.util.Random;
-import java.util.Map;
+import net.minecraftforge.eventbus.api.Event;
 
 public class ExFlameProcedure {
 
@@ -46,11 +30,13 @@ public class ExFlameProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure ExFlame!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		if (entity instanceof LivingEntity) {
 			LivingEntity _ent = (LivingEntity) entity;
 			if (!_ent.world.isRemote()) {
@@ -70,4 +56,5 @@ public class ExFlameProcedure {
 					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 		}
 	}
+
 }

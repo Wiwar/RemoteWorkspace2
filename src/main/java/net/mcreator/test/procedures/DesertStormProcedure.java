@@ -1,19 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.ILivingEntityData;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.entity.DestertStormEntityEntity;
-import net.mcreator.test.MushokuMod;
-
-import java.util.Map;
+import net.minecraftforge.eventbus.api.Event;
 
 public class DesertStormProcedure {
 
@@ -28,8 +15,10 @@ public class DesertStormProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure DesertStorm!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		if (world instanceof ServerWorld) {
 			Entity entityToSpawn = new DestertStormEntityEntity.CustomEntity(DestertStormEntityEntity.entity, (World) world);
 			entityToSpawn.setLocationAndAngles(
@@ -46,9 +35,11 @@ public class DesertStormProcedure {
 			entityToSpawn.setRenderYawOffset((float) 0);
 			entityToSpawn.setRotationYawHead((float) 0);
 			entityToSpawn.setMotion(0, 0, 0);
+
 			if (entityToSpawn instanceof MobEntity)
 				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
 						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+
 			world.addEntity(entityToSpawn);
 		}
 		if (world instanceof ServerWorld) {
@@ -67,9 +58,11 @@ public class DesertStormProcedure {
 			entityToSpawn.setRenderYawOffset((float) 0);
 			entityToSpawn.setRotationYawHead((float) 0);
 			entityToSpawn.setMotion(0, 0, 0);
+
 			if (entityToSpawn instanceof MobEntity)
 				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
 						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+
 			world.addEntity(entityToSpawn);
 		}
 		if (world instanceof ServerWorld) {
@@ -88,9 +81,11 @@ public class DesertStormProcedure {
 			entityToSpawn.setRenderYawOffset((float) 0);
 			entityToSpawn.setRotationYawHead((float) 0);
 			entityToSpawn.setMotion(0, 0, 0);
+
 			if (entityToSpawn instanceof MobEntity)
 				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
 						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+
 			world.addEntity(entityToSpawn);
 		}
 		if (world instanceof ServerWorld) {
@@ -109,10 +104,14 @@ public class DesertStormProcedure {
 			entityToSpawn.setRenderYawOffset((float) 0);
 			entityToSpawn.setRotationYawHead((float) 0);
 			entityToSpawn.setMotion(0, 0, 0);
+
 			if (entityToSpawn instanceof MobEntity)
 				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
 						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+
 			world.addEntity(entityToSpawn);
 		}
+
 	}
+
 }

@@ -1,27 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.CapabilityItemHandler;
-
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.item.SaintStoneItem;
-import net.mcreator.test.item.KingStoneItem;
-import net.mcreator.test.item.IntermediateStoneItem;
-import net.mcreator.test.item.ImperialStoneItem;
-import net.mcreator.test.item.ElementaryStoneItem;
-import net.mcreator.test.item.AdvancedStoneItem;
-import net.mcreator.test.MushokuMod;
-
-import java.util.stream.Stream;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.AbstractMap;
+import net.minecraftforge.eventbus.api.Event;
 
 public class MagicCircleActivate2Procedure {
 
@@ -51,11 +30,13 @@ public class MagicCircleActivate2Procedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure MagicCircleActivate2!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		if ((new Object() {
 			public ItemStack getItemStack(BlockPos pos, int sltid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -1608,9 +1589,8 @@ public class MagicCircleActivate2Procedure {
 					}
 				}
 
-				TornadoIdleProcedure.executeProcedure(Stream
-						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
-								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+				TornadoIdleProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 			if (((new Object() {
@@ -1717,9 +1697,8 @@ public class MagicCircleActivate2Procedure {
 					}
 				}
 
-				ElectricProcedure
-						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
-								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				ElectricProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 			if (((new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
@@ -1850,4 +1829,5 @@ public class MagicCircleActivate2Procedure {
 			}
 		}
 	}
+
 }

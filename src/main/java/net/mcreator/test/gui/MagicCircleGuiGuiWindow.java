@@ -1,30 +1,17 @@
 
 package net.mcreator.test.gui;
 
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.World;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.client.gui.screen.inventory.ContainerScreen;
-import net.minecraft.client.Minecraft;
-
-import java.util.HashMap;
-
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.matrix.MatrixStack;
+import net.mcreator.test.MushokuMod;
 
 @OnlyIn(Dist.CLIENT)
 public class MagicCircleGuiGuiWindow extends ContainerScreen<MagicCircleGuiGui.GuiContainerMod> {
+
 	private World world;
 	private int x, y, z;
 	private PlayerEntity entity;
+
 	private final static HashMap guistate = MagicCircleGuiGui.guistate;
+
 	TextFieldWidget Circle;
 
 	public MagicCircleGuiGuiWindow(MagicCircleGuiGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
@@ -45,6 +32,7 @@ public class MagicCircleGuiGuiWindow extends ContainerScreen<MagicCircleGuiGui.G
 		this.renderBackground(ms);
 		super.render(ms, mouseX, mouseY, partialTicks);
 		this.renderHoveredTooltip(ms, mouseX, mouseY);
+
 		Circle.render(ms, mouseX, mouseY, partialTicks);
 	}
 
@@ -53,10 +41,12 @@ public class MagicCircleGuiGuiWindow extends ContainerScreen<MagicCircleGuiGui.G
 		RenderSystem.color4f(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
+
 		Minecraft.getInstance().getTextureManager().bindTexture(texture);
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+
 		RenderSystem.disableBlend();
 	}
 
@@ -66,8 +56,10 @@ public class MagicCircleGuiGuiWindow extends ContainerScreen<MagicCircleGuiGui.G
 			this.minecraft.player.closeScreen();
 			return true;
 		}
+
 		if (Circle.isFocused())
 			return Circle.keyPressed(key, b, c);
+
 		return super.keyPressed(key, b, c);
 	}
 
@@ -91,6 +83,7 @@ public class MagicCircleGuiGuiWindow extends ContainerScreen<MagicCircleGuiGui.G
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
+
 		Circle = new TextFieldWidget(this.font, this.guiLeft + 27, this.guiTop + 14, 120, 20, new StringTextComponent("Inscribe Circle")) {
 			{
 				setSuggestion("Inscribe Circle");
@@ -99,6 +92,7 @@ public class MagicCircleGuiGuiWindow extends ContainerScreen<MagicCircleGuiGui.G
 			@Override
 			public void writeText(String text) {
 				super.writeText(text);
+
 				if (getText().isEmpty())
 					setSuggestion("Inscribe Circle");
 				else
@@ -108,6 +102,7 @@ public class MagicCircleGuiGuiWindow extends ContainerScreen<MagicCircleGuiGui.G
 			@Override
 			public void setCursorPosition(int pos) {
 				super.setCursorPosition(pos);
+
 				if (getText().isEmpty())
 					setSuggestion("Inscribe Circle");
 				else
@@ -118,4 +113,5 @@ public class MagicCircleGuiGuiWindow extends ContainerScreen<MagicCircleGuiGui.G
 		Circle.setMaxStringLength(32767);
 		this.children.add(this.Circle);
 	}
+
 }

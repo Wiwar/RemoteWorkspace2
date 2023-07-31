@@ -1,26 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.potion.Effects;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.particle.WindParticle;
-import net.mcreator.test.MushokuMod;
-
-import java.util.stream.Collectors;
-import java.util.function.Function;
-import java.util.Map;
-import java.util.List;
-import java.util.Comparator;
+import net.minecraftforge.eventbus.api.Event;
 
 public class WindBindProcedure {
 
@@ -35,10 +15,13 @@ public class WindBindProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure WindBind!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		for (int index0 = 0; index0 < (int) (5); index0++) {
 			new Object() {
+
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
@@ -133,7 +116,9 @@ public class WindBindProcedure {
 					}
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
+
 			}.start(world, (int) 5);
 		}
 	}
+
 }

@@ -1,25 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
-import net.minecraft.potion.Effects;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Block;
-
-import net.mcreator.test.MushokuMod;
-
-import java.util.stream.Collectors;
-import java.util.function.Function;
-import java.util.Random;
-import java.util.Map;
-import java.util.List;
-import java.util.Comparator;
+import net.minecraftforge.eventbus.api.Event;
 
 public class DesertStormIdleProcedure {
 
@@ -34,8 +15,10 @@ public class DesertStormIdleProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure DesertStormIdle!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.INVISIBILITY, (int) 60, (int) 1, (false), (false)));
 		entity.getPersistentData().putDouble("DesertStormX", (MathHelper.nextInt(new Random(), -30, 30)));
@@ -78,5 +61,7 @@ public class DesertStormIdleProcedure {
 			}
 		}
 		entity.attackEntityFrom(DamageSource.GENERIC, (float) 0.1);
+
 	}
+
 }

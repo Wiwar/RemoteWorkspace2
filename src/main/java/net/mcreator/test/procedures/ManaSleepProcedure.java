@@ -1,20 +1,9 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
-
-import net.minecraft.world.World;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.MushokuModVariables;
-import net.mcreator.test.MushokuMod;
-
-import java.util.Map;
-import java.util.HashMap;
+import net.minecraftforge.eventbus.api.Event;
 
 public class ManaSleepProcedure {
+
 	@Mod.EventBusSubscriber
 	private static class GlobalTrigger {
 		@SubscribeEvent
@@ -41,7 +30,9 @@ public class ManaSleepProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure ManaSleep!");
 			return;
 		}
+
 		Entity entity = (Entity) dependencies.get("entity");
+
 		{
 			double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).Mana
@@ -53,4 +44,5 @@ public class ManaSleepProcedure {
 			});
 		}
 	}
+
 }

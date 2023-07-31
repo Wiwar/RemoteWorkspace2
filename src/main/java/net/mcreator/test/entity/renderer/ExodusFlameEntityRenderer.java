@@ -1,26 +1,11 @@
 
 package net.mcreator.test.entity.renderer;
 
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.entity.Entity;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.MobRenderer;
-
-import net.mcreator.test.entity.ExodusFlameEntityEntity;
-
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.mojang.blaze3d.matrix.MatrixStack;
-
 @OnlyIn(Dist.CLIENT)
 public class ExodusFlameEntityRenderer {
+
 	public static class ModelRegisterHandler {
+
 		@SubscribeEvent
 		@OnlyIn(Dist.CLIENT)
 		public void registerModels(ModelRegistryEvent event) {
@@ -31,20 +16,24 @@ public class ExodusFlameEntityRenderer {
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("mushoku:textures/big_fire_orb.png");
 					}
+
 				};
 			});
+
 		}
 	}
 
 	// Made with Blockbench 4.8.0
 	// Exported for Minecraft version 1.15 - 1.16 with MCP mappings
 	// Paste this class into your mod and generate all required imports
+
 	public static class ModelBIGORB extends EntityModel<Entity> {
 		private final ModelRenderer bone2;
 
 		public ModelBIGORB() {
 			textureWidth = 64;
 			textureHeight = 64;
+
 			bone2 = new ModelRenderer(this);
 			bone2.setRotationPoint(0.0F, 24.0F, 0.0F);
 			setRotationAngle(bone2, 0.0F, -0.0436F, 0.0F);

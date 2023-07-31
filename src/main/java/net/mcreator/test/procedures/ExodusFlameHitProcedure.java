@@ -1,19 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.Explosion;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.MushokuMod;
-
-import java.util.stream.Collectors;
-import java.util.function.Function;
-import java.util.Map;
-import java.util.List;
-import java.util.Comparator;
+import net.minecraftforge.eventbus.api.Event;
 
 public class ExodusFlameHitProcedure {
 
@@ -28,8 +15,10 @@ public class ExodusFlameHitProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure ExodusFlameHit!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -43,6 +32,7 @@ public class ExodusFlameHitProcedure {
 					}.compareDistOf((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()))).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
 				entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 7);
+
 			}
 		}
 		if (!entity.world.isRemote())
@@ -52,4 +42,5 @@ public class ExodusFlameHitProcedure {
 					Explosion.Mode.BREAK);
 		}
 	}
+
 }

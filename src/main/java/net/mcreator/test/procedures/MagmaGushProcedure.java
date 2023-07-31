@@ -1,16 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.entity.Entity;
-import net.minecraft.block.Blocks;
-
-import net.mcreator.test.MushokuMod;
-
-import java.util.Map;
+import net.minecraftforge.eventbus.api.Event;
 
 public class MagmaGushProcedure {
 
@@ -40,11 +30,13 @@ public class MagmaGushProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure MagmaGush!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		if ((world.getBlockState(new BlockPos(
 				entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
 						entity.getEyePosition(1f).add(entity.getLook(1f).x * 5, entity.getLook(1f).y * 5, entity.getLook(1f).z * 5),
@@ -89,4 +81,5 @@ public class MagmaGushProcedure {
 			}
 		}
 	}
+
 }

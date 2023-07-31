@@ -1,85 +1,23 @@
 
 package net.mcreator.test.block;
 
-import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.items.wrapper.SidedInvWrapper;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.fml.network.NetworkHooks;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.World;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Direction;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.LockableLootTileEntity;
-import net.minecraft.network.play.server.SUpdateTileEntityPacket;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.loot.LootContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.item.BlockItem;
-import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.PressurePlateBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Block;
-
-import net.mcreator.test.procedures.MagicCircleActivate2Procedure;
-import net.mcreator.test.itemgroup.MushokuItemGroup;
-import net.mcreator.test.gui.MagicCircleGuiGui;
-import net.mcreator.test.MushokuModElements;
-
-import javax.annotation.Nullable;
-
-import java.util.stream.Stream;
-import java.util.stream.IntStream;
-import java.util.Map;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Collections;
-import java.util.AbstractMap;
-
-import io.netty.buffer.Unpooled;
+import net.minecraft.util.SoundEvent;
 
 @MushokuModElements.ModElement.Tag
 public class MagicCircleBlock extends MushokuModElements.ModElement {
+
 	@ObjectHolder("mushoku:magic_circle")
 	public static final Block block = null;
+
 	@ObjectHolder("mushoku:magic_circle")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 
 	public MagicCircleBlock(MushokuModElements instance) {
 		super(instance, 156);
+
 		FMLJavaModLoadingContext.get().getModEventBus().register(new TileEntityRegisterHandler());
+
 	}
 
 	@Override
@@ -102,14 +40,17 @@ public class MagicCircleBlock extends MushokuModElements.ModElement {
 	}
 
 	public static class CustomBlock extends PressurePlateBlock {
+
 		public CustomBlock() {
 			super(Sensitivity.MOBS, Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1f, 10f).setLightLevel(s -> 0)
 					.notSolid().setOpaque((bs, br, bp) -> false));
+
 			setRegistryName("magic_circle");
 		}
 
 		@Override
 		public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
@@ -123,10 +64,7 @@ public class MagicCircleBlock extends MushokuModElements.ModElement {
 			int y = pos.getY();
 			int z = pos.getZ();
 
-			MagicCircleActivate2Procedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			MagicCircleActivate2Procedure.executeProcedure(Collections.emptyMap());
 		}
 
 		@Override
@@ -137,19 +75,18 @@ public class MagicCircleBlock extends MushokuModElements.ModElement {
 			int z = pos.getZ();
 			BlockState blockstate = world.getBlockState(pos);
 
-			MagicCircleActivate2Procedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			MagicCircleActivate2Procedure.executeProcedure(Collections.emptyMap());
 		}
 
 		@Override
 		public ActionResultType onBlockActivated(BlockState blockstate, World world, BlockPos pos, PlayerEntity entity, Hand hand,
 				BlockRayTraceResult hit) {
 			super.onBlockActivated(blockstate, world, pos, entity, hand, hit);
+
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
+
 			if (entity instanceof ServerPlayerEntity) {
 				NetworkHooks.openGui((ServerPlayerEntity) entity, new INamedContainerProvider() {
 					@Override
@@ -164,6 +101,7 @@ public class MagicCircleBlock extends MushokuModElements.ModElement {
 					}
 				}, new BlockPos(x, y, z));
 			}
+
 			return ActionResultType.SUCCESS;
 		}
 
@@ -202,9 +140,11 @@ public class MagicCircleBlock extends MushokuModElements.ModElement {
 				super.onReplaced(state, world, pos, newState, isMoving);
 			}
 		}
+
 	}
 
 	public static class CustomTileEntity extends LockableLootTileEntity implements ISidedInventory {
+
 		private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(9, ItemStack.EMPTY);
 
 		protected CustomTileEntity() {
@@ -214,18 +154,23 @@ public class MagicCircleBlock extends MushokuModElements.ModElement {
 		@Override
 		public void read(BlockState blockState, CompoundNBT compound) {
 			super.read(blockState, compound);
+
 			if (!this.checkLootAndRead(compound)) {
 				this.stacks = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
 			}
+
 			ItemStackHelper.loadAllItems(compound, this.stacks);
+
 		}
 
 		@Override
 		public CompoundNBT write(CompoundNBT compound) {
 			super.write(compound);
+
 			if (!this.checkLootAndWrite(compound)) {
 				ItemStackHelper.saveAllItems(compound, this.stacks);
 			}
+
 			return compound;
 		}
 
@@ -313,6 +258,7 @@ public class MagicCircleBlock extends MushokuModElements.ModElement {
 		public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
 			if (!this.removed && facing != null && capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
 				return handlers[facing.ordinal()].cast();
+
 			return super.getCapability(capability, facing);
 		}
 
@@ -322,5 +268,7 @@ public class MagicCircleBlock extends MushokuModElements.ModElement {
 			for (LazyOptional<? extends IItemHandler> handler : handlers)
 				handler.invalidate();
 		}
+
 	}
+
 }
