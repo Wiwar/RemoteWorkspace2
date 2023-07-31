@@ -16,8 +16,14 @@ public class SetManaProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		entity.getPersistentData().putDouble("Mana", ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new MushokuModVariables.PlayerVariables())).MaxMana));
+		{
+			double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new MushokuModVariables.PlayerVariables())).MaxMana);
+			entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.Mana = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
 		{
 			double _setval = 10000;
 			entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {

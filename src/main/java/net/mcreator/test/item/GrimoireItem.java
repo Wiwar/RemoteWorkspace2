@@ -27,7 +27,6 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.UseAction;
 import net.minecraft.item.Rarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.inventory.container.Container;
@@ -37,6 +36,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.block.BlockState;
 
+import net.mcreator.test.itemgroup.MushokuItemGroup;
 import net.mcreator.test.gui.GrimoireGuiGuiWindow;
 import net.mcreator.test.gui.GrimoireGuiGui;
 import net.mcreator.test.MushokuModElements;
@@ -73,7 +73,7 @@ public class GrimoireItem extends MushokuModElements.ModElement {
 
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
-			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.COMMON));
+			super(new Item.Properties().group(MushokuItemGroup.tab).maxStackSize(1).rarity(Rarity.COMMON));
 			setRegistryName("grimoire");
 		}
 

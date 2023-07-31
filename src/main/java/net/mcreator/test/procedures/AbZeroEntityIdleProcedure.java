@@ -65,9 +65,9 @@ public class AbZeroEntityIdleProcedure {
 				world.setBlockState(_bp, _bs, 3);
 			}
 		}
-		entity.getPersistentData().putDouble("AbZeroX", (MathHelper.nextInt(new Random(), -10, 10)));
+		entity.getPersistentData().putDouble("AbZeroX", (MathHelper.nextInt(new Random(), -30, 30)));
 		entity.getPersistentData().putDouble("AbZeroY", (MathHelper.nextInt(new Random(), -3, 3)));
-		entity.getPersistentData().putDouble("AbZeroZ", (MathHelper.nextInt(new Random(), -10, 10)));
+		entity.getPersistentData().putDouble("AbZeroZ", (MathHelper.nextInt(new Random(), -30, 30)));
 		if ((world.getBlockState(new BlockPos(entity.getPosX() + entity.getPersistentData().getDouble("AbZeroX"),
 				entity.getPosY() + entity.getPersistentData().getDouble("AbZeroY"),
 				entity.getPosZ() + entity.getPersistentData().getDouble("AbZeroZ")))).getBlock() == Blocks.AIR) {

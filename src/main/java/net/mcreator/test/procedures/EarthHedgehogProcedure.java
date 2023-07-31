@@ -1,9 +1,5 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.common.MinecraftForge;
-
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
@@ -12,17 +8,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Block;
 
-import net.mcreator.test.item.PushProjItem;
 import net.mcreator.test.entity.EarthGroundSpikeEntity;
 import net.mcreator.test.MushokuMod;
 
-import java.util.Random;
 import java.util.Map;
 
 public class EarthHedgehogProcedure {
@@ -73,35 +66,5 @@ public class EarthHedgehogProcedure {
 								entity.getEyePosition(1f).add(entity.getLook(1f).x * 5, entity.getLook(1f).y * 5, entity.getLook(1f).z * 5),
 								RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 				Block.getStateId(Blocks.DIRT.getDefaultState()));
-		new Object() {
-			private int ticks = 0;
-			private float waitTicks;
-			private IWorld world;
-
-			public void start(IWorld world, int waitTicks) {
-				this.waitTicks = waitTicks;
-				MinecraftForge.EVENT_BUS.register(this);
-				this.world = world;
-			}
-
-			@SubscribeEvent
-			public void tick(TickEvent.ServerTickEvent event) {
-				if (event.phase == TickEvent.Phase.END) {
-					this.ticks += 1;
-					if (this.ticks >= this.waitTicks)
-						run();
-				}
-			}
-
-			private void run() {
-				if (entity instanceof LivingEntity) {
-					LivingEntity _ent = (LivingEntity) entity;
-					if (!_ent.world.isRemote()) {
-						PushProjItem.shoot(_ent.world, _ent, new Random(), 2, 5, 0);
-					}
-				}
-				MinecraftForge.EVENT_BUS.unregister(this);
-			}
-		}.start(world, (int) 5);
 	}
 }

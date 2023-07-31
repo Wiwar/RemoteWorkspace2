@@ -31,7 +31,10 @@
     "bulletItemTexture": {
       "value": ""
     },
-    "bulletModel": "Modelcresant",
-    "customBulletModelTexture": "big_fire_orb.png"
+    "bulletModel": "Modelcresantbig",
+    "customBulletModelTexture": "big_fire_orb.png",
+    "onBulletHitsBlock": {
+      "name": "FlameSliceProjHit"
+    }
   }
 }

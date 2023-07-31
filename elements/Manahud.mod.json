@@ -7,12 +7,12 @@
       {
         "type": "label",
         "data": {
-          "text": "Mana: <ENBT:number:Mana> / <ENBT:number:MaxMana>",
+          "text": "Mana : <VAR:Mana> / <VAR:MaxMana>",
           "color": {
             "value": -16776961,
             "falpha": 0.0
           },
-          "name": "Mana: <ENBT:number:Mana> / <ENBT:number:MaxMana>",
+          "name": "Mana : <VAR:Mana> / <VAR:MaxMana>",
           "x": 1,
           "y": 1
         }

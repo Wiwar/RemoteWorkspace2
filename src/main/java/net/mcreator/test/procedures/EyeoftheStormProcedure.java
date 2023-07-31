@@ -45,8 +45,8 @@ public class EyeoftheStormProcedure {
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
-							new AxisAlignedBB((entity.getPosX() + 15) - (10 / 2d), y - (10 / 2d), (entity.getPosZ() + 15) - (10 / 2d),
-									(entity.getPosX() + 15) + (10 / 2d), y + (10 / 2d), (entity.getPosZ() + 15) + (10 / 2d)),
+							new AxisAlignedBB((entity.getPosX() + 15) - (25 / 2d), y - (25 / 2d), (entity.getPosZ() + 15) - (25 / 2d),
+									(entity.getPosX() + 15) + (25 / 2d), y + (25 / 2d), (entity.getPosZ() + 15) + (25 / 2d)),
 							null)
 					.stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
@@ -54,7 +54,7 @@ public class EyeoftheStormProcedure {
 						}
 					}.compareDistOf((entity.getPosX() + 15), y, (entity.getPosZ() + 15))).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				entity.setMotion(0, 5, 0);
+				entityiterator.setMotion(0, 5, 0);
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
@@ -76,7 +76,7 @@ public class EyeoftheStormProcedure {
 					}
 
 					private void run() {
-						entity.setMotion(0, (-2), 0);
+						entityiterator.setMotion(0, (-2), 0);
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 20);
@@ -88,8 +88,8 @@ public class EyeoftheStormProcedure {
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
-							new AxisAlignedBB((entity.getPosX() - 15) - (10 / 2d), y - (10 / 2d), (entity.getPosZ() + 15) - (10 / 2d),
-									(entity.getPosX() - 15) + (10 / 2d), y + (10 / 2d), (entity.getPosZ() + 15) + (10 / 2d)),
+							new AxisAlignedBB((entity.getPosX() - 15) - (25 / 2d), y - (25 / 2d), (entity.getPosZ() + 15) - (25 / 2d),
+									(entity.getPosX() - 15) + (25 / 2d), y + (25 / 2d), (entity.getPosZ() + 15) + (25 / 2d)),
 							null)
 					.stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
@@ -97,7 +97,7 @@ public class EyeoftheStormProcedure {
 						}
 					}.compareDistOf((entity.getPosX() - 15), y, (entity.getPosZ() + 15))).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				entity.setMotion(0, 5, 0);
+				entityiterator.setMotion(0, 5, 0);
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
@@ -119,7 +119,7 @@ public class EyeoftheStormProcedure {
 					}
 
 					private void run() {
-						entity.setMotion(0, (-2), 0);
+						entityiterator.setMotion(0, (-2), 0);
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 20);
@@ -131,8 +131,8 @@ public class EyeoftheStormProcedure {
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
-							new AxisAlignedBB((entity.getPosX() + 15) - (10 / 2d), y - (10 / 2d), (entity.getPosZ() - 15) - (10 / 2d),
-									(entity.getPosX() + 15) + (10 / 2d), y + (10 / 2d), (entity.getPosZ() - 15) + (10 / 2d)),
+							new AxisAlignedBB((entity.getPosX() + 15) - (25 / 2d), y - (25 / 2d), (entity.getPosZ() - 15) - (25 / 2d),
+									(entity.getPosX() + 15) + (25 / 2d), y + (25 / 2d), (entity.getPosZ() - 15) + (25 / 2d)),
 							null)
 					.stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
@@ -140,7 +140,7 @@ public class EyeoftheStormProcedure {
 						}
 					}.compareDistOf((entity.getPosX() + 15), y, (entity.getPosZ() - 15))).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				entity.setMotion(0, 5, 0);
+				entityiterator.setMotion(0, 5, 0);
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
@@ -162,7 +162,7 @@ public class EyeoftheStormProcedure {
 					}
 
 					private void run() {
-						entity.setMotion(0, (-2), 0);
+						entityiterator.setMotion(0, (-2), 0);
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 20);
@@ -174,8 +174,8 @@ public class EyeoftheStormProcedure {
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
-							new AxisAlignedBB((entity.getPosX() - 15) - (10 / 2d), y - (10 / 2d), (entity.getPosZ() - 15) - (10 / 2d),
-									(entity.getPosX() - 15) + (10 / 2d), y + (10 / 2d), (entity.getPosZ() - 15) + (10 / 2d)),
+							new AxisAlignedBB((entity.getPosX() - 15) - (25 / 2d), y - (25 / 2d), (entity.getPosZ() - 15) - (25 / 2d),
+									(entity.getPosX() - 15) + (25 / 2d), y + (25 / 2d), (entity.getPosZ() - 15) + (25 / 2d)),
 							null)
 					.stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
@@ -183,7 +183,7 @@ public class EyeoftheStormProcedure {
 						}
 					}.compareDistOf((entity.getPosX() - 15), y, (entity.getPosZ() - 15))).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				entity.setMotion(0, 5, 0);
+				entityiterator.setMotion(0, 5, 0);
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
@@ -205,7 +205,7 @@ public class EyeoftheStormProcedure {
 					}
 
 					private void run() {
-						entity.setMotion(0, (-2), 0);
+						entityiterator.setMotion(0, (-2), 0);
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 20);
