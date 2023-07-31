@@ -8,7 +8,7 @@
     "name": "Earth Tome",
     "rarity": "COMMON",
     "creativeTab": {
-      "value": "MISC"
+      "value": "CUSTOM:Mushoku"
     },
     "stackSize": 64,
     "enchantability": 0,

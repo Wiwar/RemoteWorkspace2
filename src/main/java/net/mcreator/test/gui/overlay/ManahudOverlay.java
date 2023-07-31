@@ -12,6 +12,8 @@ import net.minecraft.world.World;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.Minecraft;
 
+import net.mcreator.test.MushokuModVariables;
+
 @Mod.EventBusSubscriber
 public class ManahudOverlay {
 	@OnlyIn(Dist.CLIENT)
@@ -39,7 +41,12 @@ public class ManahudOverlay {
 			double z = _z;
 			if (true) {
 				Minecraft.getInstance().fontRenderer.drawString(event.getMatrixStack(),
-						"Mana: " + (entity.getPersistentData().getDouble("Mana")) + " / " + (entity.getPersistentData().getDouble("MaxMana")) + "",
+						"Mana : "
+								+ ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+										.orElse(new MushokuModVariables.PlayerVariables())).Mana)
+								+ " / " + ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+										.orElse(new MushokuModVariables.PlayerVariables())).MaxMana)
+								+ "",
 						posX + -212, posY + -119, -16776961);
 			}
 		}

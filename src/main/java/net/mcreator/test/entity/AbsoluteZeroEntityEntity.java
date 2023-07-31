@@ -22,7 +22,6 @@ import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.network.IPacket;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -62,8 +61,8 @@ public class AbsoluteZeroEntityEntity extends MushokuModElements.ModElement {
 	@Override
 	public void initElements() {
 		elements.entities.add(() -> entity);
-		elements.items.add(() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(ItemGroup.MISC))
-				.setRegistryName("absolute_zero_entity_spawn_egg"));
+		elements.items
+				.add(() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(null)).setRegistryName("absolute_zero_entity_spawn_egg"));
 	}
 
 	@Override

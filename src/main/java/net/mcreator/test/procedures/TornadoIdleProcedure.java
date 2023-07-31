@@ -1,6 +1,28 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.registries.ForgeRegistries;
+
+import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.DamageSource;
+import net.minecraft.entity.Entity;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.Block;
+
+import net.mcreator.test.entity.ViolentStormEntityEntity;
+import net.mcreator.test.entity.SandStormEntityEntity;
+import net.mcreator.test.entity.DestertStormEntityEntity;
+import net.mcreator.test.MushokuMod;
+
+import java.util.stream.Collectors;
+import java.util.function.Function;
+import java.util.Map;
+import java.util.List;
+import java.util.Comparator;
 
 public class TornadoIdleProcedure {
 
@@ -25,38 +47,43 @@ public class TornadoIdleProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency z for procedure TornadoIdle!");
 			return;
 		}
-
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure TornadoIdle!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-
+		Entity entity = (Entity) dependencies.get("entity");
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
-							new AxisAlignedBB(x - (50 / 2d), y - (50 / 2d), z - (50 / 2d), x + (50 / 2d), y + (50 / 2d), z + (50 / 2d)), null)
+							new AxisAlignedBB((entity.getPosX()) - (50 / 2d), (entity.getPosY()) - (50 / 2d), (entity.getPosZ()) - (50 / 2d),
+									(entity.getPosX()) + (50 / 2d), (entity.getPosY()) + (50 / 2d), (entity.getPosZ()) + (50 / 2d)),
+							null)
 					.stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 						}
-					}.compareDistOf(x, y, z)).collect(Collectors.toList());
+					}.compareDistOf((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()))).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				if (EntityTypeTags.getCollection().getTagByID(new ResourceLocation("mushoku:destert_storm_entity"))
-						.contains(entityiterator.getType())) {
+				if (entityiterator instanceof DestertStormEntityEntity.CustomEntity) {
+					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.SAND.getDefaultState()));
+					entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 20);
+				}
+				if (entityiterator instanceof SandStormEntityEntity.CustomEntity) {
 					if (!entityiterator.world.isRemote())
 						entityiterator.remove();
 					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.SAND.getDefaultState()));
+					entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 20);
 				}
-				if (EntityTypeTags.getCollection().getTagByID(new ResourceLocation("mushoku:sand_storm_entity")).contains(entityiterator.getType())) {
-					if (!entityiterator.world.isRemote())
-						entityiterator.remove();
-					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.SAND.getDefaultState()));
-				}
-				if (EntityTypeTags.getCollection().getTagByID(new ResourceLocation("mushoku:violent_storm_entity"))
-						.contains(entityiterator.getType())) {
+				if (entityiterator instanceof ViolentStormEntityEntity.CustomEntity) {
 					if (!entityiterator.world.isRemote())
 						entityiterator.remove();
 					world.playEvent(2001, new BlockPos(x, y, z), Block.getStateId(Blocks.QUARTZ_BLOCK.getDefaultState()));
+					entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 20);
 				}
 			}
 		}
@@ -70,5 +97,4 @@ public class TornadoIdleProcedure {
 					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 		}
 	}
-
 }

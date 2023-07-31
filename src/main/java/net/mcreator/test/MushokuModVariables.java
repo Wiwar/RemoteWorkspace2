@@ -76,6 +76,8 @@ public class MushokuModVariables {
 			nbt.putBoolean("FireMagic", instance.FireMagic);
 			nbt.putBoolean("EarthMagic", instance.EarthMagic);
 			nbt.putBoolean("WindMagic", instance.WindMagic);
+			nbt.putDouble("Mana", instance.Mana);
+			nbt.putString("ChantSpell", instance.ChantSpell);
 			return nbt;
 		}
 
@@ -87,6 +89,8 @@ public class MushokuModVariables {
 			instance.FireMagic = nbt.getBoolean("FireMagic");
 			instance.EarthMagic = nbt.getBoolean("EarthMagic");
 			instance.WindMagic = nbt.getBoolean("WindMagic");
+			instance.Mana = nbt.getDouble("Mana");
+			instance.ChantSpell = nbt.getString("ChantSpell");
 		}
 	}
 
@@ -96,6 +100,8 @@ public class MushokuModVariables {
 		public boolean FireMagic = false;
 		public boolean EarthMagic = false;
 		public boolean WindMagic = false;
+		public double Mana = 100.0;
+		public String ChantSpell = "\"\"";
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -136,6 +142,8 @@ public class MushokuModVariables {
 			clone.FireMagic = original.FireMagic;
 			clone.EarthMagic = original.EarthMagic;
 			clone.WindMagic = original.WindMagic;
+			clone.Mana = original.Mana;
+			clone.ChantSpell = original.ChantSpell;
 		}
 	}
 
@@ -166,6 +174,8 @@ public class MushokuModVariables {
 					variables.FireMagic = message.data.FireMagic;
 					variables.EarthMagic = message.data.EarthMagic;
 					variables.WindMagic = message.data.WindMagic;
+					variables.Mana = message.data.Mana;
+					variables.ChantSpell = message.data.ChantSpell;
 				}
 			});
 			context.setPacketHandled(true);

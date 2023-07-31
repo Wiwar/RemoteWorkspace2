@@ -10,10 +10,9 @@ import net.minecraft.world.World;
 import net.minecraft.potion.EffectType;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effect;
-import net.minecraft.entity.ai.attributes.AttributeModifierManager;
 import net.minecraft.entity.LivingEntity;
 
-import net.mcreator.test.procedures.ElectricEffProcedure;
+import net.mcreator.test.procedures.ElectricEfProcedure;
 
 import java.util.stream.Stream;
 import java.util.Map;
@@ -67,40 +66,16 @@ public class ElectricEfEfPotionEffect {
 		}
 
 		@Override
-		public void applyAttributesModifiersToEntity(LivingEntity entity, AttributeModifierManager attributeMapIn, int amplifier) {
-			World world = entity.world;
-			double x = entity.getPosX();
-			double y = entity.getPosY();
-			double z = entity.getPosZ();
-
-			ElectricEffProcedure
-					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
-							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
-
-		@Override
 		public void performEffect(LivingEntity entity, int amplifier) {
 			World world = entity.world;
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
 
-			ElectricEffProcedure
-					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
-							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
-
-		@Override
-		public void removeAttributesModifiersFromEntity(LivingEntity entity, AttributeModifierManager attributeMapIn, int amplifier) {
-			super.removeAttributesModifiersFromEntity(entity, attributeMapIn, amplifier);
-			World world = entity.world;
-			double x = entity.getPosX();
-			double y = entity.getPosY();
-			double z = entity.getPosZ();
-
-			ElectricEffProcedure
-					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
-							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			ElectricEfProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override

@@ -1,6 +1,20 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.RayTraceContext;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
+import net.minecraft.entity.Entity;
+
+import net.mcreator.test.particle.WindParticle;
+import net.mcreator.test.MushokuMod;
+
+import java.util.stream.Collectors;
+import java.util.function.Function;
+import java.util.Map;
+import java.util.List;
+import java.util.Comparator;
 
 public class SonicBlastProcedure {
 
@@ -15,10 +29,8 @@ public class SonicBlastProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure SonicBlast!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
-
 		if (world instanceof ServerWorld) {
 			((ServerWorld) world).spawnParticle(WindParticle.particle,
 					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
@@ -90,9 +102,7 @@ public class SonicBlastProcedure {
 					.collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
 				entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 5);
-
 			}
 		}
 	}
-
 }

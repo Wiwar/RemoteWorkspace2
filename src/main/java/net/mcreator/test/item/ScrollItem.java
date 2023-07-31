@@ -9,12 +9,12 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.item.UseAction;
 import net.minecraft.item.Rarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.block.BlockState;
 
 import net.mcreator.test.procedures.ScrollUseProcedure;
+import net.mcreator.test.itemgroup.MushokuItemGroup;
 import net.mcreator.test.MushokuModElements;
 
 import java.util.stream.Stream;
@@ -38,7 +38,7 @@ public class ScrollItem extends MushokuModElements.ModElement {
 
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
-			super(new Item.Properties().group(ItemGroup.MISC).maxDamage(10).rarity(Rarity.COMMON));
+			super(new Item.Properties().group(MushokuItemGroup.tab).maxDamage(10).rarity(Rarity.COMMON));
 			setRegistryName("scroll");
 		}
 

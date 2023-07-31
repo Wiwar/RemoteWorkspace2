@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.test.MushokuModVariables;
 import net.mcreator.test.MushokuMod;
 
 import java.util.Map;
@@ -71,8 +72,18 @@ public class ManaDispProcedure {
 			}
 
 			private void run() {
-				if (entity.getPersistentData().getDouble("Mana") < entity.getPersistentData().getDouble("MaxMana")) {
-					entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") + 0.1));
+				if ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new MushokuModVariables.PlayerVariables())).Mana < (entity
+								.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new MushokuModVariables.PlayerVariables())).MaxMana) {
+					{
+						double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new MushokuModVariables.PlayerVariables())).Mana + 0.1);
+						entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.Mana = _setval;
+							capability.syncPlayerVariables(entity);
+						});
+					}
 				}
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}

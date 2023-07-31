@@ -13,14 +13,8 @@
     "isBenefitical": true,
     "renderStatusInInventory": true,
     "renderStatusInHUD": true,
-    "onStarted": {
-      "name": "ElectricEff"
-    },
     "onActiveTick": {
-      "name": "ElectricEff"
-    },
-    "onExpired": {
-      "name": "ElectricEff"
+      "name": "ElectricEf"
     }
   }
 }

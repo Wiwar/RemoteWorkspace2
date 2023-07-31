@@ -112,6 +112,22 @@ public class FlameSliceProjItem extends MushokuModElements.ModElement {
 		}
 
 		@Override
+		public void func_230299_a_(BlockRayTraceResult blockRayTraceResult) {
+			super.func_230299_a_(blockRayTraceResult);
+			double x = blockRayTraceResult.getPos().getX();
+			double y = blockRayTraceResult.getPos().getY();
+			double z = blockRayTraceResult.getPos().getZ();
+			World world = this.world;
+			Entity entity = this.func_234616_v_();
+			Entity immediatesourceentity = this;
+
+			FlameSliceProjHitProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
+
+		@Override
 		public void tick() {
 			super.tick();
 			double x = this.getPosX();
@@ -121,6 +137,11 @@ public class FlameSliceProjItem extends MushokuModElements.ModElement {
 			Entity entity = this.func_234616_v_();
 			Entity immediatesourceentity = this;
 			if (this.inGround) {
+
+				FlameSliceProjHitProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				this.remove();
 			}
 		}

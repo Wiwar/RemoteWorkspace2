@@ -19,6 +19,254 @@
           "x": 82,
           "y": 28
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Elementary",
+          "color": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "name": "Elementary",
+          "x": 123,
+          "y": 44
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Fireball",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Fireball",
+          "x": 114,
+          "y": 53
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Heat Hand",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Heat Hand",
+          "x": 114,
+          "y": 62
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Burning Place",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Burning Place",
+          "x": 114,
+          "y": 71
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Intermediate",
+          "color": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "name": "Intermediate",
+          "x": 123,
+          "y": 89
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Explosion",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Explosion",
+          "x": 114,
+          "y": 98
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Flamethrower",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Flamethrower",
+          "x": 114,
+          "y": 107
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Flame Slice",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Flame Slice",
+          "x": 114,
+          "y": 116
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Ex Flame",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Ex Flame",
+          "x": 114,
+          "y": 125
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Advanced",
+          "color": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "name": "Advanced",
+          "x": 258,
+          "y": 44
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Exodus Flame",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Exodus Flame",
+          "x": 249,
+          "y": 53
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Magma Gush",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Magma Gush",
+          "x": 249,
+          "y": 62
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Saint",
+          "color": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "name": "Saint",
+          "x": 258,
+          "y": 80
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Flash Over",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Flash Over",
+          "x": 249,
+          "y": 89
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Mine Field",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Mine Field",
+          "x": 249,
+          "y": 116
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "King",
+          "color": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "name": "King",
+          "x": 258,
+          "y": 107
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Imperial",
+          "color": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "name": "Imperial",
+          "x": 258,
+          "y": 134
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Nuclear Strike",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Nuclear Strike",
+          "x": 249,
+          "y": 143
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "OpenGrim"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 105,
+          "y": 170
+        }
       }
     ],
     "gridSettings": {
@@ -26,7 +274,7 @@
       "sy": 18,
       "ox": 11,
       "oy": 15,
-      "snapOnGrid": false
+      "snapOnGrid": true
     }
   }
 }
