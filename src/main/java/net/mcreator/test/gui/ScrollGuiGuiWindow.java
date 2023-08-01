@@ -10,9 +10,12 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
+
+import net.mcreator.test.MushokuMod;
 
 import java.util.HashMap;
 
@@ -38,6 +41,8 @@ public class ScrollGuiGuiWindow extends ContainerScreen<ScrollGuiGui.GuiContaine
 		this.ySize = 166;
 	}
 
+	private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/scroll_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);
@@ -51,13 +56,10 @@ public class ScrollGuiGuiWindow extends ContainerScreen<ScrollGuiGui.GuiContaine
 		RenderSystem.color4f(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-
-		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("mushoku:textures/pngwing.com.png"));
-		this.blit(ms, this.guiLeft + -26, this.guiTop + -32, 0, 0, 250, 250, 250, 250);
-
-		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("mushoku:textures/slot.png"));
-		this.blit(ms, this.guiLeft + 71, this.guiTop + 97, 0, 0, 21, 21, 21, 21);
-
+		Minecraft.getInstance().getTextureManager().bindTexture(texture);
+		int k = (this.width - this.xSize) / 2;
+		int l = (this.height - this.ySize) / 2;
+		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
 		RenderSystem.disableBlend();
 	}
 
@@ -92,7 +94,7 @@ public class ScrollGuiGuiWindow extends ContainerScreen<ScrollGuiGui.GuiContaine
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-		ScrollInscribtion = new TextFieldWidget(this.font, this.guiLeft + 24, this.guiTop + 43, 120, 20, new StringTextComponent("Inscribe Scroll")) {
+		ScrollInscribtion = new TextFieldWidget(this.font, this.guiLeft + 27, this.guiTop + 16, 120, 20, new StringTextComponent("Inscribe Scroll")) {
 			{
 				setSuggestion("Inscribe Scroll");
 			}
@@ -118,5 +120,11 @@ public class ScrollGuiGuiWindow extends ContainerScreen<ScrollGuiGui.GuiContaine
 		guistate.put("text:ScrollInscribtion", ScrollInscribtion);
 		ScrollInscribtion.setMaxStringLength(32767);
 		this.children.add(this.ScrollInscribtion);
+		this.addButton(new Button(this.guiLeft + 79, this.guiTop + 48, 67, 20, new StringTextComponent("Inscribe"), e -> {
+			if (true) {
+				MushokuMod.PACKET_HANDLER.sendToServer(new ScrollGuiGui.ButtonPressedMessage(0, x, y, z));
+				ScrollGuiGui.handleButtonAction(entity, 0, x, y, z);
+			}
+		}));
 	}
 }

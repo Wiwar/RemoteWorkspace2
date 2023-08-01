@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  2",
+    " 4 ",
+    "6  "
+  ],
+  "key": {
+    "2": {
+      "item": "mushoku:advanced_stone"
+    },
+    "4": {
+      "item": "minecraft:quartz_block"
+    },
+    "6": {
+      "item": "minecraft:quartz_block"
+    }
+  },
+  "result": {
+    "item": "mushoku:migurd_staff",
+    "count": 1
+  }
+}

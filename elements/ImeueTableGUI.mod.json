@@ -11,17 +11,6 @@
     "doesPauseGame": false,
     "components": [
       {
-        "type": "textfield",
-        "data": {
-          "placeholder": "Inscribe Circle",
-          "width": 120,
-          "height": 20,
-          "name": "Circle",
-          "x": 153,
-          "y": 51
-        }
-      },
-      {
         "type": "inputslot",
         "data": {
           "inputLimit": {
@@ -31,22 +20,33 @@
           "disableStackInteraction": false,
           "dropItemsWhenNotBound": true,
           "name": "Slot #1",
-          "x": 167,
-          "y": 85
+          "x": 154,
+          "y": 82
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "Imbue Staff",
+          "width": 120,
+          "height": 20,
+          "name": "ImbueStaff",
+          "x": 152,
+          "y": 49
         }
       },
       {
         "type": "button",
         "data": {
-          "text": "Inscribe",
+          "text": "Imbue",
           "onClick": {
-            "name": "MagicCircleInscribe"
+            "name": "StaffImbue"
           },
-          "width": 67,
+          "width": 51,
           "height": 20,
-          "name": "Inscribe",
-          "x": 205,
-          "y": 84
+          "name": "Imbue",
+          "x": 218,
+          "y": 81
         }
       }
     ],

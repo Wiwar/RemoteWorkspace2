@@ -2,13 +2,13 @@
   "_fv": 28,
   "_type": "loottable",
   "definition": {
-    "type": "Entity",
+    "type": "Block",
     "pools": [
       {
         "minrolls": 1,
         "maxrolls": 1,
-        "minbonusrolls": 0,
-        "maxbonusrolls": 0,
+        "minbonusrolls": 1,
+        "maxbonusrolls": 1,
         "hasbonusrolls": false,
         "entries": [
           {
@@ -17,11 +17,11 @@
               "value": "CUSTOM:ElementaryStone"
             },
             "weight": 600,
-            "minCount": 0,
+            "minCount": 1,
             "maxCount": 1,
             "minEnchantmentLevel": 0,
             "maxEnchantmentLevel": 0,
-            "affectedByFortune": false,
+            "affectedByFortune": true,
             "explosionDecay": false,
             "silkTouchMode": 0
           },
@@ -35,7 +35,7 @@
             "maxCount": 1,
             "minEnchantmentLevel": 0,
             "maxEnchantmentLevel": 0,
-            "affectedByFortune": false,
+            "affectedByFortune": true,
             "explosionDecay": false,
             "silkTouchMode": 0
           },
@@ -44,19 +44,33 @@
             "item": {
               "value": "CUSTOM:AdvancedStone"
             },
-            "weight": 180,
-            "minCount": 1,
+            "weight": 400,
+            "minCount": 0,
             "maxCount": 1,
             "minEnchantmentLevel": 0,
             "maxEnchantmentLevel": 0,
-            "affectedByFortune": false,
+            "affectedByFortune": true,
+            "explosionDecay": false,
+            "silkTouchMode": 0
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:SaintStone"
+            },
+            "weight": 100,
+            "minCount": 0,
+            "maxCount": 1,
+            "minEnchantmentLevel": 0,
+            "maxEnchantmentLevel": 0,
+            "affectedByFortune": true,
             "explosionDecay": false,
             "silkTouchMode": 0
           }
         ]
       }
     ],
-    "name": "entities/witch",
+    "name": "blocks/magic_stone_ore",
     "namespace": "mod"
   }
 }

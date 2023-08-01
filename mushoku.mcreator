@@ -3572,6 +3572,205 @@
         "dependencies": []
       },
       "path": "~/Magic/Anti Magic"
+    },
+    {
+      "name": "GrimoireRecipe",
+      "type": "recipe",
+      "sortid": 180,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grimoire_recipe",
+      "path": "~/Items/Books/Grimoire"
+    },
+    {
+      "name": "MagicStoneOre",
+      "type": "block",
+      "sortid": 192,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "magic_stone_ore",
+      "path": "~/Items/MagicStone"
+    },
+    {
+      "name": "Wand",
+      "type": "tool",
+      "sortid": 187,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wand",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "MigurdStaff",
+      "type": "tool",
+      "sortid": 183,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "migurd_staff",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "ChantTest",
+      "type": "procedure",
+      "sortid": 179,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chant_test",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Magic/Water Magic/Elementary/Waterball"
+    },
+    {
+      "name": "StaffImbue",
+      "type": "procedure",
+      "sortid": 186,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "staff_imbue",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "ImbueingTable",
+      "type": "block",
+      "sortid": 184,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "imbueing_table",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "MagicStoneOreLoottable",
+      "type": "loottable",
+      "sortid": 193,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "magic_stone_ore_loottable",
+      "path": "~/Items/MagicStone"
+    },
+    {
+      "name": "OpenImbueGUI",
+      "type": "procedure",
+      "sortid": 185,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_imbue_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "WandRecipe",
+      "type": "recipe",
+      "sortid": 187,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wand_recipe",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "AquaHeartiaRecipe",
+      "type": "recipe",
+      "sortid": 189,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aqua_heartia_recipe",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "ImeueTableGUI",
+      "type": "gui",
+      "sortid": 184,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "imeue_table_gui",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "AquaHeartia",
+      "type": "tool",
+      "sortid": 188,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aqua_heartia",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "MigurdStaffRecipe",
+      "type": "recipe",
+      "sortid": 190,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "migurd_staff_recipe",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "ImbueTableRecipe",
+      "type": "recipe",
+      "sortid": 191,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "imbue_table_recipe",
+      "path": "~/Items/Staffs and Wands"
     }
   ],
   "variable_elements": [
@@ -3675,6 +3874,7 @@
       "entity.mushoku.mine_field_entity": "Mine Field Entity",
       "item.mushoku.saint_stone": "Saint Stone",
       "effect.flamethrower_ef": "Flamethrower",
+      "block.mushoku.imbueing_table": "Imbueing Table",
       "item.mushoku.earth_ground_spike_spawn_egg": "Earth Ground Spike Spawn Egg",
       "item.mushoku.flame_slice_proj": "Flame Slice Proj",
       "item.mushoku.tornado_impact_proj": "Tornado Impact Proj",
@@ -3691,21 +3891,17 @@
     "name": "~",
     "children": [
       {
-        "name": "Incantations",
-        "children": []
-      },
-      {
-        "name": "Mana",
-        "children": []
-      },
-      {
         "name": "Items",
         "children": [
+          {
+            "name": "MagicStone",
+            "children": []
+          },
           {
             "name": "Books",
             "children": [
               {
-                "name": "Scroll",
+                "name": "FireTome",
                 "children": []
               },
               {
@@ -3713,11 +3909,11 @@
                 "children": []
               },
               {
-                "name": "WaterTome",
+                "name": "Scroll",
                 "children": []
               },
               {
-                "name": "EarthTome",
+                "name": "WaterTome",
                 "children": []
               },
               {
@@ -3725,13 +3921,13 @@
                 "children": []
               },
               {
-                "name": "FireTome",
+                "name": "EarthTome",
                 "children": []
               }
             ]
           },
           {
-            "name": "MagicStone",
+            "name": "Staffs and Wands",
             "children": []
           },
           {
@@ -3744,128 +3940,17 @@
         "name": "Magic",
         "children": [
           {
-            "name": "Water Magic",
-            "children": [
-              {
-                "name": "Elementary",
-                "children": [
-                  {
-                    "name": "Ice Blade",
-                    "children": []
-                  },
-                  {
-                    "name": "Water Arrow",
-                    "children": []
-                  },
-                  {
-                    "name": "Ice Smash",
-                    "children": []
-                  },
-                  {
-                    "name": "Waterball",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "name": "Intermediate",
-                "children": [
-                  {
-                    "name": "Ice Pillar",
-                    "children": []
-                  },
-                  {
-                    "name": "Water Cannon",
-                    "children": []
-                  },
-                  {
-                    "name": "Icicle Lance",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "name": "Advanced",
-                "children": [
-                  {
-                    "name": "BlizzardStorm",
-                    "children": []
-                  },
-                  {
-                    "name": "Squall",
-                    "children": []
-                  },
-                  {
-                    "name": "Ice Fortress",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "name": "Saint",
-                "children": []
-              },
-              {
-                "name": "King",
-                "children": []
-              },
-              {
-                "name": "Imperial",
-                "children": [
-                  {
-                    "name": "Absolute Zero",
-                    "children": []
-                  },
-                  {
-                    "name": "Electric",
-                    "children": []
-                  }
-                ]
-              }
-            ]
+            "name": "Anti Magic",
+            "children": []
           },
           {
             "name": "Earth Magic",
             "children": [
               {
-                "name": "Elememtary",
-                "children": [
-                  {
-                    "name": "Rock Bullet",
-                    "children": []
-                  },
-                  {
-                    "name": "Earth Blade",
-                    "children": []
-                  },
-                  {
-                    "name": "Dig",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "name": "Intermediate",
-                "children": [
-                  {
-                    "name": "Stone Cannon",
-                    "children": []
-                  },
-                  {
-                    "name": "EarthPillar",
-                    "children": []
-                  },
-                  {
-                    "name": "Earth Lance",
-                    "children": []
-                  }
-                ]
-              },
-              {
                 "name": "Advanced",
                 "children": [
                   {
-                    "name": "Earth Fortress",
+                    "name": "Earth Hedgehog",
                     "children": []
                   },
                   {
@@ -3873,16 +3958,7 @@
                     "children": []
                   },
                   {
-                    "name": "Earth Hedgehog",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "name": "Saint",
-                "children": [
-                  {
-                    "name": "SandStorm",
+                    "name": "Earth Fortress",
                     "children": []
                   }
                 ]
@@ -3897,14 +3973,93 @@
                 ]
               },
               {
-                "name": "Imperial",
+                "name": "Elememtary",
                 "children": [
                   {
-                    "name": "Mountian",
+                    "name": "Earth Blade",
                     "children": []
                   },
                   {
+                    "name": "Dig",
+                    "children": []
+                  },
+                  {
+                    "name": "Rock Bullet",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Intermediate",
+                "children": [
+                  {
+                    "name": "Earth Lance",
+                    "children": []
+                  },
+                  {
+                    "name": "Stone Cannon",
+                    "children": []
+                  },
+                  {
+                    "name": "EarthPillar",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Saint",
+                "children": [
+                  {
+                    "name": "SandStorm",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Imperial",
+                "children": [
+                  {
                     "name": "Earth Drill",
+                    "children": []
+                  },
+                  {
+                    "name": "Mountian",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Healing Magic",
+            "children": [
+              {
+                "name": "Elementary",
+                "children": [
+                  {
+                    "name": "Healing",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Advanced",
+                "children": [
+                  {
+                    "name": "Shine Healing",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "intermediate",
+                "children": [
+                  {
+                    "name": "X Healing",
+                    "children": []
+                  },
+                  {
+                    "name": "Feast",
                     "children": []
                   }
                 ]
@@ -3914,23 +4069,6 @@
           {
             "name": "Fire Magic",
             "children": [
-              {
-                "name": "Elemenrary",
-                "children": [
-                  {
-                    "name": "Fire Ball",
-                    "children": []
-                  },
-                  {
-                    "name": "Heat Hand",
-                    "children": []
-                  },
-                  {
-                    "name": "Burning Place",
-                    "children": []
-                  }
-                ]
-              },
               {
                 "name": "Intermediate",
                 "children": [
@@ -3956,11 +4094,11 @@
                 "name": "Advanced",
                 "children": [
                   {
-                    "name": "Exodus Flame",
+                    "name": "Magma Gush",
                     "children": []
                   },
                   {
-                    "name": "Magma Gush",
+                    "name": "Exodus Flame",
                     "children": []
                   }
                 ]
@@ -3981,6 +4119,104 @@
               {
                 "name": "Imeperial",
                 "children": []
+              },
+              {
+                "name": "Elemenrary",
+                "children": [
+                  {
+                    "name": "Fire Ball",
+                    "children": []
+                  },
+                  {
+                    "name": "Burning Place",
+                    "children": []
+                  },
+                  {
+                    "name": "Heat Hand",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Water Magic",
+            "children": [
+              {
+                "name": "King",
+                "children": []
+              },
+              {
+                "name": "Intermediate",
+                "children": [
+                  {
+                    "name": "Ice Pillar",
+                    "children": []
+                  },
+                  {
+                    "name": "Water Cannon",
+                    "children": []
+                  },
+                  {
+                    "name": "Icicle Lance",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Imperial",
+                "children": [
+                  {
+                    "name": "Absolute Zero",
+                    "children": []
+                  },
+                  {
+                    "name": "Electric",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Saint",
+                "children": []
+              },
+              {
+                "name": "Elementary",
+                "children": [
+                  {
+                    "name": "Ice Smash",
+                    "children": []
+                  },
+                  {
+                    "name": "Waterball",
+                    "children": []
+                  },
+                  {
+                    "name": "Water Arrow",
+                    "children": []
+                  },
+                  {
+                    "name": "Ice Blade",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Advanced",
+                "children": [
+                  {
+                    "name": "BlizzardStorm",
+                    "children": []
+                  },
+                  {
+                    "name": "Ice Fortress",
+                    "children": []
+                  },
+                  {
+                    "name": "Squall",
+                    "children": []
+                  }
+                ]
               }
             ]
           },
@@ -3988,27 +4224,18 @@
             "name": "Wind Magic",
             "children": [
               {
-                "name": "Elementary",
-                "children": [
-                  {
-                    "name": "Blast",
-                    "children": []
-                  },
-                  {
-                    "name": "Push",
-                    "children": []
-                  },
-                  {
-                    "name": "Pull",
-                    "children": []
-                  }
-                ]
+                "name": "Imperial",
+                "children": []
+              },
+              {
+                "name": "King",
+                "children": []
               },
               {
                 "name": "Intermediate",
                 "children": [
                   {
-                    "name": "Wind Blast",
+                    "name": "Sonic Boom",
                     "children": []
                   },
                   {
@@ -4020,7 +4247,7 @@
                     "children": []
                   },
                   {
-                    "name": "Sonic Boom",
+                    "name": "Wind Blast",
                     "children": []
                   }
                 ]
@@ -4043,6 +4270,23 @@
                 ]
               },
               {
+                "name": "Elementary",
+                "children": [
+                  {
+                    "name": "Blast",
+                    "children": []
+                  },
+                  {
+                    "name": "Push",
+                    "children": []
+                  },
+                  {
+                    "name": "Pull",
+                    "children": []
+                  }
+                ]
+              },
+              {
                 "name": "Saint",
                 "children": [
                   {
@@ -4050,58 +4294,18 @@
                     "children": []
                   }
                 ]
-              },
-              {
-                "name": "King",
-                "children": []
-              },
-              {
-                "name": "Imperial",
-                "children": []
               }
             ]
-          },
-          {
-            "name": "Healing Magic",
-            "children": [
-              {
-                "name": "Elementary",
-                "children": [
-                  {
-                    "name": "Healing",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "name": "intermediate",
-                "children": [
-                  {
-                    "name": "X Healing",
-                    "children": []
-                  },
-                  {
-                    "name": "Feast",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "name": "Advanced",
-                "children": [
-                  {
-                    "name": "Shine Healing",
-                    "children": []
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Anti Magic",
-            "children": []
           }
         ]
+      },
+      {
+        "name": "Mana",
+        "children": []
+      },
+      {
+        "name": "Incantations",
+        "children": []
       }
     ]
   },

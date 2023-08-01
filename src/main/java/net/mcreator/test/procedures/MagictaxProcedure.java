@@ -1,10 +1,11 @@
 package net.mcreator.test.procedures;
 
-import java.util.Map;
+import net.minecraftforge.eventbus.api.Event;
 
 public class MagictaxProcedure {
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 
 	}
+
 }
