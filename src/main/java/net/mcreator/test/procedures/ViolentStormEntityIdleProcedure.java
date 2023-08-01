@@ -5,7 +5,10 @@ import net.minecraft.world.IWorld;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
+import net.minecraft.potion.Effects;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.test.MushokuMod;
@@ -32,6 +35,8 @@ public class ViolentStormEntityIdleProcedure {
 		}
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
+		if (entity instanceof LivingEntity)
+			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.INVISIBILITY, (int) 60, (int) 1, (false), (false)));
 		entity.getPersistentData().putDouble("ViolentStormX", (MathHelper.nextInt(new Random(), -20, 20)));
 		entity.getPersistentData().putDouble("ViolentStormY", (MathHelper.nextInt(new Random(), -20, 20)));
 		entity.getPersistentData().putDouble("ViolentStormZ", (MathHelper.nextInt(new Random(), -20, 20)));

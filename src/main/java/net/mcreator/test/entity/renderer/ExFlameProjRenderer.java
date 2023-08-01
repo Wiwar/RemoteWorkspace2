@@ -35,7 +35,7 @@ public class ExFlameProjRenderer {
 
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<ExFlameProjItem.ArrowCustomEntity> {
-		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/big_fire_orb.png");
+		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/entities/big_fire_orb.png");
 
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);

@@ -1,10 +1,10 @@
 {
-  "_fv": 28,
+  "_fv": 34,
   "_type": "tool",
   "definition": {
-    "renderType": 0,
-    "texture": "aquaheartiaplaceholder",
-    "customModelName": "Normal",
+    "renderType": 1,
+    "texture": "aquaheartia",
+    "customModelName": "staff:default",
     "name": "Aqua Heartia",
     "specialInfo": [],
     "creativeTab": {

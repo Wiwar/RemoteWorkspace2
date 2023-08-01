@@ -149,9 +149,8 @@ public class PushProjItem extends MushokuModElements.ModElement {
 
 			PushProjEfProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-			if (this.inGround) {
+			if (this.inGround)
 				this.remove();
-			}
 		}
 	}
 

@@ -25,7 +25,7 @@ public class MineFieldEntityRenderer {
 
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
-							return new ResourceLocation("mushoku:textures/big_fire_orb.png");
+							return new ResourceLocation("mushoku:textures/entities/big_fire_orb.png");
 						}
 					});
 		}

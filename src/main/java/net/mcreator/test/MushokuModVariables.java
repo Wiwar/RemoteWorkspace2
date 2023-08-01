@@ -78,6 +78,8 @@ public class MushokuModVariables {
 			nbt.putBoolean("WindMagic", instance.WindMagic);
 			nbt.putDouble("Mana", instance.Mana);
 			nbt.putString("ChantSpell", instance.ChantSpell);
+			nbt.putString("Swordsman", instance.Swordsman);
+			nbt.putString("StyleAffinity", instance.StyleAffinity);
 			return nbt;
 		}
 
@@ -91,6 +93,8 @@ public class MushokuModVariables {
 			instance.WindMagic = nbt.getBoolean("WindMagic");
 			instance.Mana = nbt.getDouble("Mana");
 			instance.ChantSpell = nbt.getString("ChantSpell");
+			instance.Swordsman = nbt.getString("Swordsman");
+			instance.StyleAffinity = nbt.getString("StyleAffinity");
 		}
 	}
 
@@ -102,6 +106,8 @@ public class MushokuModVariables {
 		public boolean WindMagic = false;
 		public double Mana = 100.0;
 		public String ChantSpell = "\"\"";
+		public String Swordsman = "None";
+		public String StyleAffinity = "\"\"";
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -143,6 +149,8 @@ public class MushokuModVariables {
 		clone.WindMagic = original.WindMagic;
 		clone.Mana = original.Mana;
 		clone.ChantSpell = original.ChantSpell;
+		clone.Swordsman = original.Swordsman;
+		clone.StyleAffinity = original.StyleAffinity;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -176,6 +184,8 @@ public class MushokuModVariables {
 					variables.WindMagic = message.data.WindMagic;
 					variables.Mana = message.data.Mana;
 					variables.ChantSpell = message.data.ChantSpell;
+					variables.Swordsman = message.data.Swordsman;
+					variables.StyleAffinity = message.data.StyleAffinity;
 				}
 			});
 			context.setPacketHandled(true);

@@ -473,18 +473,6 @@
             "type": "entity"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -1158,10 +1146,6 @@
       "registry_name": "earth_lance",
       "metadata": {
         "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
           {
             "name": "x",
             "type": "number"
@@ -3027,18 +3011,6 @@
             "type": "entity"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -3759,6 +3731,170 @@
       "locked_code": false,
       "registry_name": "magic_stone_ore_loottable",
       "path": "~/Items/MagicStone"
+    },
+    {
+      "name": "ClassPickerGUI",
+      "type": "gui",
+      "sortid": 194,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "class_picker_gui",
+      "path": "~/ClassPick"
+    },
+    {
+      "name": "ClassPick",
+      "type": "procedure",
+      "sortid": 194,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "class_pick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/ClassPick"
+    },
+    {
+      "name": "SorcererPick",
+      "type": "procedure",
+      "sortid": 195,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sorcerer_pick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/ClassPick"
+    },
+    {
+      "name": "SwordsmanPick",
+      "type": "procedure",
+      "sortid": 196,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "swordsman_pick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/ClassPick"
+    },
+    {
+      "name": "SwordStyleInitialPick",
+      "type": "gui",
+      "sortid": 197,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sword_style_initial_pick",
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "SwordGodAffinityPick",
+      "type": "procedure",
+      "sortid": 198,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sword_god_affinity_pick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "WaterGodAffinityPick",
+      "type": "procedure",
+      "sortid": 199,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_god_affinity_pick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "NorthGodAffinity",
+      "type": "procedure",
+      "sortid": 200,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "north_god_affinity",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "SwordGodPassive",
+      "type": "procedure",
+      "sortid": 201,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sword_god_passive",
+      "metadata": {
+        "dependencies": []
+      },
+      "path": "~/Sword Techniques/SwordGodStyle"
     }
   ],
   "variable_elements": [
@@ -3800,6 +3936,18 @@
     },
     {
       "name": "ChantSpell",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "Swordsman",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "None"
+    },
+    {
+      "name": "StyleAffinity",
       "type": "string",
       "scope": "player_persistent",
       "value": "\"\""
@@ -4294,6 +4442,31 @@
             ]
           }
         ]
+      },
+      {
+        "name": "Sword Techniques",
+        "children": [
+          {
+            "name": "SwordGodStyle",
+            "children": []
+          },
+          {
+            "name": "WaterGodStyle",
+            "children": []
+          },
+          {
+            "name": "NorthGodStyle",
+            "children": []
+          },
+          {
+            "name": "SwordsmenMenu",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "ClassPick",
+        "children": []
       }
     ]
   },
@@ -4315,5 +4488,5 @@
     "modElementsPackage": "net.mcreator.test",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202200120510
+  "mcreatorVersion": 202200348217
 }

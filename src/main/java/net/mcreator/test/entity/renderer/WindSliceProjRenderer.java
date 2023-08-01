@@ -35,7 +35,7 @@ public class WindSliceProjRenderer {
 
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<WindSliceProjItem.ArrowCustomEntity> {
-		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/windslice.png");
+		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/entities/windslice.png");
 
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);

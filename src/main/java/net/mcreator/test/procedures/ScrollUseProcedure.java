@@ -1273,26 +1273,6 @@ public class ScrollUseProcedure {
 					}
 				}
 			}
-			if (true) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).closeScreen();
-				{
-					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 5);
-					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.MaxMana = _setval;
-						capability.syncPlayerVariables(entity);
-					});
-				}
-				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
-				{
-					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
-					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
-						_ist.shrink(1);
-						_ist.setDamage(0);
-					}
-				}
-			}
 			if ((((((Entity) world
 					.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -1784,7 +1764,7 @@ public class ScrollUseProcedure {
 						return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new MushokuModVariables.PlayerVariables())).MaxMana > 80) {
+				.orElse(new MushokuModVariables.PlayerVariables())).Mana > 80) {
 			if ((((((Entity) world
 					.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -2968,8 +2948,9 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-				EarthLanceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
-						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+				EarthLanceProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
 					ItemStack _ist = ((((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
@@ -3608,7 +3589,7 @@ public class ScrollUseProcedure {
 						return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new MushokuModVariables.PlayerVariables())).MaxMana > 200) {
+				.orElse(new MushokuModVariables.PlayerVariables())).Mana > 200) {
 			if ((((((Entity) world
 					.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3651,7 +3632,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -3681,7 +3662,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -3772,7 +3753,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -3802,7 +3783,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -3894,7 +3875,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -3924,7 +3905,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4015,7 +3996,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4045,7 +4026,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4138,7 +4119,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4168,7 +4149,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4259,7 +4240,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4289,7 +4270,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4380,7 +4361,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4410,7 +4391,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4500,7 +4481,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4530,7 +4511,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4620,7 +4601,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4650,7 +4631,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4743,7 +4724,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4773,7 +4754,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4864,7 +4845,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4894,7 +4875,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4985,7 +4966,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5015,7 +4996,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5116,7 +5097,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5146,7 +5127,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 400);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5237,7 +5218,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5267,7 +5248,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 400);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5358,7 +5339,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5388,7 +5369,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 400);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5479,7 +5460,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5509,7 +5490,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 400);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5611,7 +5592,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5732,7 +5713,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5853,7 +5834,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5974,7 +5955,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -6063,7 +6044,7 @@ public class ScrollUseProcedure {
 						return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new MushokuModVariables.PlayerVariables())).MaxMana > 1600) {
+				.orElse(new MushokuModVariables.PlayerVariables())).Mana > 1600) {
 			if ((((((Entity) world
 					.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -6106,7 +6087,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 30);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -6228,7 +6209,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 30);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -6348,7 +6329,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 30);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -6469,7 +6450,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 30);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -6712,7 +6693,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 30);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {

@@ -52,7 +52,7 @@ public class EarthMagicGUIGuiWindow extends ContainerScreen<EarthMagicGUIGui.Gui
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 
-		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("mushoku:textures/bookback.png"));
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("mushoku:textures/screens/bookback.png"));
 		this.blit(ms, this.guiLeft + -38, this.guiTop + -11, 0, 0, 271, 180, 271, 180);
 
 		RenderSystem.disableBlend();

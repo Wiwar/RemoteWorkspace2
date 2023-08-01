@@ -12,13 +12,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.test.item.IcicleLanceProjItem;
 import net.mcreator.test.MushokuMod;
 
-import java.util.Random;
 import java.util.Map;
 
 public class BlizardStormProcedure {
@@ -79,10 +79,24 @@ public class BlizardStormProcedure {
 			}
 
 			private void run() {
-				if (entity instanceof LivingEntity) {
-					LivingEntity _ent = (LivingEntity) entity;
-					if (!_ent.world.isRemote()) {
-						IcicleLanceProjItem.shoot(_ent.world, _ent, new Random(), 2, 5, 5);
+				{
+					Entity _shootFrom = entity;
+					World projectileLevel = _shootFrom.world;
+					if (!projectileLevel.isRemote()) {
+						ProjectileEntity _entityToSpawn = new Object() {
+							public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
+								AbstractArrowEntity entityToSpawn = new IcicleLanceProjItem.ArrowCustomEntity(IcicleLanceProjItem.arrow, world);
+								entityToSpawn.setShooter(shooter);
+								entityToSpawn.setDamage(damage);
+								entityToSpawn.setKnockbackStrength(knockback);
+								entityToSpawn.setSilent(true);
+
+								return entityToSpawn;
+							}
+						}.getArrow(projectileLevel, entity, 5, 5);
+						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 2, 0);
+						projectileLevel.addEntity(_entityToSpawn);
 					}
 				}
 				if (world instanceof World && !world.isRemote()) {
@@ -122,10 +136,24 @@ public class BlizardStormProcedure {
 			}
 
 			private void run() {
-				if (entity instanceof LivingEntity) {
-					LivingEntity _ent = (LivingEntity) entity;
-					if (!_ent.world.isRemote()) {
-						IcicleLanceProjItem.shoot(_ent.world, _ent, new Random(), 2, 5, 5);
+				{
+					Entity _shootFrom = entity;
+					World projectileLevel = _shootFrom.world;
+					if (!projectileLevel.isRemote()) {
+						ProjectileEntity _entityToSpawn = new Object() {
+							public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
+								AbstractArrowEntity entityToSpawn = new IcicleLanceProjItem.ArrowCustomEntity(IcicleLanceProjItem.arrow, world);
+								entityToSpawn.setShooter(shooter);
+								entityToSpawn.setDamage(damage);
+								entityToSpawn.setKnockbackStrength(knockback);
+								entityToSpawn.setSilent(true);
+
+								return entityToSpawn;
+							}
+						}.getArrow(projectileLevel, entity, 5, 5);
+						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 2, 0);
+						projectileLevel.addEntity(_entityToSpawn);
 					}
 				}
 				if (world instanceof World && !world.isRemote()) {
@@ -165,10 +193,24 @@ public class BlizardStormProcedure {
 			}
 
 			private void run() {
-				if (entity instanceof LivingEntity) {
-					LivingEntity _ent = (LivingEntity) entity;
-					if (!_ent.world.isRemote()) {
-						IcicleLanceProjItem.shoot(_ent.world, _ent, new Random(), 2, 5, 5);
+				{
+					Entity _shootFrom = entity;
+					World projectileLevel = _shootFrom.world;
+					if (!projectileLevel.isRemote()) {
+						ProjectileEntity _entityToSpawn = new Object() {
+							public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
+								AbstractArrowEntity entityToSpawn = new IcicleLanceProjItem.ArrowCustomEntity(IcicleLanceProjItem.arrow, world);
+								entityToSpawn.setShooter(shooter);
+								entityToSpawn.setDamage(damage);
+								entityToSpawn.setKnockbackStrength(knockback);
+								entityToSpawn.setSilent(true);
+
+								return entityToSpawn;
+							}
+						}.getArrow(projectileLevel, entity, 5, 5);
+						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 2, 0);
+						projectileLevel.addEntity(_entityToSpawn);
 					}
 				}
 				if (world instanceof World && !world.isRemote()) {
@@ -208,10 +250,24 @@ public class BlizardStormProcedure {
 			}
 
 			private void run() {
-				if (entity instanceof LivingEntity) {
-					LivingEntity _ent = (LivingEntity) entity;
-					if (!_ent.world.isRemote()) {
-						IcicleLanceProjItem.shoot(_ent.world, _ent, new Random(), 2, 5, 5);
+				{
+					Entity _shootFrom = entity;
+					World projectileLevel = _shootFrom.world;
+					if (!projectileLevel.isRemote()) {
+						ProjectileEntity _entityToSpawn = new Object() {
+							public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
+								AbstractArrowEntity entityToSpawn = new IcicleLanceProjItem.ArrowCustomEntity(IcicleLanceProjItem.arrow, world);
+								entityToSpawn.setShooter(shooter);
+								entityToSpawn.setDamage(damage);
+								entityToSpawn.setKnockbackStrength(knockback);
+								entityToSpawn.setSilent(true);
+
+								return entityToSpawn;
+							}
+						}.getArrow(projectileLevel, entity, 5, 5);
+						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 2, 0);
+						projectileLevel.addEntity(_entityToSpawn);
 					}
 				}
 				if (world instanceof World && !world.isRemote()) {

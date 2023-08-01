@@ -1,15 +1,16 @@
 package net.mcreator.test.procedures;
 
 import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.test.item.FlameSliceProjItem;
 import net.mcreator.test.MushokuMod;
 
-import java.util.Random;
 import java.util.Map;
 
 public class FlameSliceProcedure {
@@ -45,10 +46,24 @@ public class FlameSliceProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		if (entity instanceof LivingEntity) {
-			LivingEntity _ent = (LivingEntity) entity;
-			if (!_ent.world.isRemote()) {
-				FlameSliceProjItem.shoot(_ent.world, _ent, new Random(), 3, 3, 2);
+		{
+			Entity _shootFrom = entity;
+			World projectileLevel = _shootFrom.world;
+			if (!projectileLevel.isRemote()) {
+				ProjectileEntity _entityToSpawn = new Object() {
+					public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
+						AbstractArrowEntity entityToSpawn = new FlameSliceProjItem.ArrowCustomEntity(FlameSliceProjItem.arrow, world);
+						entityToSpawn.setShooter(shooter);
+						entityToSpawn.setDamage(damage);
+						entityToSpawn.setKnockbackStrength(knockback);
+						entityToSpawn.setSilent(true);
+
+						return entityToSpawn;
+					}
+				}.getArrow(projectileLevel, entity, 3, 2);
+				_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+				_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 3, 0);
+				projectileLevel.addEntity(_entityToSpawn);
 			}
 		}
 		if (world instanceof ServerWorld) {

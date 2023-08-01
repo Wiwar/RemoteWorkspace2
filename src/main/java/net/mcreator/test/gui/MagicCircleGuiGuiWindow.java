@@ -41,7 +41,7 @@ public class MagicCircleGuiGuiWindow extends ContainerScreen<MagicCircleGuiGui.G
 		this.ySize = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/magic_circle_gui.png");
+	private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/screens/magic_circle_gui.png");
 
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {

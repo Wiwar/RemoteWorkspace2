@@ -1,6 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "mushoku:custom/staff",
   "textures": {
-    "layer0": "mushoku:items/aquaheartiaplaceholder"
+    "0": "mushoku:blocks/aquaheartia",
+    "particle": "mushoku:items/aquaheartia"
   }
 }

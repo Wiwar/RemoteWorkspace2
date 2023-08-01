@@ -29,7 +29,7 @@ public class WaterballEntityRenderer {
 
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
-						return new ResourceLocation("mushoku:textures/waterball3.png");
+						return new ResourceLocation("mushoku:textures/entities/waterball3.png");
 					}
 				};
 			});

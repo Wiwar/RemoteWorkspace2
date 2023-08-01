@@ -29,7 +29,7 @@ public class EarthGroundSpikeRenderer {
 
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
-						return new ResourceLocation("mushoku:textures/stone_cannon.png");
+						return new ResourceLocation("mushoku:textures/entities/stone_cannon.png");
 					}
 				};
 			});

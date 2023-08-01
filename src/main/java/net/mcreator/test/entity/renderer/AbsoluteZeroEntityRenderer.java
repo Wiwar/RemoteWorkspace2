@@ -25,7 +25,7 @@ public class AbsoluteZeroEntityRenderer {
 
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
-							return new ResourceLocation("mushoku:textures/waterball2.png");
+							return new ResourceLocation("mushoku:textures/entities/waterball2.png");
 						}
 					});
 		}

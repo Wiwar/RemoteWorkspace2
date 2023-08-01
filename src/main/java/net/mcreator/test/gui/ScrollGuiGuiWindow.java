@@ -41,7 +41,7 @@ public class ScrollGuiGuiWindow extends ContainerScreen<ScrollGuiGui.GuiContaine
 		this.ySize = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/scroll_gui.png");
+	private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/screens/scroll_gui.png");
 
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
