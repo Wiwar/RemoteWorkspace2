@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "mushoku:blocks/magicore",
+    "up": "mushoku:blocks/magicore",
+    "north": "mushoku:blocks/magicore",
+    "east": "mushoku:blocks/magicore",
+    "south": "mushoku:blocks/magicore",
+    "west": "mushoku:blocks/magicore",
+    "particle": "mushoku:blocks/magicore"
+  }
+}

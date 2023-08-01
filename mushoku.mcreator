@@ -3597,49 +3597,211 @@
         ]
       },
       "path": "~/Magic/Water Magic/Elementary/Waterball"
+    },
+    {
+      "name": "GrimoireRecipe",
+      "type": "recipe",
+      "sortid": 180,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grimoire_recipe",
+      "path": "~/Items/Books/Grimoire"
+    },
+    {
+      "name": "MigurdStaff",
+      "type": "tool",
+      "sortid": 183,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "migurd_staff",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "ImeueTableGUI",
+      "type": "gui",
+      "sortid": 184,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "imeue_table_gui",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "OpenImbueGUI",
+      "type": "procedure",
+      "sortid": 185,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_imbue_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "ImbueingTable",
+      "type": "block",
+      "sortid": 184,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "imbueing_table",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "StaffImbue",
+      "type": "procedure",
+      "sortid": 186,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "staff_imbue",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "Wand",
+      "type": "tool",
+      "sortid": 187,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wand",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "AquaHeartia",
+      "type": "tool",
+      "sortid": 188,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aqua_heartia",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "WandRecipe",
+      "type": "recipe",
+      "sortid": 187,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wand_recipe",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "AquaHeartiaRecipe",
+      "type": "recipe",
+      "sortid": 189,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aqua_heartia_recipe",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "MigurdStaffRecipe",
+      "type": "recipe",
+      "sortid": 190,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "migurd_staff_recipe",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "ImbueTableRecipe",
+      "type": "recipe",
+      "sortid": 191,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "imbue_table_recipe",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "MagicStoneOre",
+      "type": "block",
+      "sortid": 192,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "magic_stone_ore",
+      "path": "~/Items/MagicStone"
+    },
+    {
+      "name": "MagicStoneOreLoottable",
+      "type": "loottable",
+      "sortid": 193,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "magic_stone_ore_loottable",
+      "path": "~/Items/MagicStone"
     }
   ],
   "variable_elements": [
     {
       "name": "MaxMana",
       "type": "number",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "100.0"
     },
     {
       "name": "WaterMagic",
       "type": "logic",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "false"
     },
     {
       "name": "FireMagic",
       "type": "logic",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "false"
     },
     {
       "name": "EarthMagic",
       "type": "logic",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "false"
     },
     {
       "name": "WindMagic",
       "type": "logic",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "false"
     },
     {
       "name": "Mana",
       "type": "number",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "100.0"
     },
     {
       "name": "ChantSpell",
       "type": "string",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "\"\""
     }
   ],
@@ -3658,6 +3820,7 @@
       "item.mushoku.king_stone": "King Stone",
       "item.mushoku.mountian_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
       "item.mushoku.earth_tomeitem": "Earth Tome",
+      "item.mushoku.migurd_staff": "Migurd Staff",
       "entity.test.waterball_entity": "Waterball Entity",
       "item.mushoku.stone_cannon_proj": "Stone Cannon Proj",
       "entity.mushoku.destert_storm_entity": "Sand Storm Entity",
@@ -3665,6 +3828,7 @@
       "item.mushoku.icicle_lance_proj": "Icicle Lance Proj",
       "key.mushoku.chant_key": "Chant Key",
       "item.mushoku.earth_drill_entity_spawn_egg": "Earth Drill Entity Spawn Egg",
+      "item.mushoku.wand": "Wand",
       "item.mushoku.flash_over_entity_spawn_egg": "Flash Over Entity Spawn Egg",
       "item.mushoku.grimoire": "Grimoire",
       "entity.mushoku.absolute_zero_entity": "Absolute Zero Entity",
@@ -3677,6 +3841,7 @@
       "item.mushoku.wind_slice_proj": "Wind Slice Proj",
       "item.mushoku.push_proj": "Push Proj",
       "entity.mushoku.earth_ground_spike": "Earth Ground Spike",
+      "block.mushoku.magic_stone_ore": "Magic Stone Ore",
       "entity.mushoku.water_cannon_entity": "Water Cannon Entity",
       "entity.mushoku.exodus_flame_entity": "Exodus Flame Entity",
       "item.mushoku.rock_bullet_proj": "Rock Bullet Proj",
@@ -3700,6 +3865,8 @@
       "entity.mushoku.mine_field_entity": "Mine Field Entity",
       "item.mushoku.saint_stone": "Saint Stone",
       "effect.flamethrower_ef": "Flamethrower",
+      "block.mushoku.imbueing_table": "Imbueing Table",
+      "item.mushoku.aqua_heartia": "Aqua Heartia",
       "item.mushoku.earth_ground_spike_spawn_egg": "Earth Ground Spike Spawn Egg",
       "item.mushoku.flame_slice_proj": "Flame Slice Proj",
       "item.mushoku.tornado_impact_proj": "Tornado Impact Proj",
@@ -3761,6 +3928,10 @@
           },
           {
             "name": "Magic Circle",
+            "children": []
+          },
+          {
+            "name": "Staffs and Wands",
             "children": []
           }
         ]

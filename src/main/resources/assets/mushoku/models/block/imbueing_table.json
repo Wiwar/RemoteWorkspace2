@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "mushoku:blocks/imbueplaceholder",
+    "up": "mushoku:blocks/imbueplaceholder",
+    "north": "mushoku:blocks/imbueplaceholder",
+    "east": "mushoku:blocks/imbueplaceholder",
+    "south": "mushoku:blocks/imbueplaceholder",
+    "west": "mushoku:blocks/imbueplaceholder",
+    "particle": "mushoku:blocks/imbueplaceholder"
+  }
+}

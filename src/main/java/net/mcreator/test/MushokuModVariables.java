@@ -136,14 +136,14 @@ public class MushokuModVariables {
 		PlayerVariables original = ((PlayerVariables) event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new PlayerVariables()));
 		PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
+		clone.MaxMana = original.MaxMana;
+		clone.WaterMagic = original.WaterMagic;
+		clone.FireMagic = original.FireMagic;
+		clone.EarthMagic = original.EarthMagic;
+		clone.WindMagic = original.WindMagic;
+		clone.Mana = original.Mana;
+		clone.ChantSpell = original.ChantSpell;
 		if (!event.isWasDeath()) {
-			clone.MaxMana = original.MaxMana;
-			clone.WaterMagic = original.WaterMagic;
-			clone.FireMagic = original.FireMagic;
-			clone.EarthMagic = original.EarthMagic;
-			clone.WindMagic = original.WindMagic;
-			clone.Mana = original.Mana;
-			clone.ChantSpell = original.ChantSpell;
 		}
 	}
 
