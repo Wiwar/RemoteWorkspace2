@@ -7,7 +7,7 @@
     "height": 166,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 0,
-    "renderBgLayer": false,
+    "renderBgLayer": true,
     "doesPauseGame": false,
     "components": [
       {
@@ -17,28 +17,8 @@
           "width": 120,
           "height": 20,
           "name": "ScrollInscribtion",
-          "x": 150,
-          "y": 80
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "pngwing.com.png",
-          "use1Xscale": true,
-          "name": "pngwing.com.png",
-          "x": 99,
-          "y": 5
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "slot.png",
-          "use1Xscale": true,
-          "name": "slot.png",
-          "x": 197,
-          "y": 134
+          "x": 153,
+          "y": 53
         }
       },
       {
@@ -51,8 +31,22 @@
           "disableStackInteraction": false,
           "dropItemsWhenNotBound": true,
           "name": "Slot #1",
-          "x": 198,
-          "y": 135
+          "x": 155,
+          "y": 86
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Inscribe",
+          "onClick": {
+            "name": "ScrollInscribtion"
+          },
+          "width": 67,
+          "height": 20,
+          "name": "Inscribe",
+          "x": 205,
+          "y": 85
         }
       }
     ],

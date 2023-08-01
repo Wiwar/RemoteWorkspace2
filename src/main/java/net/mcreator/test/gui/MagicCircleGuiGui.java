@@ -10,9 +10,7 @@ import net.minecraftforge.fml.network.IContainerFactory;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
@@ -53,7 +51,6 @@ public class MagicCircleGuiGui extends MushokuModElements.ModElement {
 				GUISlotChangedMessage::handler);
 		containerType = new ContainerType<>(new GuiContainerModFactory());
 		FMLJavaModLoadingContext.get().getModEventBus().register(new ContainerRegisterHandler());
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	private static class ContainerRegisterHandler {
@@ -66,21 +63,6 @@ public class MagicCircleGuiGui extends MushokuModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
 		DeferredWorkQueue.runLater(() -> ScreenManager.registerFactory(containerType, MagicCircleGuiGuiWindow::new));
-	}
-
-	@SubscribeEvent
-	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
-		PlayerEntity entity = event.player;
-		if (event.phase == TickEvent.Phase.END && entity.openContainer instanceof GuiContainerMod) {
-			World world = entity.world;
-			double x = entity.getPosX();
-			double y = entity.getPosY();
-			double z = entity.getPosZ();
-
-			MagicCircleInscribeProcedure
-					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("guistate", guistate))
-							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
 	}
 
 	public static class GuiContainerModFactory implements IContainerFactory {
@@ -139,7 +121,7 @@ public class MagicCircleGuiGui extends MushokuModElements.ModElement {
 					}
 				}
 			}
-			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 79, 51) {
+			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 42, 49) {
 			}));
 			int si;
 			int sj;
@@ -388,6 +370,12 @@ public class MagicCircleGuiGui extends MushokuModElements.ModElement {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
+		if (buttonID == 0) {
+
+			MagicCircleInscribeProcedure
+					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("guistate", guistate))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
 	}
 
 	private static void handleSlotAction(PlayerEntity entity, int slotID, int changeType, int meta, int x, int y, int z) {

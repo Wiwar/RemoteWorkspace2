@@ -3560,6 +3560,43 @@
       "locked_code": false,
       "registry_name": "witch_mag_stone",
       "path": "~/Items/MagicStone"
+    },
+    {
+      "name": "ChantTest",
+      "type": "procedure",
+      "sortid": 179,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chant_test",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Magic/Water Magic/Elementary/Waterball"
     }
   ],
   "variable_elements": [

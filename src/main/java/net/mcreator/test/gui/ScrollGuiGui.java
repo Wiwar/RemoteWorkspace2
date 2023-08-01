@@ -140,7 +140,7 @@ public class ScrollGuiGui extends MushokuModElements.ModElement {
 					}
 				}
 			}
-			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 73, 99) {
+			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 30, 50) {
 			}));
 			int si;
 			int sj;
@@ -389,6 +389,13 @@ public class ScrollGuiGui extends MushokuModElements.ModElement {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
+		if (buttonID == 0) {
+
+			ScrollInscribtionProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("guistate", guistate))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
 	}
 
 	private static void handleSlotAction(PlayerEntity entity, int slotID, int changeType, int meta, int x, int y, int z) {

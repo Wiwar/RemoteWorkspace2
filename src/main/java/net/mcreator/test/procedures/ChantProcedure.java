@@ -110,6 +110,10 @@ public class ChantProcedure {
 						}
 					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Waterball")) {
+				WaterballProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
+								new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 						.stream().sorted(new Object() {
@@ -184,10 +188,6 @@ public class ChantProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-				WaterballProcedure.executeProcedure(Stream
-						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
-								new AbstractMap.SimpleEntry<>("entity", entity))
-						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;

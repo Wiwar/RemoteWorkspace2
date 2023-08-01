@@ -31,14 +31,25 @@
           "disableStackInteraction": false,
           "dropItemsWhenNotBound": true,
           "name": "Slot #1",
-          "x": 204,
-          "y": 87
+          "x": 167,
+          "y": 85
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Inscribe",
+          "onClick": {
+            "name": "MagicCircleInscribe"
+          },
+          "width": 67,
+          "height": 20,
+          "name": "Inscribe",
+          "x": 205,
+          "y": 84
         }
       }
     ],
-    "onTick": {
-      "name": "MagicCircleInscribe"
-    },
     "gridSettings": {
       "sx": 18,
       "sy": 18,

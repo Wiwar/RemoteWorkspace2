@@ -10,9 +10,12 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
+
+import net.mcreator.test.MushokuMod;
 
 import java.util.HashMap;
 
@@ -117,5 +120,11 @@ public class MagicCircleGuiGuiWindow extends ContainerScreen<MagicCircleGuiGui.G
 		guistate.put("text:Circle", Circle);
 		Circle.setMaxStringLength(32767);
 		this.children.add(this.Circle);
+		this.addButton(new Button(this.guiLeft + 79, this.guiTop + 47, 67, 20, new StringTextComponent("Inscribe"), e -> {
+			if (true) {
+				MushokuMod.PACKET_HANDLER.sendToServer(new MagicCircleGuiGui.ButtonPressedMessage(0, x, y, z));
+				MagicCircleGuiGui.handleButtonAction(entity, 0, x, y, z);
+			}
+		}));
 	}
 }
