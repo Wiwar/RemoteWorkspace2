@@ -3560,6 +3560,18 @@
       "locked_code": false,
       "registry_name": "witch_mag_stone",
       "path": "~/Items/MagicStone"
+    },
+    {
+      "name": "Magictax",
+      "type": "procedure",
+      "sortid": 179,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "magictax",
+      "metadata": {
+        "dependencies": []
+      },
+      "path": "~/Magic/Anti Magic"
     }
   ],
   "variable_elements": [
@@ -4084,6 +4096,10 @@
                 ]
               }
             ]
+          },
+          {
+            "name": "Anti Magic",
+            "children": []
           }
         ]
       }

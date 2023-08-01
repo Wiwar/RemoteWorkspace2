@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "mushoku:items/inkandquill"
+    "layer0": "mushoku:items/inknquill"
   }
 }
