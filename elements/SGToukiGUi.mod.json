@@ -1,0 +1,140 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Touki",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Touki",
+          "x": 194,
+          "y": 46
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Touki is a layer of mana ",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Touki is a layer of mana ",
+          "x": 134,
+          "y": 64
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "wrapped around the user,",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "wrapped around the user,",
+          "x": 135,
+          "y": 76
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "increasing their physical",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "increasing their physical",
+          "x": 134,
+          "y": 89
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "strength. Increasing your touki ",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "strength. Increasing your touki ",
+          "x": 134,
+          "y": 101
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "level will also increase your",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "level will also increase your",
+          "x": 135,
+          "y": 114
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "maximum amount of mana.",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "maximum amount of mana.",
+          "x": 135,
+          "y": 125
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Add Touki Level",
+          "onClick": {
+            "name": "ToukiLevelIncrease"
+          },
+          "width": 103,
+          "height": 20,
+          "name": "Add Touki Level",
+          "x": 158,
+          "y": 147
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "(Cost 200 skill points per level)",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "(Cost 200 skill points per level)",
+          "x": 126,
+          "y": 175
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Water God Style",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Water God Style",
+          "x": 168,
+          "y": 44
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Begginer",
+          "width": 67,
+          "height": 20,
+          "name": "Begginer",
+          "x": 177,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Intermediate",
+          "displayCondition": {
+            "name": "WGIntermediateDispCond"
+          },
+          "width": 88,
+          "height": 20,
+          "name": "Intermediate",
+          "x": 168,
+          "y": 98
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Available Skill Points : <VAR:TechniqueSP>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Available Skill Points : <VAR:TechniqueSP>",
+          "x": 141,
+          "y": 53
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Other Styles",
+          "onClick": {
+            "name": "StyleGUIOpen"
+          },
+          "width": 87,
+          "height": 20,
+          "name": "Other Styles",
+          "x": 168,
+          "y": 17
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

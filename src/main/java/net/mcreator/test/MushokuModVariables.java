@@ -80,6 +80,14 @@ public class MushokuModVariables {
 			nbt.putString("ChantSpell", instance.ChantSpell);
 			nbt.putString("Swordsman", instance.Swordsman);
 			nbt.putString("StyleAffinity", instance.StyleAffinity);
+			nbt.putDouble("TechniqueSP", instance.TechniqueSP);
+			nbt.putString("SkillOne", instance.SkillOne);
+			nbt.putString("SkillTwo", instance.SkillTwo);
+			nbt.putString("SkillThree", instance.SkillThree);
+			nbt.putBoolean("ArmChop", instance.ArmChop);
+			nbt.putBoolean("QuickStrikes", instance.QuickStrikes);
+			nbt.putDouble("ToukiLevel", instance.ToukiLevel);
+			nbt.putBoolean("LsOS", instance.LsOS);
 			return nbt;
 		}
 
@@ -95,6 +103,14 @@ public class MushokuModVariables {
 			instance.ChantSpell = nbt.getString("ChantSpell");
 			instance.Swordsman = nbt.getString("Swordsman");
 			instance.StyleAffinity = nbt.getString("StyleAffinity");
+			instance.TechniqueSP = nbt.getDouble("TechniqueSP");
+			instance.SkillOne = nbt.getString("SkillOne");
+			instance.SkillTwo = nbt.getString("SkillTwo");
+			instance.SkillThree = nbt.getString("SkillThree");
+			instance.ArmChop = nbt.getBoolean("ArmChop");
+			instance.QuickStrikes = nbt.getBoolean("QuickStrikes");
+			instance.ToukiLevel = nbt.getDouble("ToukiLevel");
+			instance.LsOS = nbt.getBoolean("LsOS");
 		}
 	}
 
@@ -108,6 +124,14 @@ public class MushokuModVariables {
 		public String ChantSpell = "\"\"";
 		public String Swordsman = "None";
 		public String StyleAffinity = "\"\"";
+		public double TechniqueSP = 0;
+		public String SkillOne = "\"\"";
+		public String SkillTwo = "\"\"";
+		public String SkillThree = "\"\"";
+		public boolean ArmChop = false;
+		public boolean QuickStrikes = false;
+		public double ToukiLevel = 0;
+		public boolean LsOS = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -151,6 +175,14 @@ public class MushokuModVariables {
 		clone.ChantSpell = original.ChantSpell;
 		clone.Swordsman = original.Swordsman;
 		clone.StyleAffinity = original.StyleAffinity;
+		clone.TechniqueSP = original.TechniqueSP;
+		clone.SkillOne = original.SkillOne;
+		clone.SkillTwo = original.SkillTwo;
+		clone.SkillThree = original.SkillThree;
+		clone.ArmChop = original.ArmChop;
+		clone.QuickStrikes = original.QuickStrikes;
+		clone.ToukiLevel = original.ToukiLevel;
+		clone.LsOS = original.LsOS;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -186,6 +218,14 @@ public class MushokuModVariables {
 					variables.ChantSpell = message.data.ChantSpell;
 					variables.Swordsman = message.data.Swordsman;
 					variables.StyleAffinity = message.data.StyleAffinity;
+					variables.TechniqueSP = message.data.TechniqueSP;
+					variables.SkillOne = message.data.SkillOne;
+					variables.SkillTwo = message.data.SkillTwo;
+					variables.SkillThree = message.data.SkillThree;
+					variables.ArmChop = message.data.ArmChop;
+					variables.QuickStrikes = message.data.QuickStrikes;
+					variables.ToukiLevel = message.data.ToukiLevel;
+					variables.LsOS = message.data.LsOS;
 				}
 			});
 			context.setPacketHandled(true);

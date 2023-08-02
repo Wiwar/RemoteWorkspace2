@@ -18,7 +18,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.Minecraft;
 
-import net.mcreator.test.procedures.OpenChantGUIProcedure;
+import net.mcreator.test.procedures.SkillOncActivateProcedure;
 import net.mcreator.test.MushokuModElements;
 import net.mcreator.test.MushokuMod;
 
@@ -29,12 +29,12 @@ import java.util.HashMap;
 import java.util.AbstractMap;
 
 @MushokuModElements.ModElement.Tag
-public class ChantKeyKeyBinding extends MushokuModElements.ModElement {
+public class SkillOneKeyBinding extends MushokuModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	private KeyBinding keys;
 
-	public ChantKeyKeyBinding(MushokuModElements instance) {
-		super(instance, 5);
+	public SkillOneKeyBinding(MushokuModElements instance) {
+		super(instance, 222);
 		elements.addNetworkMessage(KeyBindingPressedMessage.class, KeyBindingPressedMessage::buffer, KeyBindingPressedMessage::new,
 				KeyBindingPressedMessage::handler);
 	}
@@ -42,7 +42,7 @@ public class ChantKeyKeyBinding extends MushokuModElements.ModElement {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
-		keys = new KeyBinding("key.mushoku.chant_key", GLFW.GLFW_KEY_C, "key.categories.misc");
+		keys = new KeyBinding("key.mushoku.skill_one", GLFW.GLFW_KEY_Z, "key.categories.misc");
 		ClientRegistry.registerKeyBinding(keys);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
@@ -97,7 +97,7 @@ public class ChantKeyKeyBinding extends MushokuModElements.ModElement {
 			return;
 		if (type == 0) {
 
-			OpenChantGUIProcedure.executeProcedure(Stream
+			SkillOncActivateProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));

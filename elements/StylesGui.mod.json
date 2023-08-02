@@ -1,0 +1,90 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Styles",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Styles",
+          "x": 195,
+          "y": 44
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Sword God Style",
+          "onClick": {
+            "name": "SGStyleGUIOpen"
+          },
+          "width": 103,
+          "height": 20,
+          "name": "Sword God Style",
+          "x": 159,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Water God Style",
+          "onClick": {
+            "name": "WGStyleGUIOpen"
+          },
+          "width": 103,
+          "height": 20,
+          "name": "Water God Style",
+          "x": 159,
+          "y": 107
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "North God Style",
+          "onClick": {
+            "name": "NGStyleGUIOpen"
+          },
+          "width": 103,
+          "height": 20,
+          "name": "North God Style",
+          "x": 159,
+          "y": 143
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Availible Skill Points : <VAR:integer:TechniqueSP>",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Availible Skill Points : <VAR:integer:TechniqueSP>",
+          "x": 150,
+          "y": 53
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

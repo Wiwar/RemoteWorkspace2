@@ -1,6 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "mushoku:custom/wand",
   "textures": {
-    "layer0": "mushoku:items/wandplaceholder"
+    "0": "mushoku:blocks/wand",
+    "particle": "mushoku:items/wand"
   }
 }
