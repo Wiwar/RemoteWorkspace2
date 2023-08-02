@@ -16,8 +16,8 @@ public class IntermediateDispCondProcedure {
 			return false;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new MushokuModVariables.PlayerVariables())).StyleAffinity).equals("Sword God")) {
+		if ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new MushokuModVariables.PlayerVariables())).SGBeginner == true) {
 			return true;
 		}
 		return false;

@@ -27,6 +27,9 @@
         "type": "button",
         "data": {
           "text": "Begginer",
+          "onClick": {
+            "name": "SGBegGUIOpen"
+          },
           "width": 67,
           "height": 20,
           "name": "Begginer",
@@ -60,7 +63,7 @@
             "falpha": 0.0
           },
           "name": "Available Skill Points : <VAR:TechniqueSP>",
-          "x": 141,
+          "x": 132,
           "y": 53
         }
       },

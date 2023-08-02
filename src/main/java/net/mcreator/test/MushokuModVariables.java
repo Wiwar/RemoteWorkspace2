@@ -88,6 +88,9 @@ public class MushokuModVariables {
 			nbt.putBoolean("QuickStrikes", instance.QuickStrikes);
 			nbt.putDouble("ToukiLevel", instance.ToukiLevel);
 			nbt.putBoolean("LsOS", instance.LsOS);
+			nbt.putBoolean("SGBeginner", instance.SGBeginner);
+			nbt.putBoolean("WGBeginner", instance.WGBeginner);
+			nbt.putBoolean("NGBeginner", instance.NGBeginner);
 			return nbt;
 		}
 
@@ -111,6 +114,9 @@ public class MushokuModVariables {
 			instance.QuickStrikes = nbt.getBoolean("QuickStrikes");
 			instance.ToukiLevel = nbt.getDouble("ToukiLevel");
 			instance.LsOS = nbt.getBoolean("LsOS");
+			instance.SGBeginner = nbt.getBoolean("SGBeginner");
+			instance.WGBeginner = nbt.getBoolean("WGBeginner");
+			instance.NGBeginner = nbt.getBoolean("NGBeginner");
 		}
 	}
 
@@ -132,6 +138,9 @@ public class MushokuModVariables {
 		public boolean QuickStrikes = false;
 		public double ToukiLevel = 0;
 		public boolean LsOS = false;
+		public boolean SGBeginner = false;
+		public boolean WGBeginner = false;
+		public boolean NGBeginner = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -183,6 +192,9 @@ public class MushokuModVariables {
 		clone.QuickStrikes = original.QuickStrikes;
 		clone.ToukiLevel = original.ToukiLevel;
 		clone.LsOS = original.LsOS;
+		clone.SGBeginner = original.SGBeginner;
+		clone.WGBeginner = original.WGBeginner;
+		clone.NGBeginner = original.NGBeginner;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -226,6 +238,9 @@ public class MushokuModVariables {
 					variables.QuickStrikes = message.data.QuickStrikes;
 					variables.ToukiLevel = message.data.ToukiLevel;
 					variables.LsOS = message.data.LsOS;
+					variables.SGBeginner = message.data.SGBeginner;
+					variables.WGBeginner = message.data.WGBeginner;
+					variables.NGBeginner = message.data.NGBeginner;
 				}
 			});
 			context.setPacketHandled(true);

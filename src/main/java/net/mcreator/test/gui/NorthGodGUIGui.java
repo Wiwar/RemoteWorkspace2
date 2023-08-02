@@ -23,6 +23,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.gui.ScreenManager;
 
 import net.mcreator.test.procedures.StyleGUIOpenProcedure;
+import net.mcreator.test.procedures.NGBegGUIOpenProcedure;
 import net.mcreator.test.MushokuModElements;
 
 import java.util.stream.Stream;
@@ -185,6 +186,13 @@ public class NorthGodGUIGui extends MushokuModElements.ModElement {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
+		if (buttonID == 0) {
+
+			NGBegGUIOpenProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
 		if (buttonID == 2) {
 
 			StyleGUIOpenProcedure.executeProcedure(Stream

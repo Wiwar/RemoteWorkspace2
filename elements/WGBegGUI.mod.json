@@ -1,0 +1,137 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Water God Style",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Water God Style",
+          "x": 168,
+          "y": 46
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "The Water God Style is focused",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "The Water God Style is focused",
+          "x": 134,
+          "y": 78
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "on defence and outlasting",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "on defence and outlasting",
+          "x": 132,
+          "y": 90
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "(Skill Point Cost 100)",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "WGBegAquire"
+          },
+          "name": "(Skill Point Cost 100)",
+          "x": 153,
+          "y": 157
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "WGStyleGUIOpen"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 183,
+          "y": 18
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Availible Skill Points : <VAR:TechniqueSP>",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "LsOSSkillAquire"
+          },
+          "name": "Availible Skill Points : <VAR:TechniqueSP>",
+          "x": 129,
+          "y": 58
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "your oppenant",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "your oppenant",
+          "x": 131,
+          "y": 101
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Unlock Water God Style",
+          "onClick": {
+            "name": "WGBegGet"
+          },
+          "displayCondition": {
+            "name": "WGBegAquire"
+          },
+          "width": 139,
+          "height": 20,
+          "name": "Unlock Water God Style",
+          "x": 145,
+          "y": 133
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

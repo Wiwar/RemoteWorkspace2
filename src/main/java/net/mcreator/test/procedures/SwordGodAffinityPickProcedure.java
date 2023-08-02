@@ -31,5 +31,12 @@ public class SwordGodAffinityPickProcedure {
 			((PlayerEntity) entity).closeScreen();
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(SwordGodPassiveEFPotionEffect.potion, (int) 60, (int) 1, (false), (false)));
+		{
+			boolean _setval = (true);
+			entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.SGBeginner = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
 	}
 }

@@ -14,8 +14,8 @@ import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
-import net.mcreator.test.procedures.SGAdvancedButtCondProcedure;
-import net.mcreator.test.procedures.IntermediateDispCondProcedure;
+import net.mcreator.test.procedures.SWBegAquireProcedure;
+import net.mcreator.test.procedures.LsOSSkillAquireProcedure;
 import net.mcreator.test.MushokuModVariables;
 import net.mcreator.test.MushokuMod;
 
@@ -28,13 +28,13 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 @OnlyIn(Dist.CLIENT)
-public class SwordGodGuiGuiWindow extends ContainerScreen<SwordGodGuiGui.GuiContainerMod> {
+public class BeginnerGUIGuiWindow extends ContainerScreen<BeginnerGUIGui.GuiContainerMod> {
 	private World world;
 	private int x, y, z;
 	private PlayerEntity entity;
-	private final static HashMap guistate = SwordGodGuiGui.guistate;
+	private final static HashMap guistate = BeginnerGUIGui.guistate;
 
-	public SwordGodGuiGuiWindow(SwordGodGuiGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
+	public BeginnerGUIGuiWindow(BeginnerGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
 		this.x = container.x;
@@ -45,7 +45,7 @@ public class SwordGodGuiGuiWindow extends ContainerScreen<SwordGodGuiGui.GuiCont
 		this.ySize = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/screens/sword_god_gui.png");
+	private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/screens/beginner_gui.png");
 
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
@@ -82,9 +82,17 @@ public class SwordGodGuiGuiWindow extends ContainerScreen<SwordGodGuiGui.GuiCont
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "Sword God Style", 42, 7, -16777216);
-		this.font.drawString(ms, "Available Skill Points : " + ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new MushokuModVariables.PlayerVariables())).TechniqueSP) + "", 6, 16, -12829636);
+		this.font.drawString(ms, "Sword God Style", 42, 9, -16777216);
+		this.font.drawString(ms, "The Sword God Style is focused", 8, 41, -16777216);
+		this.font.drawString(ms, "on offence and always attacking", 8, 53, -16777216);
+		if (SWBegAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+			this.font.drawString(ms, "(Skill Point Cost 100)", 27, 120, -16777216);
+		if (LsOSSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+			this.font.drawString(ms, "Availible Skill Points : " + ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new MushokuModVariables.PlayerVariables())).TechniqueSP) + "", 3, 21, -16777216);
+		this.font.drawString(ms, "you oppenant first", 5, 64, -16777216);
 	}
 
 	@Override
@@ -97,42 +105,22 @@ public class SwordGodGuiGuiWindow extends ContainerScreen<SwordGodGuiGui.GuiCont
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-		this.addButton(new Button(this.guiLeft + 51, this.guiTop + 34, 67, 20, new StringTextComponent("Begginer"), e -> {
+		this.addButton(new Button(this.guiLeft + 57, this.guiTop + -19, 46, 20, new StringTextComponent("Back"), e -> {
 			if (true) {
-				MushokuMod.PACKET_HANDLER.sendToServer(new SwordGodGuiGui.ButtonPressedMessage(0, x, y, z));
-				SwordGodGuiGui.handleButtonAction(entity, 0, x, y, z);
+				MushokuMod.PACKET_HANDLER.sendToServer(new BeginnerGUIGui.ButtonPressedMessage(0, x, y, z));
+				BeginnerGUIGui.handleButtonAction(entity, 0, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 42, this.guiTop + 61, 88, 20, new StringTextComponent("Intermediate"), e -> {
-			if (IntermediateDispCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+		this.addButton(new Button(this.guiLeft + 19, this.guiTop + 96, 139, 20, new StringTextComponent("Unlock Sword God Style"), e -> {
+			if (SWBegAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
-				MushokuMod.PACKET_HANDLER.sendToServer(new SwordGodGuiGui.ButtonPressedMessage(1, x, y, z));
-				SwordGodGuiGui.handleButtonAction(entity, 1, x, y, z);
+				MushokuMod.PACKET_HANDLER.sendToServer(new BeginnerGUIGui.ButtonPressedMessage(1, x, y, z));
+				BeginnerGUIGui.handleButtonAction(entity, 1, x, y, z);
 			}
 		}) {
 			@Override
 			public void render(MatrixStack ms, int gx, int gy, float ticks) {
-				if (IntermediateDispCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
-						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
-					super.render(ms, gx, gy, ticks);
-			}
-		});
-		this.addButton(new Button(this.guiLeft + 42, this.guiTop + -20, 87, 20, new StringTextComponent("Other Styles"), e -> {
-			if (true) {
-				MushokuMod.PACKET_HANDLER.sendToServer(new SwordGodGuiGui.ButtonPressedMessage(2, x, y, z));
-				SwordGodGuiGui.handleButtonAction(entity, 2, x, y, z);
-			}
-		}));
-		this.addButton(new Button(this.guiLeft + 51, this.guiTop + 88, 67, 20, new StringTextComponent("Advanced"), e -> {
-			if (SGAdvancedButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
-					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
-				MushokuMod.PACKET_HANDLER.sendToServer(new SwordGodGuiGui.ButtonPressedMessage(3, x, y, z));
-				SwordGodGuiGui.handleButtonAction(entity, 3, x, y, z);
-			}
-		}) {
-			@Override
-			public void render(MatrixStack ms, int gx, int gy, float ticks) {
-				if (SGAdvancedButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				if (SWBegAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 					super.render(ms, gx, gy, ticks);
 			}

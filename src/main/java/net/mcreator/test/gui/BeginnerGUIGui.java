@@ -22,10 +22,8 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.gui.ScreenManager;
 
-import net.mcreator.test.procedures.StyleGUIOpenProcedure;
-import net.mcreator.test.procedures.SGIntermedGUIOpenProcedure;
-import net.mcreator.test.procedures.SGBegGUIOpenProcedure;
-import net.mcreator.test.procedures.OpenSGAdvancedGUiProcedure;
+import net.mcreator.test.procedures.SGStyleGUIOpenProcedure;
+import net.mcreator.test.procedures.SGBegGetProcedure;
 import net.mcreator.test.MushokuModElements;
 
 import java.util.stream.Stream;
@@ -35,12 +33,12 @@ import java.util.HashMap;
 import java.util.AbstractMap;
 
 @MushokuModElements.ModElement.Tag
-public class SwordGodGuiGui extends MushokuModElements.ModElement {
+public class BeginnerGUIGui extends MushokuModElements.ModElement {
 	public static HashMap guistate = new HashMap();
 	private static ContainerType<GuiContainerMod> containerType = null;
 
-	public SwordGodGuiGui(MushokuModElements instance) {
-		super(instance, 207);
+	public BeginnerGUIGui(MushokuModElements instance) {
+		super(instance, 259);
 		elements.addNetworkMessage(ButtonPressedMessage.class, ButtonPressedMessage::buffer, ButtonPressedMessage::new,
 				ButtonPressedMessage::handler);
 		elements.addNetworkMessage(GUISlotChangedMessage.class, GUISlotChangedMessage::buffer, GUISlotChangedMessage::new,
@@ -52,13 +50,13 @@ public class SwordGodGuiGui extends MushokuModElements.ModElement {
 	private static class ContainerRegisterHandler {
 		@SubscribeEvent
 		public void registerContainer(RegistryEvent.Register<ContainerType<?>> event) {
-			event.getRegistry().register(containerType.setRegistryName("sword_god_gui"));
+			event.getRegistry().register(containerType.setRegistryName("beginner_gui"));
 		}
 	}
 
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
-		DeferredWorkQueue.runLater(() -> ScreenManager.registerFactory(containerType, SwordGodGuiGuiWindow::new));
+		DeferredWorkQueue.runLater(() -> ScreenManager.registerFactory(containerType, BeginnerGUIGuiWindow::new));
 	}
 
 	public static class GuiContainerModFactory implements IContainerFactory {
@@ -190,31 +188,15 @@ public class SwordGodGuiGui extends MushokuModElements.ModElement {
 			return;
 		if (buttonID == 0) {
 
-			SGBegGUIOpenProcedure.executeProcedure(Stream
+			SGStyleGUIOpenProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 		if (buttonID == 1) {
 
-			SGIntermedGUIOpenProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
-		if (buttonID == 2) {
-
-			StyleGUIOpenProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
-		if (buttonID == 3) {
-
-			OpenSGAdvancedGUiProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			SGBegGetProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 

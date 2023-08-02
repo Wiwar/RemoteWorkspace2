@@ -27,6 +27,9 @@
         "type": "button",
         "data": {
           "text": "Begginer",
+          "onClick": {
+            "name": "NGBegGUIOpen"
+          },
           "width": 67,
           "height": 20,
           "name": "Begginer",

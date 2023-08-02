@@ -31,5 +31,12 @@ public class WaterGodAffinityPickProcedure {
 			((PlayerEntity) entity).closeScreen();
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(WaterGodEFPotionEffect.potion, (int) 60, (int) 1, (false), (false)));
+		{
+			boolean _setval = (true);
+			entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.WGBeginner = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
 	}
 }
