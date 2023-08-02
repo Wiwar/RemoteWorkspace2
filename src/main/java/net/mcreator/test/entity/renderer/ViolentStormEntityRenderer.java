@@ -25,7 +25,7 @@ public class ViolentStormEntityRenderer {
 
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
-							return new ResourceLocation("mushoku:textures/waterarrow2.png");
+							return new ResourceLocation("mushoku:textures/entities/waterarrow2.png");
 						}
 					});
 		}

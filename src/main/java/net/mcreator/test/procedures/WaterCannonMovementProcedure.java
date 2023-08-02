@@ -22,30 +22,12 @@ public class WaterCannonMovementProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency world for procedure WaterCannonMovement!");
 			return;
 		}
-		if (dependencies.get("x") == null) {
-			if (!dependencies.containsKey("x"))
-				MushokuMod.LOGGER.warn("Failed to load dependency x for procedure WaterCannonMovement!");
-			return;
-		}
-		if (dependencies.get("y") == null) {
-			if (!dependencies.containsKey("y"))
-				MushokuMod.LOGGER.warn("Failed to load dependency y for procedure WaterCannonMovement!");
-			return;
-		}
-		if (dependencies.get("z") == null) {
-			if (!dependencies.containsKey("z"))
-				MushokuMod.LOGGER.warn("Failed to load dependency z for procedure WaterCannonMovement!");
-			return;
-		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure WaterCannonMovement!");
 			return;
 		}
 		IWorld world = (IWorld) dependencies.get("world");
-		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
-		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
-		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
 		entity.setMotion((entity.getLookVec().x + entity.getLookVec().x + entity.getLookVec().x + entity.getLookVec().x),
 				(entity.getLookVec().y + entity.getLookVec().y + entity.getLookVec().y + entity.getLookVec().y),
@@ -72,11 +54,9 @@ public class WaterCannonMovementProcedure {
 
 			private void run() {
 
-				WaterCannonidleProcedure.executeProcedure(Stream
-						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
-								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
-								new AbstractMap.SimpleEntry<>("entity", entity))
-						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				WaterCannonidleProcedure
+						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
 		}.start(world, (int) 20);

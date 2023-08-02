@@ -35,7 +35,7 @@ public class StoneCannonProjRenderer {
 
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<StoneCannonProjItem.ArrowCustomEntity> {
-		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/stone_cannon.png");
+		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/entities/stone_cannon.png");
 
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);

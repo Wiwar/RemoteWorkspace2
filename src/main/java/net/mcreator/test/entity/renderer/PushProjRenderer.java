@@ -35,7 +35,7 @@ public class PushProjRenderer {
 
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<PushProjItem.ArrowCustomEntity> {
-		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/invis.png");
+		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/entities/invis.png");
 
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);

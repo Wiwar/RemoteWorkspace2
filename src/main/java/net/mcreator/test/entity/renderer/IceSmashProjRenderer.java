@@ -35,7 +35,7 @@ public class IceSmashProjRenderer {
 
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<IceSmashProjItem.ArrowCustomEntity> {
-		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/ice_orb_small.png");
+		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/entities/ice_orb_small.png");
 
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);

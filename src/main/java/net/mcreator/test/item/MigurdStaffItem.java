@@ -1,11 +1,36 @@
 
 package net.mcreator.test.item;
 
+import net.minecraftforge.registries.ObjectHolder;
+
+import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ActionResult;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.Attribute;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.block.BlockState;
+
+import net.mcreator.test.procedures.ScrollUseProcedure;
+import net.mcreator.test.itemgroup.MushokuItemGroup;
+import net.mcreator.test.MushokuModElements;
+
+import java.util.stream.Stream;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.AbstractMap;
+
+import com.google.common.collect.Multimap;
+import com.google.common.collect.ImmutableMultimap;
 
 @MushokuModElements.ModElement.Tag
 public class MigurdStaffItem extends MushokuModElements.ModElement {
-
 	@ObjectHolder("mushoku:migurd_staff")
 	public static final Item block = null;
 
@@ -16,7 +41,6 @@ public class MigurdStaffItem extends MushokuModElements.ModElement {
 	@Override
 	public void initElements() {
 		elements.items.add(() -> new ItemToolCustom() {
-
 			@Override
 			public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity entity, Hand hand) {
 				ActionResult<ItemStack> retval = super.onItemRightClick(world, entity, hand);
@@ -30,12 +54,10 @@ public class MigurdStaffItem extends MushokuModElements.ModElement {
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
-
 		}.setRegistryName("migurd_staff"));
 	}
 
 	private static class ItemToolCustom extends Item {
-
 		protected ItemToolCustom() {
 			super(new Item.Properties().group(MushokuItemGroup.tab).maxDamage(200));
 		}
@@ -73,10 +95,7 @@ public class MigurdStaffItem extends MushokuModElements.ModElement {
 						new AttributeModifier(ATTACK_SPEED_MODIFIER, "Tool modifier", -3, AttributeModifier.Operation.ADDITION));
 				return builder.build();
 			}
-
 			return super.getAttributeModifiers(equipmentSlot);
 		}
-
 	}
-
 }

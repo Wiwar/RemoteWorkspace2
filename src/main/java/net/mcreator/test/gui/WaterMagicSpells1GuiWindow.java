@@ -52,7 +52,7 @@ public class WaterMagicSpells1GuiWindow extends ContainerScreen<WaterMagicSpells
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 
-		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("mushoku:textures/bookback.png"));
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("mushoku:textures/screens/bookback.png"));
 		this.blit(ms, this.guiLeft + -47, this.guiTop + -11, 0, 0, 271, 180, 271, 180);
 
 		RenderSystem.disableBlend();

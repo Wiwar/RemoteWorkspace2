@@ -29,7 +29,7 @@ public class WaterCannonEntityRenderer {
 
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
-						return new ResourceLocation("mushoku:textures/water_cannon.png");
+						return new ResourceLocation("mushoku:textures/entities/water_cannon.png");
 					}
 				};
 			});

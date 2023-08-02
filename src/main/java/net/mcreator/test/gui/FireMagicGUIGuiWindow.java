@@ -52,7 +52,7 @@ public class FireMagicGUIGuiWindow extends ContainerScreen<FireMagicGUIGui.GuiCo
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 
-		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("mushoku:textures/bookback.png"));
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("mushoku:textures/screens/bookback.png"));
 		this.blit(ms, this.guiLeft + -43, this.guiTop + -9, 0, 0, 271, 180, 271, 180);
 
 		RenderSystem.disableBlend();

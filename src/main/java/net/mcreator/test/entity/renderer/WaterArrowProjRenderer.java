@@ -35,7 +35,7 @@ public class WaterArrowProjRenderer {
 
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<WaterArrowProjItem.ArrowCustomEntity> {
-		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/waterarrow2.png");
+		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/entities/waterarrow2.png");
 
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);

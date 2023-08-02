@@ -35,7 +35,7 @@ public class TornadoImpactProjRenderer {
 
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<TornadoImpactProjItem.ArrowCustomEntity> {
-		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/wind2.png");
+		private static final ResourceLocation texture = new ResourceLocation("mushoku:textures/entities/wind2.png");
 
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);
