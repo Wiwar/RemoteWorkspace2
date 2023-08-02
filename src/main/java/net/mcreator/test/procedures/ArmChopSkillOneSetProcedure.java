@@ -1,6 +1,11 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.entity.Entity;
+
+import net.mcreator.test.MushokuModVariables;
+import net.mcreator.test.MushokuMod;
+
+import java.util.Map;
 
 public class ArmChopSkillOneSetProcedure {
 
@@ -10,9 +15,7 @@ public class ArmChopSkillOneSetProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure ArmChopSkillOneSet!");
 			return;
 		}
-
 		Entity entity = (Entity) dependencies.get("entity");
-
 		{
 			String _setval = "Arm Chop";
 			entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
@@ -21,5 +24,4 @@ public class ArmChopSkillOneSetProcedure {
 			});
 		}
 	}
-
 }

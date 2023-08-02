@@ -1,6 +1,11 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.entity.Entity;
+
+import net.mcreator.test.MushokuModVariables;
+import net.mcreator.test.MushokuMod;
+
+import java.util.Map;
 
 public class LsOSSkillAquireProcedure {
 
@@ -10,14 +15,11 @@ public class LsOSSkillAquireProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure LsOSSkillAquire!");
 			return false;
 		}
-
 		Entity entity = (Entity) dependencies.get("entity");
-
 		if ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new MushokuModVariables.PlayerVariables())).LsOS == false) {
 			return true;
 		}
 		return false;
 	}
-
 }

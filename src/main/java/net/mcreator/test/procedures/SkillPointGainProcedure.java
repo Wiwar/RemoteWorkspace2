@@ -1,9 +1,21 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+
+import net.minecraft.world.World;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.Entity;
+
+import net.mcreator.test.MushokuModVariables;
+import net.mcreator.test.MushokuMod;
+
+import java.util.Map;
+import java.util.HashMap;
 
 public class SkillPointGainProcedure {
-
 	@Mod.EventBusSubscriber
 	private static class GlobalTrigger {
 		@SubscribeEvent
@@ -39,10 +51,8 @@ public class SkillPointGainProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency sourceentity for procedure SkillPointGain!");
 			return;
 		}
-
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-
 		if (sourceentity instanceof PlayerEntity) {
 			if (entity instanceof MonsterEntity) {
 				{
@@ -56,5 +66,4 @@ public class SkillPointGainProcedure {
 			}
 		}
 	}
-
 }

@@ -1,6 +1,15 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.world.IWorld;
+import net.minecraft.entity.Entity;
+
+import net.mcreator.test.MushokuModVariables;
+import net.mcreator.test.MushokuMod;
+
+import java.util.stream.Stream;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.AbstractMap;
 
 public class SkillOncActivateProcedure {
 
@@ -30,16 +39,13 @@ public class SkillOncActivateProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure SkillOncActivate!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-
 		if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new MushokuModVariables.PlayerVariables())).SkillOne)
 				.equals("Arm Chop")) {
-
 			ArmChopProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
@@ -47,7 +53,6 @@ public class SkillOncActivateProcedure {
 		}
 		if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new MushokuModVariables.PlayerVariables())).SkillOne)
 				.equals("Quick Strikes")) {
-
 			QuickStrikesProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
@@ -55,10 +60,8 @@ public class SkillOncActivateProcedure {
 		}
 		if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new MushokuModVariables.PlayerVariables())).SkillOne)
 				.equals("Longsword of Silence")) {
-
 			LsOSProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
-
 }

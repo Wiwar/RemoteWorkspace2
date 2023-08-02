@@ -1,9 +1,26 @@
 
 package net.mcreator.test.potion;
 
+import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.RegistryEvent;
+
+import net.minecraft.world.World;
+import net.minecraft.potion.EffectType;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effect;
+import net.minecraft.entity.LivingEntity;
+
+import net.mcreator.test.procedures.NorthGodPassiveProcedure;
+
+import java.util.stream.Stream;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.AbstractMap;
+
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class NorthGodPassiveEFPotionEffect {
-
 	@ObjectHolder("mushoku:north_god_passive_ef")
 	public static final Effect potion = null;
 
@@ -13,7 +30,6 @@ public class NorthGodPassiveEFPotionEffect {
 	}
 
 	public static class EffectCustom extends Effect {
-
 		public EffectCustom() {
 			super(EffectType.NEUTRAL, -1);
 			setRegistryName("north_god_passive_ef");
@@ -66,7 +82,5 @@ public class NorthGodPassiveEFPotionEffect {
 		public boolean isReady(int duration, int amplifier) {
 			return true;
 		}
-
 	}
-
 }

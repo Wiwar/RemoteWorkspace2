@@ -89,15 +89,6 @@
       "path": "~/Incantations"
     },
     {
-      "name": "ChantKey",
-      "type": "keybind",
-      "sortid": 5,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "chant_key",
-      "path": "~/Incantations"
-    },
-    {
       "name": "WaterballMovement",
       "type": "procedure",
       "sortid": 6,
@@ -3737,18 +3728,6 @@
       "path": "~/Items/MagicStone"
     },
     {
-      "name": "Magictax",
-      "type": "procedure",
-      "sortid": 179,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "magictax",
-      "metadata": {
-        "dependencies": []
-      },
-      "path": "~/Magic/Anti Magic"
-    },
-    {
       "name": "WaterGodEF",
       "type": "potioneffect",
       "sortid": 204,
@@ -3897,7 +3876,7 @@
       "name": "ArmChopBindGUI",
       "type": "gui",
       "sortid": 224,
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "arm_chop_bind_gui",
       "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Arm Chop"
@@ -4113,7 +4092,7 @@
       "name": "ClassPickerGUI",
       "type": "gui",
       "sortid": 194,
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "class_picker_gui",
       "path": "~/ClassPick"
@@ -4815,7 +4794,7 @@
       "name": "LsOSGUI",
       "type": "gui",
       "sortid": 249,
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "ls_osgui",
       "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
@@ -4965,6 +4944,48 @@
         ]
       },
       "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Arm Chop"
+    },
+    {
+      "name": "LsOSEf",
+      "type": "potioneffect",
+      "sortid": 256,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_os_ef",
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
+    },
+    {
+      "name": "LsOSEfEf",
+      "type": "procedure",
+      "sortid": 257,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_os_ef_ef",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
     }
   ],
   "variable_elements": [
@@ -5082,17 +5103,23 @@
       "item.mushoku.scroll": "Scroll",
       "item.mushoku.fire_tome": "Fire Tome",
       "item.mushoku.absolute_zero_entity_spawn_egg": "Absolute Zero Entity Spawn Egg",
+      "key.mushoku.add_s_pbind": "Add SP bind",
       "effect.electric_ef_ef": "Electric",
+      "effect.touki_ef": "Touki",
+      "effect.north_god_passive_ef": "North God Affinity",
+      "effect.water_god_ef": "Water God Affinity",
       "item.mushoku.king_stone": "King Stone",
       "item.mushoku.mountian_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
       "item.mushoku.earth_tomeitem": "Earth Tome",
       "item.mushoku.migurd_staff": "Migurd Staff",
       "entity.test.waterball_entity": "Waterball Entity",
+      "key.mushoku.skill_one": "Skill One",
       "item.mushoku.stone_cannon_proj": "Stone Cannon Proj",
       "entity.mushoku.destert_storm_entity": "Sand Storm Entity",
       "item.mushoku.sand_storm_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
       "item.mushoku.icicle_lance_proj": "Icicle Lance Proj",
       "key.mushoku.chant_key": "Chant Key",
+      "effect.sword_god_passive_ef": "Sword God Affinity",
       "item.mushoku.earth_drill_entity_spawn_egg": "Earth Drill Entity Spawn Egg",
       "item.mushoku.wand": "Wand",
       "item.mushoku.flash_over_entity_spawn_egg": "Flash Over Entity Spawn Egg",
@@ -5110,6 +5137,7 @@
       "block.mushoku.magic_stone_ore": "Magic Stone Ore",
       "entity.mushoku.water_cannon_entity": "Water Cannon Entity",
       "entity.mushoku.exodus_flame_entity": "Exodus Flame Entity",
+      "key.mushoku.class_key": "Chant Key",
       "item.mushoku.rock_bullet_proj": "Rock Bullet Proj",
       "block.mushoku.magic_circle": "Chalk",
       "item.mushoku.exodus_flame_entity_spawn_egg": "Exodus Flame Entity Spawn Egg",
@@ -5201,10 +5229,6 @@
       {
         "name": "Magic",
         "children": [
-          {
-            "name": "Anti Magic",
-            "children": []
-          },
           {
             "name": "Earth Magic",
             "children": [
@@ -5572,27 +5596,6 @@
             "name": "SwordGodStyle",
             "children": [
               {
-                "name": "SGPassive",
-                "children": []
-              },
-              {
-                "name": "Intermediate",
-                "children": [
-                  {
-                    "name": "Quick Strikes",
-                    "children": []
-                  },
-                  {
-                    "name": "Arm Chop",
-                    "children": []
-                  },
-                  {
-                    "name": "GUI",
-                    "children": []
-                  }
-                ]
-              },
-              {
                 "name": "Advanced",
                 "children": [
                   {
@@ -5604,15 +5607,32 @@
                     "children": []
                   }
                 ]
+              },
+              {
+                "name": "Intermediate",
+                "children": [
+                  {
+                    "name": "GUI",
+                    "children": []
+                  },
+                  {
+                    "name": "Quick Strikes",
+                    "children": []
+                  },
+                  {
+                    "name": "Arm Chop",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "SGPassive",
+                "children": []
               }
             ]
           },
           {
-            "name": "WaterGodStyle",
-            "children": []
-          },
-          {
-            "name": "NorthGodStyle",
+            "name": "Touki",
             "children": []
           },
           {
@@ -5620,7 +5640,11 @@
             "children": []
           },
           {
-            "name": "Touki",
+            "name": "NorthGodStyle",
+            "children": []
+          },
+          {
+            "name": "WaterGodStyle",
             "children": []
           }
         ]

@@ -1,15 +1,36 @@
 
 package net.mcreator.test.gui;
 
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
+
+import net.minecraft.world.World;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.gui.widget.button.Button;
+import net.minecraft.client.gui.screen.inventory.ContainerScreen;
+import net.minecraft.client.Minecraft;
+
+import net.mcreator.test.procedures.QuickStrikesSkillButtCondProcedure;
+import net.mcreator.test.procedures.QuickStrikesSkillAquireProcedure;
 import net.mcreator.test.MushokuMod;
+
+import java.util.stream.Stream;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.AbstractMap;
+
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.matrix.MatrixStack;
 
 @OnlyIn(Dist.CLIENT)
 public class QuickStirkesGUIGuiWindow extends ContainerScreen<QuickStirkesGUIGui.GuiContainerMod> {
-
 	private World world;
 	private int x, y, z;
 	private PlayerEntity entity;
-
 	private final static HashMap guistate = QuickStirkesGUIGui.guistate;
 
 	public QuickStirkesGUIGuiWindow(QuickStirkesGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
@@ -30,7 +51,6 @@ public class QuickStirkesGUIGuiWindow extends ContainerScreen<QuickStirkesGUIGui
 		this.renderBackground(ms);
 		super.render(ms, mouseX, mouseY, partialTicks);
 		this.renderHoveredTooltip(ms, mouseX, mouseY);
-
 	}
 
 	@Override
@@ -38,12 +58,10 @@ public class QuickStirkesGUIGuiWindow extends ContainerScreen<QuickStirkesGUIGui
 		RenderSystem.color4f(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-
 		Minecraft.getInstance().getTextureManager().bindTexture(texture);
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
-
 		RenderSystem.disableBlend();
 	}
 
@@ -53,7 +71,6 @@ public class QuickStirkesGUIGuiWindow extends ContainerScreen<QuickStirkesGUIGui
 			this.minecraft.player.closeScreen();
 			return true;
 		}
-
 		return super.keyPressed(key, b, c);
 	}
 
@@ -65,16 +82,12 @@ public class QuickStirkesGUIGuiWindow extends ContainerScreen<QuickStirkesGUIGui
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "Quick Stikes", 49, 9, -16777216);
-		if (
-
-		QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+		if (QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "Bind Skill", 56, 101, -16777216);
 		this.font.drawString(ms, "Swing rapidly with a flurry", 13, 23, -16777216);
 		this.font.drawString(ms, "of smaller attacks", 12, 35, -16777216);
-		if (
-
-		QuickStrikesSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+		if (QuickStrikesSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "(Skill Point Cost 25)", 27, 88, -16777216);
 	}
@@ -89,11 +102,8 @@ public class QuickStirkesGUIGuiWindow extends ContainerScreen<QuickStirkesGUIGui
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-
 		this.addButton(new Button(this.guiLeft + 6, this.guiTop + 115, 72, 20, new StringTextComponent("Skill One"), e -> {
-			if (
-
-			QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+			if (QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
 				MushokuMod.PACKET_HANDLER.sendToServer(new QuickStirkesGUIGui.ButtonPressedMessage(0, x, y, z));
 				QuickStirkesGUIGui.handleButtonAction(entity, 0, x, y, z);
@@ -101,17 +111,13 @@ public class QuickStirkesGUIGuiWindow extends ContainerScreen<QuickStirkesGUIGui
 		}) {
 			@Override
 			public void render(MatrixStack ms, int gx, int gy, float ticks) {
-				if (
-
-				QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
-						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+				if (QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 					super.render(ms, gx, gy, ticks);
 			}
 		});
 		this.addButton(new Button(this.guiLeft + 95, this.guiTop + 115, 72, 20, new StringTextComponent("Skill Two"), e -> {
-			if (
-
-			QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+			if (QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
 				MushokuMod.PACKET_HANDLER.sendToServer(new QuickStirkesGUIGui.ButtonPressedMessage(1, x, y, z));
 				QuickStirkesGUIGui.handleButtonAction(entity, 1, x, y, z);
@@ -119,17 +125,13 @@ public class QuickStirkesGUIGuiWindow extends ContainerScreen<QuickStirkesGUIGui
 		}) {
 			@Override
 			public void render(MatrixStack ms, int gx, int gy, float ticks) {
-				if (
-
-				QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
-						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+				if (QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 					super.render(ms, gx, gy, ticks);
 			}
 		});
 		this.addButton(new Button(this.guiLeft + 44, this.guiTop + 139, 82, 20, new StringTextComponent("Skill Three"), e -> {
-			if (
-
-			QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+			if (QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
 				MushokuMod.PACKET_HANDLER.sendToServer(new QuickStirkesGUIGui.ButtonPressedMessage(2, x, y, z));
 				QuickStirkesGUIGui.handleButtonAction(entity, 2, x, y, z);
@@ -137,17 +139,13 @@ public class QuickStirkesGUIGuiWindow extends ContainerScreen<QuickStirkesGUIGui
 		}) {
 			@Override
 			public void render(MatrixStack ms, int gx, int gy, float ticks) {
-				if (
-
-				QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
-						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+				if (QuickStrikesSkillButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 					super.render(ms, gx, gy, ticks);
 			}
 		});
 		this.addButton(new Button(this.guiLeft + 39, this.guiTop + 65, 87, 20, new StringTextComponent("Unlock Skill"), e -> {
-			if (
-
-			QuickStrikesSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+			if (QuickStrikesSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
 				MushokuMod.PACKET_HANDLER.sendToServer(new QuickStirkesGUIGui.ButtonPressedMessage(3, x, y, z));
 				QuickStirkesGUIGui.handleButtonAction(entity, 3, x, y, z);
@@ -155,9 +153,7 @@ public class QuickStirkesGUIGuiWindow extends ContainerScreen<QuickStirkesGUIGui
 		}) {
 			@Override
 			public void render(MatrixStack ms, int gx, int gy, float ticks) {
-				if (
-
-				QuickStrikesSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				if (QuickStrikesSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 					super.render(ms, gx, gy, ticks);
 			}
@@ -169,5 +165,4 @@ public class QuickStirkesGUIGuiWindow extends ContainerScreen<QuickStirkesGUIGui
 			}
 		}));
 	}
-
 }

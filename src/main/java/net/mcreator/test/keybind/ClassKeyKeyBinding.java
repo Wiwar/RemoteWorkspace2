@@ -1,17 +1,40 @@
 
 package net.mcreator.test.keybind;
 
+import org.lwjgl.glfw.GLFW;
+
+import net.minecraftforge.fml.network.NetworkEvent;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.client.event.InputEvent;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
+
+import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.client.Minecraft;
+
+import net.mcreator.test.procedures.OpenChantGUIProcedure;
+import net.mcreator.test.MushokuModElements;
 import net.mcreator.test.MushokuMod;
+
+import java.util.stream.Stream;
+import java.util.function.Supplier;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.AbstractMap;
 
 @MushokuModElements.ModElement.Tag
 public class ClassKeyKeyBinding extends MushokuModElements.ModElement {
-
 	@OnlyIn(Dist.CLIENT)
 	private KeyBinding keys;
 
 	public ClassKeyKeyBinding(MushokuModElements instance) {
 		super(instance, 210);
-
 		elements.addNetworkMessage(KeyBindingPressedMessage.class, KeyBindingPressedMessage::buffer, KeyBindingPressedMessage::new,
 				KeyBindingPressedMessage::handler);
 	}
@@ -32,14 +55,12 @@ public class ClassKeyKeyBinding extends MushokuModElements.ModElement {
 				if (event.getAction() == GLFW.GLFW_PRESS) {
 					MushokuMod.PACKET_HANDLER.sendToServer(new KeyBindingPressedMessage(0, 0));
 					pressAction(Minecraft.getInstance().player, 0, 0);
-
 				}
 			}
 		}
 	}
 
 	public static class KeyBindingPressedMessage {
-
 		int type, pressedms;
 
 		public KeyBindingPressedMessage(int type, int pressedms) {
@@ -64,7 +85,6 @@ public class ClassKeyKeyBinding extends MushokuModElements.ModElement {
 			});
 			context.setPacketHandled(true);
 		}
-
 	}
 
 	private static void pressAction(PlayerEntity entity, int type, int pressedms) {
@@ -72,16 +92,15 @@ public class ClassKeyKeyBinding extends MushokuModElements.ModElement {
 		double x = entity.getPosX();
 		double y = entity.getPosY();
 		double z = entity.getPosZ();
-
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
-
 		if (type == 0) {
 
-			OpenChantGUIProcedure.executeProcedure(Collections.emptyMap());
+			OpenChantGUIProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
-
 	}
-
 }

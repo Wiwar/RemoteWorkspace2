@@ -1,9 +1,22 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+
+import net.minecraft.potion.Effects;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+
+import net.mcreator.test.potion.ToukiEfPotionEffect;
+import net.mcreator.test.MushokuModVariables;
+import net.mcreator.test.MushokuMod;
+
+import java.util.Map;
+import java.util.HashMap;
 
 public class ToukiProcedure {
-
 	@Mod.EventBusSubscriber
 	private static class GlobalTrigger {
 		@SubscribeEvent
@@ -26,9 +39,7 @@ public class ToukiProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure Touki!");
 			return;
 		}
-
 		Entity entity = (Entity) dependencies.get("entity");
-
 		if ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new MushokuModVariables.PlayerVariables())).ToukiLevel >= 1) {
 			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
@@ -93,5 +104,4 @@ public class ToukiProcedure {
 			}
 		}
 	}
-
 }

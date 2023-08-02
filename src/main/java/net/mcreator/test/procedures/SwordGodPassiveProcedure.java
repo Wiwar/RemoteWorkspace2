@@ -1,9 +1,27 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.potion.Effects;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+
+import net.mcreator.test.potion.SwordGodPassiveEFPotionEffect;
+import net.mcreator.test.MushokuModVariables;
+import net.mcreator.test.MushokuMod;
+
+import java.util.function.Function;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Comparator;
 
 public class SwordGodPassiveProcedure {
-
 	@Mod.EventBusSubscriber
 	private static class GlobalTrigger {
 		@SubscribeEvent
@@ -46,13 +64,11 @@ public class SwordGodPassiveProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure SwordGodPassive!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-
 		if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new MushokuModVariables.PlayerVariables())).StyleAffinity).equals("Sword God")) {
 			if ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
@@ -106,5 +122,4 @@ public class SwordGodPassiveProcedure {
 			}
 		}
 	}
-
 }

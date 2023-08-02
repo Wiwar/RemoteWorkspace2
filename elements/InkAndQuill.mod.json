@@ -3,7 +3,7 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "inknquill",
+    "texture": "inkandquill",
     "customModelName": "Normal",
     "name": "Ink And Quill",
     "rarity": "COMMON",

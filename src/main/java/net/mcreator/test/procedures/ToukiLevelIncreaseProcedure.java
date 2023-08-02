@@ -1,6 +1,14 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+
+import net.mcreator.test.potion.ToukiEfPotionEffect;
+import net.mcreator.test.MushokuModVariables;
+import net.mcreator.test.MushokuMod;
+
+import java.util.Map;
 
 public class ToukiLevelIncreaseProcedure {
 
@@ -10,9 +18,7 @@ public class ToukiLevelIncreaseProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure ToukiLevelIncrease!");
 			return;
 		}
-
 		Entity entity = (Entity) dependencies.get("entity");
-
 		if ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new MushokuModVariables.PlayerVariables())).TechniqueSP >= 200) {
 			{
@@ -27,5 +33,4 @@ public class ToukiLevelIncreaseProcedure {
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(ToukiEfPotionEffect.potion, (int) 60, (int) 1, (false), (false)));
 		}
 	}
-
 }

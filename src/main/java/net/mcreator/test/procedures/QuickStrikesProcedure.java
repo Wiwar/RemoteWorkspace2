@@ -1,6 +1,25 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.common.MinecraftForge;
+
+import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.RayTraceContext;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
+
+import net.mcreator.test.MushokuMod;
+
+import java.util.stream.Collectors;
+import java.util.function.Function;
+import java.util.Map;
+import java.util.List;
+import java.util.Comparator;
 
 public class QuickStrikesProcedure {
 
@@ -30,13 +49,11 @@ public class QuickStrikesProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure QuickStrikes!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -123,7 +140,6 @@ public class QuickStrikesProcedure {
 			}
 		}
 		new Object() {
-
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
@@ -235,10 +251,8 @@ public class QuickStrikesProcedure {
 				}
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
-
 		}.start(world, (int) 7);
 		new Object() {
-
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
@@ -350,10 +364,8 @@ public class QuickStrikesProcedure {
 				}
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
-
 		}.start(world, (int) 14);
 		new Object() {
-
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
@@ -465,9 +477,6 @@ public class QuickStrikesProcedure {
 				}
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
-
 		}.start(world, (int) 21);
-
 	}
-
 }

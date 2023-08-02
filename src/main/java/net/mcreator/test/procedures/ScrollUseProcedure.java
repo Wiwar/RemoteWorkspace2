@@ -1,6 +1,22 @@
 package net.mcreator.test.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+
+import net.mcreator.test.MushokuModVariables;
+import net.mcreator.test.MushokuMod;
+
+import java.util.stream.Stream;
+import java.util.function.Function;
+import java.util.Random;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Comparator;
+import java.util.AbstractMap;
 
 public class ScrollUseProcedure {
 
@@ -30,13 +46,11 @@ public class ScrollUseProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure ScrollUse!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-
 		if ((((Entity) world
 				.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -140,7 +154,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				WaterballProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
 								new AbstractMap.SimpleEntry<>("entity", entity))
@@ -263,7 +276,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				IceSmashProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -385,7 +397,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				WaterArrowProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -507,7 +518,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				IceBladeproProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -630,7 +640,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				RockBulletProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -752,7 +761,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				FireBallProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -874,7 +882,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				HeatHandProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -996,7 +1003,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				BurningPlaceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -1118,7 +1124,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				EarthBladeProjProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -1241,7 +1246,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				DigProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -1263,26 +1267,6 @@ public class ScrollUseProcedure {
 												}
 											}.compareDistOf(x, y, z)).findFirst().orElse(null))).getHeldItemMainhand()
 									: ItemStack.EMPTY);
-					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
-						_ist.shrink(1);
-						_ist.setDamage(0);
-					}
-				}
-			}
-			if (true) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).closeScreen();
-				{
-					double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 5);
-					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.MaxMana = _setval;
-						capability.syncPlayerVariables(entity);
-					});
-				}
-				entity.getPersistentData().putDouble("Mana", (entity.getPersistentData().getDouble("Mana") - 30));
-				{
-					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
 					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 						_ist.shrink(1);
 						_ist.setDamage(0);
@@ -1383,7 +1367,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				BlastProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -1504,7 +1487,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				PushProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -1625,7 +1607,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				PullProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -1747,7 +1728,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				HealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -1784,7 +1764,7 @@ public class ScrollUseProcedure {
 						return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new MushokuModVariables.PlayerVariables())).MaxMana > 80) {
+				.orElse(new MushokuModVariables.PlayerVariables())).Mana > 80) {
 			if ((((((Entity) world
 					.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -1879,7 +1859,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				IcePillarProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2001,7 +1980,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				WaterCannonProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
 								new AbstractMap.SimpleEntry<>("entity", entity))
@@ -2124,7 +2102,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				IcicleLanceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2246,7 +2223,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				StoneCannonProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2368,7 +2344,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				EarthPillarProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2490,7 +2465,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				ExplosionProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2612,7 +2586,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				FlameSliceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2734,7 +2707,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				FlamethrowerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -2855,7 +2827,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				ExFlameProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2977,6 +2948,10 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+				EarthLanceProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
 					ItemStack _ist = ((((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3095,6 +3070,9 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+				XHealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
 					ItemStack _ist = ((((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3213,7 +3191,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				FeastProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -3334,7 +3311,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				WindBindProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -3456,7 +3432,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				WindSliceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -3578,7 +3553,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				SonicBoomProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -3615,7 +3589,7 @@ public class ScrollUseProcedure {
 						return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new MushokuModVariables.PlayerVariables())).MaxMana > 200) {
+				.orElse(new MushokuModVariables.PlayerVariables())).Mana > 200) {
 			if ((((((Entity) world
 					.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3658,7 +3632,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -3688,7 +3662,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -3710,7 +3684,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				BlizardStormProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -3780,7 +3753,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -3810,7 +3783,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -3832,7 +3805,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				SquallProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -3903,7 +3875,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -3933,7 +3905,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -3955,7 +3927,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				IceFortressProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -4025,7 +3996,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4055,7 +4026,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4077,7 +4048,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				EarthFortressProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -4149,7 +4119,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4179,7 +4149,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4201,7 +4171,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				EarthWallProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -4271,7 +4240,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4301,7 +4270,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4323,7 +4292,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				EarthHedgehogProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -4393,7 +4361,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4423,7 +4391,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4445,7 +4413,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				ShineHealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -4514,7 +4481,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4544,7 +4511,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4566,7 +4533,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				AddFallNegationProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -4635,7 +4601,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4665,7 +4631,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4687,7 +4653,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				TornadoImpactProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -4759,7 +4724,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4789,7 +4754,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4811,7 +4776,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				SonicBlastProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -4881,7 +4845,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4911,7 +4875,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -4933,7 +4897,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				ExodusFlameProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5003,7 +4966,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 7);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5033,7 +4996,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 80);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5055,7 +5018,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				MagmaGushProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5135,7 +5097,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5165,7 +5127,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 400);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5187,7 +5149,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				CumulonimbusProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5257,7 +5218,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5287,7 +5248,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 400);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5309,7 +5270,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				SandStormProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5379,7 +5339,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5409,7 +5369,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 400);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5431,7 +5391,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				ViolentStormProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5501,7 +5460,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 15);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5531,7 +5490,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 200);
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 400);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5553,7 +5512,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				FlashOverProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -5634,7 +5592,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5686,7 +5644,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				LightningStrikeProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5756,7 +5713,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5808,7 +5765,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				DesertStormProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5878,7 +5834,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -5930,6 +5886,9 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+				TornadoIdleProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
 					ItemStack _ist = ((((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -5996,7 +5955,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 20);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -6048,7 +6007,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				MineFieldProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -6086,7 +6044,7 @@ public class ScrollUseProcedure {
 						return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new MushokuModVariables.PlayerVariables())).MaxMana > 1600) {
+				.orElse(new MushokuModVariables.PlayerVariables())).Mana > 1600) {
 			if ((((((Entity) world
 					.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -6129,7 +6087,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 30);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -6181,7 +6139,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				AbsoluteZeroProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -6252,7 +6209,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 30);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -6304,7 +6261,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				ElectricProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -6373,7 +6329,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 30);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -6425,7 +6381,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				MountianProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -6495,7 +6450,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 30);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -6547,7 +6502,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				EarthDrillProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -6669,7 +6623,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				EyeoftheStormProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
 								new AbstractMap.SimpleEntry<>("entity", entity))
@@ -6740,7 +6693,7 @@ public class ScrollUseProcedure {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
 							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 25);
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 30);
 					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
 							.stream().sorted(new Object() {
@@ -6792,7 +6745,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-
 				NuclearStrikeProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -6824,5 +6776,4 @@ public class ScrollUseProcedure {
 			}
 		}
 	}
-
 }
