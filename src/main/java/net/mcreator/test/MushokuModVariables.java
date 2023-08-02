@@ -92,6 +92,7 @@ public class MushokuModVariables {
 			nbt.putBoolean("WGBeginner", instance.WGBeginner);
 			nbt.putBoolean("NGBeginner", instance.NGBeginner);
 			nbt.putBoolean("Deflect", instance.Deflect);
+			nbt.putBoolean("WGFlow", instance.WGFlow);
 			return nbt;
 		}
 
@@ -119,6 +120,7 @@ public class MushokuModVariables {
 			instance.WGBeginner = nbt.getBoolean("WGBeginner");
 			instance.NGBeginner = nbt.getBoolean("NGBeginner");
 			instance.Deflect = nbt.getBoolean("Deflect");
+			instance.WGFlow = nbt.getBoolean("WGFlow");
 		}
 	}
 
@@ -144,6 +146,7 @@ public class MushokuModVariables {
 		public boolean WGBeginner = false;
 		public boolean NGBeginner = false;
 		public boolean Deflect = false;
+		public boolean WGFlow = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -199,6 +202,7 @@ public class MushokuModVariables {
 		clone.WGBeginner = original.WGBeginner;
 		clone.NGBeginner = original.NGBeginner;
 		clone.Deflect = original.Deflect;
+		clone.WGFlow = original.WGFlow;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -246,6 +250,7 @@ public class MushokuModVariables {
 					variables.WGBeginner = message.data.WGBeginner;
 					variables.NGBeginner = message.data.NGBeginner;
 					variables.Deflect = message.data.Deflect;
+					variables.WGFlow = message.data.WGFlow;
 				}
 			});
 			context.setPacketHandled(true);

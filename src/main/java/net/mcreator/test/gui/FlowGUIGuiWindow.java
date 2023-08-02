@@ -14,10 +14,15 @@ import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
+import net.mcreator.test.procedures.FlowSkillButtVisProcedure;
+import net.mcreator.test.procedures.FlowAquireButtVisProcedure;
 import net.mcreator.test.MushokuModVariables;
 import net.mcreator.test.MushokuMod;
 
+import java.util.stream.Stream;
+import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -82,8 +87,12 @@ public class FlowGUIGuiWindow extends ContainerScreen<FlowGUIGui.GuiContainerMod
 		this.font.drawString(ms, "at your attacker", 7, 42, -16777216);
 		this.font.drawString(ms, "Availible Skill Points : " + ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new MushokuModVariables.PlayerVariables())).TechniqueSP) + "", 3, 15, -16777216);
-		this.font.drawString(ms, "(Cost 50 Skill Points)", 26, 89, -16777216);
-		this.font.drawString(ms, "Bind Skill", 57, 102, -16777216);
+		if (FlowAquireButtVisProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+			this.font.drawString(ms, "(Cost 50 Skill Points)", 26, 89, -16777216);
+		if (FlowSkillButtVisProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+			this.font.drawString(ms, "Bind Skill", 57, 102, -16777216);
 	}
 
 	@Override
@@ -103,28 +112,60 @@ public class FlowGUIGuiWindow extends ContainerScreen<FlowGUIGui.GuiContainerMod
 			}
 		}));
 		this.addButton(new Button(this.guiLeft + 41, this.guiTop + 66, 82, 20, new StringTextComponent("Unlock Flow"), e -> {
-			if (true) {
+			if (FlowAquireButtVisProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
 				MushokuMod.PACKET_HANDLER.sendToServer(new FlowGUIGui.ButtonPressedMessage(1, x, y, z));
 				FlowGUIGui.handleButtonAction(entity, 1, x, y, z);
 			}
-		}));
+		}) {
+			@Override
+			public void render(MatrixStack ms, int gx, int gy, float ticks) {
+				if (FlowAquireButtVisProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+					super.render(ms, gx, gy, ticks);
+			}
+		});
 		this.addButton(new Button(this.guiLeft + 5, this.guiTop + 114, 72, 20, new StringTextComponent("Skill One"), e -> {
-			if (true) {
+			if (FlowSkillButtVisProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
 				MushokuMod.PACKET_HANDLER.sendToServer(new FlowGUIGui.ButtonPressedMessage(2, x, y, z));
 				FlowGUIGui.handleButtonAction(entity, 2, x, y, z);
 			}
-		}));
+		}) {
+			@Override
+			public void render(MatrixStack ms, int gx, int gy, float ticks) {
+				if (FlowSkillButtVisProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+					super.render(ms, gx, gy, ticks);
+			}
+		});
 		this.addButton(new Button(this.guiLeft + 94, this.guiTop + 114, 72, 20, new StringTextComponent("Skill Two"), e -> {
-			if (true) {
+			if (FlowSkillButtVisProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
 				MushokuMod.PACKET_HANDLER.sendToServer(new FlowGUIGui.ButtonPressedMessage(3, x, y, z));
 				FlowGUIGui.handleButtonAction(entity, 3, x, y, z);
 			}
-		}));
+		}) {
+			@Override
+			public void render(MatrixStack ms, int gx, int gy, float ticks) {
+				if (FlowSkillButtVisProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+					super.render(ms, gx, gy, ticks);
+			}
+		});
 		this.addButton(new Button(this.guiLeft + 44, this.guiTop + 137, 82, 20, new StringTextComponent("Skill Three"), e -> {
-			if (true) {
+			if (FlowSkillButtVisProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
 				MushokuMod.PACKET_HANDLER.sendToServer(new FlowGUIGui.ButtonPressedMessage(4, x, y, z));
 				FlowGUIGui.handleButtonAction(entity, 4, x, y, z);
 			}
-		}));
+		}) {
+			@Override
+			public void render(MatrixStack ms, int gx, int gy, float ticks) {
+				if (FlowSkillButtVisProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+					super.render(ms, gx, gy, ticks);
+			}
+		});
 	}
 }

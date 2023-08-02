@@ -5437,21 +5437,148 @@
       "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Flow"
     },
     {
-      "name": "FlowEf",
-      "type": "potioneffect",
-      "sortid": 284,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "flow_ef",
-      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Flow"
-    },
-    {
       "name": "FlowEfEF",
       "type": "procedure",
       "sortid": 285,
       "compiles": true,
       "locked_code": false,
       "registry_name": "flow_ef_ef",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Flow"
+    },
+    {
+      "name": "AquireFlow",
+      "type": "procedure",
+      "sortid": 286,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aquire_flow",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Flow"
+    },
+    {
+      "name": "Flow",
+      "type": "procedure",
+      "sortid": 287,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flow",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Flow"
+    },
+    {
+      "name": "FlowAquireButtVis",
+      "type": "procedure",
+      "sortid": 288,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flow_aquire_butt_vis",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Flow"
+    },
+    {
+      "name": "FlowSkillButtVis",
+      "type": "procedure",
+      "sortid": 289,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flow_skill_butt_vis",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Flow"
+    },
+    {
+      "name": "FlowSkillOneBind",
+      "type": "procedure",
+      "sortid": 290,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flow_skill_one_bind",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Flow"
+    },
+    {
+      "name": "FlowGUIOpen",
+      "type": "procedure",
+      "sortid": 291,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flow_gui_open",
       "metadata": {
         "dependencies": [
           {
@@ -5605,13 +5732,18 @@
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
+    },
+    {
+      "name": "WGFlow",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [],
   "language_map": {
     "en_us": {
       "key.test.test": "Test",
-      "effect.flow_ef": "Flow",
       "item.mushoku.water_cannon_entity_spawn_egg": "Water Cannon Entity Spawn Egg",
       "item.mushoku.violent_storm_entity_spawn_egg": "Violent Storm Entity Spawn Egg",
       "entity.mushoku.violent_storm_entity": "Violent Storm Entity",

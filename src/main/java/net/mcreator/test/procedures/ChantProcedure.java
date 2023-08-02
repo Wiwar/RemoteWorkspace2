@@ -69,28 +69,10 @@ public class ChantProcedure {
 					return "";
 				}
 			}.getText());
-			((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.ifPresent(capability -> {
-						capability.ChantSpell = _setval;
-						capability
-								.syncPlayerVariables(
-										((Entity) world
-												.getEntitiesWithinAABB(PlayerEntity.class, new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d),
-														z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-												.stream().sorted(new Object() {
-													Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-														return Comparator
-																.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-													}
-												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-					});
+			entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.ChantSpell = _setval;
+				capability.syncPlayerVariables(entity);
+			});
 		}
 		if ((((Entity) world
 				.getEntitiesWithinAABB(PlayerEntity.class,
@@ -101,14 +83,7 @@ public class ChantProcedure {
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new MushokuModVariables.PlayerVariables())).Mana > 30) {
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Waterball")) {
 				WaterballProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
@@ -188,65 +163,15 @@ public class ChantProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private IWorld world;
-
-					public void start(IWorld world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
-					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						{
-							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, (int) 2);
+				{
+					String _setval = "empty";
+					entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.ChantSpell = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Ice Smash")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -348,42 +273,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Water Arrow")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -485,42 +384,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Ice Blade")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -623,42 +496,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Rock Bullet")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -760,42 +607,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Fireball")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -897,42 +718,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Heat Hand")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -1034,42 +829,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Burning Place")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -1171,42 +940,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Earth Blade")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -1309,42 +1052,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Dig")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -1446,42 +1163,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Blast")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -1582,42 +1273,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Push")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -1718,42 +1383,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Pull")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -1855,42 +1494,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Healing")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -1992,29 +1605,10 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
@@ -2030,14 +1624,7 @@ public class ChantProcedure {
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new MushokuModVariables.PlayerVariables())).Mana > 80) {
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Ice Pillar")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -2139,42 +1726,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Water Cannon")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -2277,42 +1838,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Icicle Lance")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -2414,42 +1949,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Stone Cannon")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -2551,42 +2060,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Earth Pillar")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -2688,42 +2171,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Explosion")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -2825,42 +2282,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Flame Slice")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -2962,42 +2393,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Flamethrower")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3098,42 +2503,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Ex Flame")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3235,42 +2614,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Earth Lance")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3373,42 +2726,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("X Healing")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3510,42 +2837,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Feast")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3646,42 +2947,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Wind Bind")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3783,42 +3058,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Wind Slice")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3920,42 +3169,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Sonic Boom")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -4057,29 +3280,10 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
@@ -4095,14 +3299,7 @@ public class ChantProcedure {
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new MushokuModVariables.PlayerVariables())).Mana > 200) {
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Blizzard Storm")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -4204,42 +3401,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Squall")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -4342,42 +3513,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Ice Fortress")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -4479,42 +3624,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Earth Fortress")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -4618,42 +3737,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Earth Wall")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -4755,42 +3848,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Earth Hedgehog")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -4892,42 +3959,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Shine Healing")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -5028,42 +4069,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Fall Negation")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -5164,42 +4179,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Tornado Impact")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -5303,42 +4292,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Sonic Blast")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -5440,42 +4403,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Exodus Flame")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -5577,42 +4514,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Magma Gush")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -5714,29 +4625,10 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
@@ -5752,14 +4644,7 @@ public class ChantProcedure {
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new MushokuModVariables.PlayerVariables())).Mana > 400) {
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Cumulonimbus")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -5861,42 +4746,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Sandstorm")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -5998,42 +4857,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Violent Storm")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -6135,42 +4968,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Flash Over")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -6273,29 +5080,10 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
@@ -6311,14 +5099,7 @@ public class ChantProcedure {
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new MushokuModVariables.PlayerVariables())).Mana > 800) {
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Lightning Strike")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -6420,42 +5201,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Desert Storm")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -6557,42 +5312,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Tornado")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -6694,42 +5423,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Mine Field")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -6832,29 +5535,10 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
@@ -6870,14 +5554,7 @@ public class ChantProcedure {
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new MushokuModVariables.PlayerVariables())).MaxMana > 1600) {
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Absolute Zero")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -6980,42 +5657,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Electric")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -7116,42 +5767,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Mountain")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -7253,42 +5878,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Earth Drill")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -7390,42 +5989,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Eye of the Storm")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -7528,42 +6101,16 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 2);
 			}
-			if (((((Entity) world
-					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+			if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Nuclear Strike")) {
 				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -7667,29 +6214,10 @@ public class ChantProcedure {
 					private void run() {
 						{
 							String _setval = "empty";
-							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-									null).stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf(x, y, z)).findFirst().orElse(null))
-									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.ChantSpell = _setval;
-										capability
-												.syncPlayerVariables(
-														((Entity) world
-																.getEntitiesWithinAABB(PlayerEntity.class,
-																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
-																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
-																		null)
-																.stream().sorted(new Object() {
-																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
-																				.getDistanceSq(_x, _y, _z)));
-																	}
-																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
-									});
+							entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.ChantSpell = _setval;
+								capability.syncPlayerVariables(entity);
+							});
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}

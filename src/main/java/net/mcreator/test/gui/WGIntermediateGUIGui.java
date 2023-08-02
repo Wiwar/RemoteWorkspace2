@@ -24,6 +24,7 @@ import net.minecraft.client.gui.ScreenManager;
 
 import net.mcreator.test.procedures.WGStyleGUIOpenProcedure;
 import net.mcreator.test.procedures.OpenDeflectGUIProcedure;
+import net.mcreator.test.procedures.FlowGUIOpenProcedure;
 import net.mcreator.test.MushokuModElements;
 
 import java.util.stream.Stream;
@@ -189,6 +190,13 @@ public class WGIntermediateGUIGui extends MushokuModElements.ModElement {
 		if (buttonID == 0) {
 
 			WGStyleGUIOpenProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
+		if (buttonID == 1) {
+
+			FlowGUIOpenProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
