@@ -3897,7 +3897,7 @@
       "name": "ArmChopBindGUI",
       "type": "gui",
       "sortid": 224,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "arm_chop_bind_gui",
       "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Arm Chop"
@@ -4113,7 +4113,7 @@
       "name": "ClassPickerGUI",
       "type": "gui",
       "sortid": 194,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "class_picker_gui",
       "path": "~/ClassPick"
@@ -4815,7 +4815,7 @@
       "name": "LsOSGUI",
       "type": "gui",
       "sortid": 249,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "ls_osgui",
       "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
