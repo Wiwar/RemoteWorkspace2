@@ -17,7 +17,7 @@ public class LsOSSkillButtCondProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		if ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new MushokuModVariables.PlayerVariables())).QuickStrikes == true) {
+				.orElse(new MushokuModVariables.PlayerVariables())).LsOS == true) {
 			return true;
 		}
 		return false;

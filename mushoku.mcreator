@@ -4940,6 +4940,48 @@
         ]
       },
       "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
+    },
+    {
+      "name": "LsOSEf",
+      "type": "potioneffect",
+      "sortid": 256,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_os_ef",
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
+    },
+    {
+      "name": "LsOSEfEf",
+      "type": "procedure",
+      "sortid": 257,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_os_ef_ef",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
     }
   ],
   "variable_elements": [
@@ -5121,6 +5163,7 @@
       "entity.mushoku.sand_storm_entity": "Sand Storm Entity",
       "entity.mushoku.mountian_entity": "Sand Storm Entity",
       "item.mushoku.water_arrow_proj": "Water Arrow Proj",
+      "effect.ls_os_ef": "LsOS",
       "item.mushoku.elementary_stone": "Elementary Stone",
       "item.mushoku.water_magic_tome": "Water Magic Tome",
       "item.mushoku.wind_tome": "Wind Tome"
