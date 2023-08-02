@@ -16,6 +16,7 @@ import net.minecraft.client.Minecraft;
 
 import net.mcreator.test.procedures.LsOSSkillButtCondProcedure;
 import net.mcreator.test.procedures.LsOSSkillAquireProcedure;
+import net.mcreator.test.MushokuModVariables;
 import net.mcreator.test.MushokuMod;
 
 import java.util.stream.Stream;
@@ -90,6 +91,10 @@ public class LsOSGUIGuiWindow extends ContainerScreen<LsOSGUIGui.GuiContainerMod
 		if (LsOSSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "(Skill Point Cost 200)", 27, 88, -16777216);
+		if (LsOSSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+			this.font.drawString(ms, "Availible Skill Points : " + ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new MushokuModVariables.PlayerVariables())).TechniqueSP) + "", 5, 51, -16777216);
 	}
 
 	@Override

@@ -27,6 +27,9 @@
         "type": "button",
         "data": {
           "text": "Begginer",
+          "onClick": {
+            "name": "SGOpenBegGUI"
+          },
           "width": 67,
           "height": 20,
           "name": "Begginer",
@@ -93,6 +96,23 @@
           "name": "Advanced",
           "x": 177,
           "y": 125
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Saint",
+          "onClick": {
+            "name": "LsOLOpenGUI"
+          },
+          "displayCondition": {
+            "name": "SGSaintButtCond"
+          },
+          "width": 51,
+          "height": 20,
+          "name": "Saint",
+          "x": 186,
+          "y": 152
         }
       }
     ],

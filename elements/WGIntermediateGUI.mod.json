@@ -1,0 +1,87 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "WGStyleGUIOpen"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 187,
+          "y": 17
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Intermediate",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Intermediate",
+          "x": 179,
+          "y": 41
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Availible Skill Points : <VAR:TechniqueSP>",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Availible Skill Points : <VAR:TechniqueSP>",
+          "x": 131,
+          "y": 52
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Flow",
+          "width": 46,
+          "height": 20,
+          "name": "Flow",
+          "x": 188,
+          "y": 83
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Deflect",
+          "onClick": {
+            "name": "WGOpenDeflectGUI"
+          },
+          "width": 61,
+          "height": 20,
+          "name": "Deflect",
+          "x": 181,
+          "y": 140
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

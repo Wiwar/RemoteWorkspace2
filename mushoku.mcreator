@@ -3948,7 +3948,7 @@
           }
         ]
       },
-      "path": "~/Sword Techniques/WaterGodStyle"
+      "path": "~/Sword Techniques/WaterGodStyle/WGPassive"
     },
     {
       "name": "WaterGodEF",
@@ -3957,7 +3957,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "water_god_ef",
-      "path": "~/Sword Techniques/WaterGodStyle"
+      "path": "~/Sword Techniques/WaterGodStyle/WGPassive"
     },
     {
       "name": "NorthGodPassive",
@@ -3990,7 +3990,7 @@
           }
         ]
       },
-      "path": "~/Sword Techniques/NorthGodStyle"
+      "path": "~/Sword Techniques/NorthGodStyle/Passive"
     },
     {
       "name": "NorthGodPassiveEF",
@@ -3999,7 +3999,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "north_god_passive_ef",
-      "path": "~/Sword Techniques/NorthGodStyle"
+      "path": "~/Sword Techniques/NorthGodStyle/Passive"
     },
     {
       "name": "SwordGodGui",
@@ -4083,7 +4083,7 @@
           }
         ]
       },
-      "path": "~/Sword Techniques/WaterGodStyle"
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Gui"
     },
     {
       "name": "NGIntermediateDispCond",
@@ -4101,7 +4101,7 @@
           }
         ]
       },
-      "path": "~/Sword Techniques/NorthGodStyle"
+      "path": "~/Sword Techniques/NorthGodStyle/Beginner"
     },
     {
       "name": "NorthGodGUI",
@@ -4945,7 +4945,7 @@
       "name": "LsOSEf",
       "type": "potioneffect",
       "sortid": 256,
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "ls_os_ef",
       "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
@@ -4954,7 +4954,7 @@
       "name": "LsOSEfEf",
       "type": "procedure",
       "sortid": 257,
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "ls_os_ef_ef",
       "metadata": {
@@ -4984,15 +4984,646 @@
       "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
     },
     {
-      "name": "Supersextime",
-      "type": "procedure",
-      "sortid": 258,
+      "name": "LsOLGUI",
+      "type": "gui",
+      "sortid": 259,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "supersextime",
+      "registry_name": "ls_olgui",
+      "path": "~/Sword Techniques/SwordGodStyle/Saint"
+    },
+    {
+      "name": "LsOLSkillAquire",
+      "type": "procedure",
+      "sortid": 260,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_ol_skill_aquire",
       "metadata": {
-        "dependencies": []
-      }
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Saint"
+    },
+    {
+      "name": "LsOLAquire",
+      "type": "procedure",
+      "sortid": 261,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_ol_aquire",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Saint"
+    },
+    {
+      "name": "LsOLSkillButtCond",
+      "type": "procedure",
+      "sortid": 262,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_ol_skill_butt_cond",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Saint"
+    },
+    {
+      "name": "LsOLOpenGUI",
+      "type": "procedure",
+      "sortid": 263,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_ol_open_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Saint"
+    },
+    {
+      "name": "LsOLSkillOneSet",
+      "type": "procedure",
+      "sortid": 264,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_ol_skill_one_set",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Saint"
+    },
+    {
+      "name": "LsOLEf",
+      "type": "potioneffect",
+      "sortid": 265,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_ol_ef",
+      "path": "~/Sword Techniques/SwordGodStyle/Saint"
+    },
+    {
+      "name": "LsOLEfEf",
+      "type": "procedure",
+      "sortid": 266,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_ol_ef_ef",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Saint"
+    },
+    {
+      "name": "LsOL",
+      "type": "procedure",
+      "sortid": 267,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_ol",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Saint"
+    },
+    {
+      "name": "SGSaintButtCond",
+      "type": "procedure",
+      "sortid": 268,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sg_saint_butt_cond",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Saint"
+    },
+    {
+      "name": "WGIntermediateGUI",
+      "type": "gui",
+      "sortid": 269,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wg_intermediate_gui",
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Gui"
+    },
+    {
+      "name": "Defect",
+      "type": "procedure",
+      "sortid": 270,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "defect",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectEf",
+      "type": "potioneffect",
+      "sortid": 272,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_ef",
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectGui",
+      "type": "gui",
+      "sortid": 273,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_gui",
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectUnlockVis",
+      "type": "procedure",
+      "sortid": 274,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_unlock_vis",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectToggleVis",
+      "type": "procedure",
+      "sortid": 275,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_toggle_vis",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectAquire",
+      "type": "procedure",
+      "sortid": 276,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_aquire",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectDeactivate",
+      "type": "procedure",
+      "sortid": 277,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_deactivate",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "WGOpenIntermediateGUI",
+      "type": "procedure",
+      "sortid": 278,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wg_open_intermediate_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Gui"
+    },
+    {
+      "name": "WGOpenDeflectGUI",
+      "type": "procedure",
+      "sortid": 279,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wg_open_deflect_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectActivate",
+      "type": "procedure",
+      "sortid": 280,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_activate",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "BegginerGui",
+      "type": "gui",
+      "sortid": 281,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "begginer_gui",
+      "path": "~/Sword Techniques/SwordGodStyle/Beginner"
+    },
+    {
+      "name": "BeginnerSGAquire",
+      "type": "procedure",
+      "sortid": 282,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beginner_sg_aquire",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Beginner"
+    },
+    {
+      "name": "SGBegButtVis",
+      "type": "procedure",
+      "sortid": 283,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sg_beg_butt_vis",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Beginner"
+    },
+    {
+      "name": "WGBegginerGUI",
+      "type": "gui",
+      "sortid": 284,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wg_begginer_gui",
+      "path": "~/Sword Techniques/WaterGodStyle/Beginner"
+    },
+    {
+      "name": "BegWGAquire",
+      "type": "procedure",
+      "sortid": 285,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beg_wg_aquire",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Beginner"
+    },
+    {
+      "name": "WGBegButVis",
+      "type": "procedure",
+      "sortid": 286,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wg_beg_but_vis",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Beginner"
+    },
+    {
+      "name": "SGOpenBegGUI",
+      "type": "procedure",
+      "sortid": 287,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sg_open_beg_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Beginner"
+    },
+    {
+      "name": "WGOpenBegGui",
+      "type": "procedure",
+      "sortid": 288,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wg_open_beg_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Beginner"
+    },
+    {
+      "name": "NGBegGui",
+      "type": "gui",
+      "sortid": 289,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ng_beg_gui",
+      "path": "~/Sword Techniques/NorthGodStyle/Beginner"
+    },
+    {
+      "name": "NGBegAquire",
+      "type": "procedure",
+      "sortid": 290,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ng_beg_aquire",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques"
+    },
+    {
+      "name": "NGBegButVis",
+      "type": "procedure",
+      "sortid": 291,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ng_beg_but_vis",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/NorthGodStyle/Beginner"
+    },
+    {
+      "name": "NGOpenBegGui",
+      "type": "procedure",
+      "sortid": 292,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ng_open_beg_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/NorthGodStyle/Beginner"
+    },
+    {
+      "name": "FlowGUI",
+      "type": "gui",
+      "sortid": 293,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flow_gui",
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Flow"
     }
   ],
   "variable_elements": [
@@ -5090,10 +5721,46 @@
       "name": "ToukiLevel",
       "type": "number",
       "scope": "player_persistent",
-      "value": "0"
+      "value": "0.0"
     },
     {
       "name": "LsOS",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "LsOL",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "Deflect",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "SwordGodBeg",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "WaterGodBeg",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "NorthGodBeg",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "Flow",
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
@@ -5160,6 +5827,7 @@
       "item.mushoku.destert_storm_entity_spawn_egg": "Sand Storm Entity Spawn Egg",
       "item.mushoku.ice_smash_proj": "Ice Smash Proj",
       "item.mushoku.earth_blade": "Earth Blade",
+      "effect.ls_ol_ef": "LsOS",
       "item.mushoku.advanced_stone": "Advanced Stone",
       "item.mushoku.ex_flame_proj": "Ex Flame Proj",
       "entity.mushoku.mine_field_entity": "Mine Field Entity",
@@ -5170,6 +5838,7 @@
       "item.mushoku.earth_ground_spike_spawn_egg": "Earth Ground Spike Spawn Egg",
       "item.mushoku.flame_slice_proj": "Flame Slice Proj",
       "item.mushoku.tornado_impact_proj": "Tornado Impact Proj",
+      "effect.deflect_ef": "Deflect",
       "item.mushoku.ink_and_quill": "Ink And Quill",
       "entity.mushoku.sand_storm_entity": "Sand Storm Entity",
       "entity.mushoku.mountian_entity": "Sand Storm Entity",
@@ -5635,23 +6304,66 @@
                     "children": []
                   }
                 ]
+              },
+              {
+                "name": "Saint",
+                "children": []
+              },
+              {
+                "name": "Beginner",
+                "children": []
               }
             ]
           },
           {
             "name": "WaterGodStyle",
-            "children": []
+            "children": [
+              {
+                "name": "WGPassive",
+                "children": []
+              },
+              {
+                "name": "Intermediate",
+                "children": [
+                  {
+                    "name": "Gui",
+                    "children": []
+                  },
+                  {
+                    "name": "Deflect",
+                    "children": []
+                  },
+                  {
+                    "name": "Flow",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Beginner",
+                "children": []
+              }
+            ]
           },
           {
             "name": "NorthGodStyle",
+            "children": [
+              {
+                "name": "Beginner",
+                "children": []
+              },
+              {
+                "name": "Passive",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Touki",
             "children": []
           },
           {
             "name": "SwordsmenMenu",
-            "children": []
-          },
-          {
-            "name": "Touki",
             "children": []
           }
         ]

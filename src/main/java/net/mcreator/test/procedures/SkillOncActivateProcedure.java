@@ -63,5 +63,10 @@ public class SkillOncActivateProcedure {
 			LsOSProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
+		if (((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new MushokuModVariables.PlayerVariables())).SkillOne)
+				.equals("Longsword of Light")) {
+			LsOLProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
 	}
 }

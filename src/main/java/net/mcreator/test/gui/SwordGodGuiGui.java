@@ -23,8 +23,10 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.gui.ScreenManager;
 
 import net.mcreator.test.procedures.StyleGUIOpenProcedure;
+import net.mcreator.test.procedures.SGOpenBegGUIProcedure;
 import net.mcreator.test.procedures.SGIntermedGUIOpenProcedure;
 import net.mcreator.test.procedures.OpenSGAdvancedGUiProcedure;
+import net.mcreator.test.procedures.LsOLOpenGUIProcedure;
 import net.mcreator.test.MushokuModElements;
 
 import java.util.stream.Stream;
@@ -187,6 +189,13 @@ public class SwordGodGuiGui extends MushokuModElements.ModElement {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
+		if (buttonID == 0) {
+
+			SGOpenBegGUIProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
 		if (buttonID == 1) {
 
 			SGIntermedGUIOpenProcedure.executeProcedure(Stream
@@ -204,6 +213,13 @@ public class SwordGodGuiGui extends MushokuModElements.ModElement {
 		if (buttonID == 3) {
 
 			OpenSGAdvancedGUiProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
+		if (buttonID == 4) {
+
+			LsOLOpenGUIProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));

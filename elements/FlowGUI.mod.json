@@ -1,0 +1,144 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Flow",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Flow",
+          "x": 198,
+          "y": 41
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Reflect Incoming attacks",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Reflect Incoming attacks",
+          "x": 142,
+          "y": 70
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "back at your attacker",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "back at your attacker",
+          "x": 142,
+          "y": 82
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Availible Skill Points <VAR:TechniqueSP>",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Availible Skill Points <VAR:TechniqueSP>",
+          "x": 131,
+          "y": 55
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Unlock Flow",
+          "width": 82,
+          "height": 20,
+          "name": "Unlock Flow",
+          "x": 170,
+          "y": 110
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "(Unlock for 50 skill points)",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "(Unlock for 50 skill points)",
+          "x": 138,
+          "y": 132
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill One",
+          "width": 72,
+          "height": 20,
+          "name": "Skill One",
+          "x": 135,
+          "y": 154
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill Two",
+          "width": 72,
+          "height": 20,
+          "name": "Skill Two",
+          "x": 218,
+          "y": 154
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill Three",
+          "width": 82,
+          "height": 20,
+          "name": "Skill Three",
+          "x": 170,
+          "y": 177
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Bind Skill",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Bind Skill",
+          "x": 186,
+          "y": 143
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

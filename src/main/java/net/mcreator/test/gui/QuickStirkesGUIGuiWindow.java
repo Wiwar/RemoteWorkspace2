@@ -16,6 +16,7 @@ import net.minecraft.client.Minecraft;
 
 import net.mcreator.test.procedures.QuickStrikesSkillButtCondProcedure;
 import net.mcreator.test.procedures.QuickStrikesSkillAquireProcedure;
+import net.mcreator.test.MushokuModVariables;
 import net.mcreator.test.MushokuMod;
 
 import java.util.stream.Stream;
@@ -90,6 +91,10 @@ public class QuickStirkesGUIGuiWindow extends ContainerScreen<QuickStirkesGUIGui
 		if (QuickStrikesSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "(Skill Point Cost 25)", 27, 88, -16777216);
+		if (QuickStrikesSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+			this.font.drawString(ms, "Availible Skill Points : " + ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new MushokuModVariables.PlayerVariables())).TechniqueSP) + "", 4, 53, -16777216);
 	}
 
 	@Override

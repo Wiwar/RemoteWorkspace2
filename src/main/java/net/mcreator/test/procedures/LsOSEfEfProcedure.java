@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.test.MushokuModVariables;
 import net.mcreator.test.MushokuMod;
 
 import java.util.stream.Collectors;
@@ -59,8 +60,10 @@ public class LsOSEfEfProcedure {
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
 				entityiterator.attackEntityFrom(DamageSource.GENERIC,
-						(float) ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))
-								.getMaxDamage()));
+						(float) (((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).getDamage()
+								/ 4)
+								* ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+										.orElse(new MushokuModVariables.PlayerVariables())).ToukiLevel + 1)));
 			}
 		}
 	}

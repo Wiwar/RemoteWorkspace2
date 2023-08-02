@@ -5,6 +5,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.test.potion.LsOSEfPotionEffect;
+import net.mcreator.test.MushokuModVariables;
 import net.mcreator.test.MushokuMod;
 
 import java.util.Map;
@@ -18,9 +19,20 @@ public class LsOSProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		entity.setMotion((entity.getLookVec().x + entity.getLookVec().x), (entity.getLookVec().y + entity.getLookVec().y),
-				(entity.getLookVec().z + entity.getLookVec().z));
-		if (entity instanceof LivingEntity)
-			((LivingEntity) entity).addPotionEffect(new EffectInstance(LsOSEfPotionEffect.potion, (int) 60, (int) 1, (false), (false)));
+		if ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new MushokuModVariables.PlayerVariables())).Mana >= 50) {
+			entity.setMotion((entity.getLookVec().x + entity.getLookVec().x), (entity.getLookVec().y + entity.getLookVec().y),
+					(entity.getLookVec().z + entity.getLookVec().z));
+			if (entity instanceof LivingEntity)
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(LsOSEfPotionEffect.potion, (int) 60, (int) 1, (false), (false)));
+			{
+				double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new MushokuModVariables.PlayerVariables())).Mana + 50);
+				entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Mana = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+		}
 	}
 }

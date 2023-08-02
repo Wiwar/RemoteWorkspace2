@@ -1,0 +1,185 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Longsword of Light",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Longsword of Light",
+          "x": 160,
+          "y": 46
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Bind Skill",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "LsOLSkillButtCond"
+          },
+          "name": "Bind Skill",
+          "x": 182,
+          "y": 138
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill One",
+          "onClick": {
+            "name": "LsOLSkillOneSet"
+          },
+          "displayCondition": {
+            "name": "LsOLSkillButtCond"
+          },
+          "width": 72,
+          "height": 20,
+          "name": "Skill One",
+          "x": 132,
+          "y": 152
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill Two",
+          "displayCondition": {
+            "name": "LsOLSkillButtCond"
+          },
+          "width": 72,
+          "height": 20,
+          "name": "Skill Two",
+          "x": 221,
+          "y": 152
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill Three",
+          "displayCondition": {
+            "name": "LsOLSkillButtCond"
+          },
+          "width": 82,
+          "height": 20,
+          "name": "Skill Three",
+          "x": 170,
+          "y": 176
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Swing your sword at the",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Swing your sword at the",
+          "x": 139,
+          "y": 60
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "speed of Light",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "speed of Light",
+          "x": 138,
+          "y": 72
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Unlock Skill",
+          "onClick": {
+            "name": "LsOLAquire"
+          },
+          "displayCondition": {
+            "name": "LsOLSkillAquire"
+          },
+          "width": 87,
+          "height": 20,
+          "name": "Unlock Skill",
+          "x": 165,
+          "y": 102
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "(Skill Point Cost 300)",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "LsOLSkillAquire"
+          },
+          "name": "(Skill Point Cost 300)",
+          "x": 153,
+          "y": 125
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "SGStyleGUIOpen"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 183,
+          "y": 18
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Availible Skill Points : <VAR:TechniqueSP>",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "LsOLSkillAquire"
+          },
+          "name": "Availible Skill Points : <VAR:TechniqueSP>",
+          "x": 130,
+          "y": 91
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

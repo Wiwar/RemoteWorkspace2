@@ -1,0 +1,147 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Sword God Style",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Sword God Style",
+          "x": 170,
+          "y": 43
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "The Sword God Style is focused",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "The Sword God Style is focused",
+          "x": 130,
+          "y": 79
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "on offence and always ",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "on offence and always ",
+          "x": 132,
+          "y": 91
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "attacking",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "attacking",
+          "x": 246,
+          "y": 91
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "before your opponant",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "before your opponant",
+          "x": 133,
+          "y": 102
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Availible Skill Points : <VAR:integer:TechniqueSP>",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Availible Skill Points : <VAR:integer:TechniqueSP>",
+          "x": 130,
+          "y": 55
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Learn Sword God Style",
+          "onClick": {
+            "name": "BeginnerSGAquire"
+          },
+          "displayCondition": {
+            "name": "SGBegButtVis"
+          },
+          "width": 134,
+          "height": 20,
+          "name": "Learn Sword God Style",
+          "x": 146,
+          "y": 133
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "(Cost 100 Skill Points)",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "SGBegButtVis"
+          },
+          "name": "(Cost 100 Skill Points)",
+          "x": 152,
+          "y": 161
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "SGStyleGUIOpen"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 186,
+          "y": 16
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

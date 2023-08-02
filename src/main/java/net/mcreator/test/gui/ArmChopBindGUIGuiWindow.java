@@ -16,6 +16,7 @@ import net.minecraft.client.Minecraft;
 
 import net.mcreator.test.procedures.ArmChopSkillButtCondProcedure;
 import net.mcreator.test.procedures.ArmChopSkillAquireProcedure;
+import net.mcreator.test.MushokuModVariables;
 import net.mcreator.test.MushokuMod;
 
 import java.util.stream.Stream;
@@ -90,7 +91,11 @@ public class ArmChopBindGUIGuiWindow extends ContainerScreen<ArmChopBindGUIGui.G
 		this.font.drawString(ms, "causing damage", 12, 49, -16777216);
 		if (ArmChopSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
-			this.font.drawString(ms, "(Skill Point Cost 50)", 27, 88, -16777216);
+			this.font.drawString(ms, "(Skill Point Cost 50)", 27, 97, -16777216);
+		if (ArmChopSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+			this.font.drawString(ms, "Availible Skill Points : " + ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new MushokuModVariables.PlayerVariables())).TechniqueSP) + "", 4, 65, -16777216);
 	}
 
 	@Override
@@ -145,7 +150,7 @@ public class ArmChopBindGUIGuiWindow extends ContainerScreen<ArmChopBindGUIGui.G
 					super.render(ms, gx, gy, ticks);
 			}
 		});
-		this.addButton(new Button(this.guiLeft + 39, this.guiTop + 66, 87, 20, new StringTextComponent("Unlock Skill"), e -> {
+		this.addButton(new Button(this.guiLeft + 38, this.guiTop + 76, 87, 20, new StringTextComponent("Unlock Skill"), e -> {
 			if (ArmChopSkillAquireProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
 				MushokuMod.PACKET_HANDLER.sendToServer(new ArmChopBindGUIGui.ButtonPressedMessage(3, x, y, z));

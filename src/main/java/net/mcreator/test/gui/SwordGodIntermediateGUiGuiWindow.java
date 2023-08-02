@@ -14,6 +14,7 @@ import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
+import net.mcreator.test.MushokuModVariables;
 import net.mcreator.test.MushokuMod;
 
 import java.util.HashMap;
@@ -77,6 +78,8 @@ public class SwordGodIntermediateGUiGuiWindow extends ContainerScreen<SwordGodIn
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "Intermediate", 54, 4, -16777216);
+		this.font.drawString(ms, "Availible Skill Points : " + ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new MushokuModVariables.PlayerVariables())).TechniqueSP) + "", 6, 16, -16777216);
 	}
 
 	@Override

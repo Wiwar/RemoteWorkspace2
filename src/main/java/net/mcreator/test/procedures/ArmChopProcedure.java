@@ -14,10 +14,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.test.MushokuModVariables;
 import net.mcreator.test.MushokuMod;
 
 import java.util.stream.Collectors;
@@ -59,72 +61,50 @@ public class ArmChopProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		{
-			List<Entity> _entfound = world
-					.getEntitiesWithinAABB(Entity.class,
-							new AxisAlignedBB(
-									(entity.world.rayTraceBlocks(
-											new RayTraceContext(entity.getEyePosition(1f),
-													entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-															entity.getLook(1f).z * 3),
-													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
-											.getPos().getX()) - (3 / 2d),
-									(entity.world
-											.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-													entity.getEyePosition(1f)
-															.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
-											.getPos().getY())
-											- (3 / 2d),
-									(entity.world
-											.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-													entity.getEyePosition(1f)
-															.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
-											.getPos().getZ())
-											- (3 / 2d),
-									(entity.world
-											.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-													entity.getEyePosition(1f)
-															.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
-											.getPos().getX()) + (3 / 2d),
-									(entity.world
-											.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-													entity.getEyePosition(1f)
-															.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-													RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
-											.getPos().getY()) + (3 / 2d),
-									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
-													entity.getLook(1f).z * 3),
-											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()) + (3 / 2d)),
-							null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(
-							(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-									entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()),
-							(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-									entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getY()),
-							(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-									entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ())))
-					.collect(Collectors.toList());
-			for (Entity entityiterator : _entfound) {
-				if (entityiterator == ((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
-						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
+		if ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new MushokuModVariables.PlayerVariables())).Mana >= 25) {
+			{
+				List<Entity> _entfound = world
+						.getEntitiesWithinAABB(Entity.class,
+								new AxisAlignedBB(
+										(entity.world.rayTraceBlocks(
+												new RayTraceContext(entity.getEyePosition(1f),
+														entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+																entity.getLook(1f).z * 3),
+														RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
+												.getPos().getX()) - (3 / 2d),
+										(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+												entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+														entity.getLook(1f).z * 3),
+												RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getY())
+												- (3 / 2d),
+										(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+												entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+														entity.getLook(1f).z * 3),
+												RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ())
+												- (3 / 2d),
+										(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+												entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+														entity.getLook(1f).z * 3),
+												RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX())
+												+ (3 / 2d),
+										(entity.world
+												.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+														entity.getEyePosition(1f)
+																.add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
+														RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity))
+												.getPos().getY()) + (3 / 2d),
+										(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+												entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+														entity.getLook(1f).z * 3),
+												RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ())
+												+ (3 / 2d)),
+								null)
 						.stream().sorted(new Object() {
 							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 							}
-						}.compareDistOf(x, y, z)).findFirst().orElse(null))) {
-					if (world instanceof ServerWorld) {
-						((ServerWorld) world).spawnParticle(ParticleTypes.EXPLOSION,
+						}.compareDistOf(
 								(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
 										entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
 										RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()),
@@ -133,38 +113,115 @@ public class ArmChopProcedure {
 										RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getY()),
 								(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
 										entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-										RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
-								(int) 1, 3, 3, 3, 1);
+										RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ())))
+						.collect(Collectors.toList());
+				for (Entity entityiterator : _entfound) {
+					if (entityiterator == ((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
+							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
+							.stream().sorted(new Object() {
+								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+								}
+							}.compareDistOf(x, y, z)).findFirst().orElse(null))) {
+						if (world instanceof ServerWorld) {
+							((ServerWorld) world).spawnParticle(ParticleTypes.EXPLOSION,
+									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+													entity.getLook(1f).z * 3),
+											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()),
+									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+													entity.getLook(1f).z * 3),
+											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getY()),
+									(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+											entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3,
+													entity.getLook(1f).z * 3),
+											RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+									(int) 1, 3, 3, 3, 1);
+						}
+					} else {
+						if (entityiterator instanceof LivingEntity)
+							((LivingEntity) entityiterator)
+									.addPotionEffect(new EffectInstance(Effects.MINING_FATIGUE, (int) 60, (int) 100, (false), (false)));
+						if (entityiterator instanceof LivingEntity)
+							((LivingEntity) entityiterator)
+									.addPotionEffect(new EffectInstance(Effects.SLOWNESS, (int) 60, (int) 100, (false), (false)));
+						entityiterator.attackEntityFrom(DamageSource.GENERIC,
+								(float) (((((((Entity) world
+										.getEntitiesWithinAABB(PlayerEntity.class,
+												new AxisAlignedBB((entity.getPosX()) - (0.5 / 2d), (entity.getPosY()) - (0.5 / 2d),
+														(entity.getPosZ()) - (0.5 / 2d), (entity.getPosX()) + (0.5 / 2d),
+														(entity.getPosY()) + (0.5 / 2d), (entity.getPosZ()) + (0.5 / 2d)),
+												null)
+										.stream().sorted(new Object() {
+											Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+												return Comparator
+														.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+											}
+										}.compareDistOf((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()))).findFirst()
+										.orElse(null)) instanceof LivingEntity)
+												? ((LivingEntity) ((Entity) world
+														.getEntitiesWithinAABB(PlayerEntity.class,
+																new AxisAlignedBB((entity.getPosX()) - (0.5 / 2d), (entity.getPosY()) - (0.5 / 2d),
+																		(entity.getPosZ()) - (0.5 / 2d), (entity.getPosX()) + (0.5 / 2d),
+																		(entity.getPosY()) + (0.5 / 2d), (entity.getPosZ()) + (0.5 / 2d)),
+																null)
+														.stream().sorted(new Object() {
+															Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+																return Comparator.comparing(
+																		(Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+															}
+														}.compareDistOf((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()))).findFirst()
+														.orElse(null))).getHeldItemMainhand()
+												: ItemStack.EMPTY))
+										.getDamage() / 2)
+										* ((((Entity) world
+												.getEntitiesWithinAABB(PlayerEntity.class,
+														new AxisAlignedBB((entity.getPosX()) - (0.5 / 2d), (entity.getPosY()) - (0.5 / 2d),
+																(entity.getPosZ()) - (0.5 / 2d), (entity.getPosX()) + (0.5 / 2d),
+																(entity.getPosY()) + (0.5 / 2d), (entity.getPosZ()) + (0.5 / 2d)),
+														null)
+												.stream().sorted(new Object() {
+													Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+														return Comparator
+																.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+													}
+												}.compareDistOf((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()))).findFirst().orElse(null))
+												.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+												.orElse(new MushokuModVariables.PlayerVariables())).ToukiLevel + 1)));
 					}
-				} else {
-					if (entityiterator instanceof LivingEntity)
-						((LivingEntity) entityiterator)
-								.addPotionEffect(new EffectInstance(Effects.MINING_FATIGUE, (int) 60, (int) 100, (false), (false)));
-					entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 8);
 				}
 			}
-		}
-		if (world instanceof ServerWorld) {
-			((ServerWorld) world).spawnParticle(ParticleTypes.EXPLOSION,
-					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-							entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()),
-					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-							entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getY()),
-					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-							entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
-							RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
-					(int) 20, 3, 3, 3, 1);
-		}
-		if (world instanceof World && !world.isRemote()) {
-			((World) world).playSound(null, new BlockPos(x, y, z),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.player.attack.crit")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1);
-		} else {
-			((World) world).playSound(x, y, z,
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.player.attack.crit")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+			if (world instanceof ServerWorld) {
+				((ServerWorld) world).spawnParticle(ParticleTypes.EXPLOSION,
+						(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+								entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
+								RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX()),
+						(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+								entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
+								RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getY()),
+						(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+								entity.getEyePosition(1f).add(entity.getLook(1f).x * 3, entity.getLook(1f).y * 3, entity.getLook(1f).z * 3),
+								RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
+						(int) 20, 3, 3, 3, 1);
+			}
+			if (world instanceof World && !world.isRemote()) {
+				((World) world).playSound(null, new BlockPos(x, y, z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.player.attack.crit")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+			} else {
+				((World) world).playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.player.attack.crit")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+			}
+			{
+				double _setval = ((entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new MushokuModVariables.PlayerVariables())).Mana - 25);
+				entity.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Mana = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
 		}
 	}
 }

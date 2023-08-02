@@ -64,6 +64,19 @@
           "x": 168,
           "y": 134
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Availible Skill Points : <VAR:TechniqueSP>",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Availible Skill Points : <VAR:TechniqueSP>",
+          "x": 132,
+          "y": 53
+        }
       }
     ],
     "gridSettings": {

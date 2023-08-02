@@ -14,6 +14,7 @@ import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
+import net.mcreator.test.procedures.SGSaintButtCondProcedure;
 import net.mcreator.test.procedures.SGAdvancedButtCondProcedure;
 import net.mcreator.test.procedures.IntermediateDispCondProcedure;
 import net.mcreator.test.MushokuModVariables;
@@ -133,6 +134,20 @@ public class SwordGodGuiGuiWindow extends ContainerScreen<SwordGodGuiGui.GuiCont
 			@Override
 			public void render(MatrixStack ms, int gx, int gy, float ticks) {
 				if (SGAdvancedButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+					super.render(ms, gx, gy, ticks);
+			}
+		});
+		this.addButton(new Button(this.guiLeft + 60, this.guiTop + 115, 51, 20, new StringTextComponent("Saint"), e -> {
+			if (SGSaintButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
+				MushokuMod.PACKET_HANDLER.sendToServer(new SwordGodGuiGui.ButtonPressedMessage(4, x, y, z));
+				SwordGodGuiGui.handleButtonAction(entity, 4, x, y, z);
+			}
+		}) {
+			@Override
+			public void render(MatrixStack ms, int gx, int gy, float ticks) {
+				if (SGSaintButtCondProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 					super.render(ms, gx, gy, ticks);
 			}

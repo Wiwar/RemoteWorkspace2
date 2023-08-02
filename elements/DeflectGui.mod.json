@@ -1,0 +1,158 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Deflect",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Deflect",
+          "x": 191,
+          "y": 41
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Sneak to delfect incoming damage",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Sneak to delfect incoming damage",
+          "x": 128,
+          "y": 68
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Unlock Deflect",
+          "onClick": {
+            "name": "DeflectAquire"
+          },
+          "displayCondition": {
+            "name": "DeflectUnlockVis"
+          },
+          "width": 98,
+          "height": 20,
+          "name": "Unlock Deflect",
+          "x": 163,
+          "y": 94
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "(Unlock for 50 Skill Points)",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "DeflectUnlockVis"
+          },
+          "name": "(Unlock for 50 Skill Points)",
+          "x": 141,
+          "y": 117
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Toggle Deflect",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "DeflectToggleVis"
+          },
+          "name": "Toggle Deflect",
+          "x": 173,
+          "y": 143
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Deflect On",
+          "onClick": {
+            "name": "DeflectActivate"
+          },
+          "displayCondition": {
+            "name": "DeflectToggleVis"
+          },
+          "width": 77,
+          "height": 20,
+          "name": "Deflect On",
+          "x": 130,
+          "y": 168
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Deflect Off",
+          "onClick": {
+            "name": "DeflectDeactivate"
+          },
+          "displayCondition": {
+            "name": "DeflectToggleVis"
+          },
+          "width": 82,
+          "height": 20,
+          "name": "Deflect Off",
+          "x": 214,
+          "y": 168
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "WGOpenIntermediateGUI"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 184,
+          "y": 17
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Availible Skill Points : <VAR:TechniqueSP>",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Availible Skill Points : <VAR:TechniqueSP>",
+          "x": 128,
+          "y": 51
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

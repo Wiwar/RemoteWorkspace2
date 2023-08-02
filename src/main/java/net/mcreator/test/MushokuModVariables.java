@@ -25,6 +25,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.client.Minecraft;
 
 import java.util.function.Supplier;
+import java.util.concurrent.Flow;
 
 public class MushokuModVariables {
 	public MushokuModVariables(MushokuModElements elements) {
@@ -88,6 +89,12 @@ public class MushokuModVariables {
 			nbt.putBoolean("QuickStrikes", instance.QuickStrikes);
 			nbt.putDouble("ToukiLevel", instance.ToukiLevel);
 			nbt.putBoolean("LsOS", instance.LsOS);
+			nbt.putBoolean("LsOL", instance.LsOL);
+			nbt.putBoolean("Deflect", instance.Deflect);
+			nbt.putBoolean("SwordGodBeg", instance.SwordGodBeg);
+			nbt.putBoolean("WaterGodBeg", instance.WaterGodBeg);
+			nbt.putBoolean("NorthGodBeg", instance.NorthGodBeg);
+			nbt.putBoolean("Flow", instance.Flow);
 			return nbt;
 		}
 
@@ -111,6 +118,12 @@ public class MushokuModVariables {
 			instance.QuickStrikes = nbt.getBoolean("QuickStrikes");
 			instance.ToukiLevel = nbt.getDouble("ToukiLevel");
 			instance.LsOS = nbt.getBoolean("LsOS");
+			instance.LsOL = nbt.getBoolean("LsOL");
+			instance.Deflect = nbt.getBoolean("Deflect");
+			instance.SwordGodBeg = nbt.getBoolean("SwordGodBeg");
+			instance.WaterGodBeg = nbt.getBoolean("WaterGodBeg");
+			instance.NorthGodBeg = nbt.getBoolean("NorthGodBeg");
+			instance.Flow = nbt.getBoolean("Flow");
 		}
 	}
 
@@ -130,8 +143,14 @@ public class MushokuModVariables {
 		public String SkillThree = "\"\"";
 		public boolean ArmChop = false;
 		public boolean QuickStrikes = false;
-		public double ToukiLevel = 0;
+		public double ToukiLevel = 0.0;
 		public boolean LsOS = false;
+		public boolean LsOL = false;
+		public boolean Deflect = false;
+		public boolean SwordGodBeg = false;
+		public boolean WaterGodBeg = false;
+		public boolean NorthGodBeg = false;
+		public boolean Flow = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -183,6 +202,12 @@ public class MushokuModVariables {
 		clone.QuickStrikes = original.QuickStrikes;
 		clone.ToukiLevel = original.ToukiLevel;
 		clone.LsOS = original.LsOS;
+		clone.LsOL = original.LsOL;
+		clone.Deflect = original.Deflect;
+		clone.SwordGodBeg = original.SwordGodBeg;
+		clone.WaterGodBeg = original.WaterGodBeg;
+		clone.NorthGodBeg = original.NorthGodBeg;
+		clone.Flow = original.Flow;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -226,6 +251,12 @@ public class MushokuModVariables {
 					variables.QuickStrikes = message.data.QuickStrikes;
 					variables.ToukiLevel = message.data.ToukiLevel;
 					variables.LsOS = message.data.LsOS;
+					variables.LsOL = message.data.LsOL;
+					variables.Deflect = message.data.Deflect;
+					variables.SwordGodBeg = message.data.SwordGodBeg;
+					variables.WaterGodBeg = message.data.WaterGodBeg;
+					variables.NorthGodBeg = message.data.NorthGodBeg;
+					variables.Flow = message.data.Flow;
 				}
 			});
 			context.setPacketHandled(true);
