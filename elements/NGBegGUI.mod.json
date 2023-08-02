@@ -70,7 +70,7 @@
         "data": {
           "text": "Back",
           "onClick": {
-            "name": "WGStyleGUIOpen"
+            "name": "NGStyleGUIOpen"
           },
           "width": 46,
           "height": 20,

@@ -1,0 +1,152 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 187,
+          "y": 17
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Deflect",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Deflect",
+          "x": 193,
+          "y": 41
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Availible Skill Points : <VAR:TechniqueSP>",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Availible Skill Points : <VAR:TechniqueSP>",
+          "x": 130,
+          "y": 53
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Deflect incoming attacks away",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Deflect incoming attacks away",
+          "x": 135,
+          "y": 71
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "from you while sneaking",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "from you while sneaking",
+          "x": 134,
+          "y": 82
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Aquire Deflect",
+          "onClick": {
+            "name": "DeflectAquire"
+          },
+          "displayCondition": {
+            "name": "DeflectAquireButtVis"
+          },
+          "width": 98,
+          "height": 20,
+          "name": "Aquire Deflect",
+          "x": 164,
+          "y": 108
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "(Cost 50 Skill Points)",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "DeflectAquireButtVis"
+          },
+          "name": "(Cost 50 Skill Points)",
+          "x": 156,
+          "y": 130
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Toggle On",
+          "onClick": {
+            "name": "DeflectTogON"
+          },
+          "displayCondition": {
+            "name": "DeflectTogButtVis"
+          },
+          "width": 72,
+          "height": 20,
+          "name": "Toggle On",
+          "x": 135,
+          "y": 167
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Toggle Off",
+          "onClick": {
+            "name": "DeflectToggleOFF"
+          },
+          "displayCondition": {
+            "name": "DeflectTogButtVis"
+          },
+          "width": 77,
+          "height": 20,
+          "name": "Toggle Off",
+          "x": 215,
+          "y": 167
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

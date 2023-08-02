@@ -41,6 +41,9 @@
         "type": "button",
         "data": {
           "text": "Intermediate",
+          "onClick": {
+            "name": "WGOpenInterGUI"
+          },
           "displayCondition": {
             "name": "WGIntermediateDispCond"
           },

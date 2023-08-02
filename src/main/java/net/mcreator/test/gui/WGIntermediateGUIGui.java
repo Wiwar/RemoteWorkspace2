@@ -22,8 +22,8 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.gui.ScreenManager;
 
-import net.mcreator.test.procedures.NGStyleGUIOpenProcedure;
-import net.mcreator.test.procedures.NGBegGetProcedure;
+import net.mcreator.test.procedures.WGStyleGUIOpenProcedure;
+import net.mcreator.test.procedures.OpenDeflectGUIProcedure;
 import net.mcreator.test.MushokuModElements;
 
 import java.util.stream.Stream;
@@ -33,12 +33,12 @@ import java.util.HashMap;
 import java.util.AbstractMap;
 
 @MushokuModElements.ModElement.Tag
-public class NGBegGUIGui extends MushokuModElements.ModElement {
+public class WGIntermediateGUIGui extends MushokuModElements.ModElement {
 	public static HashMap guistate = new HashMap();
 	private static ContainerType<GuiContainerMod> containerType = null;
 
-	public NGBegGUIGui(MushokuModElements instance) {
-		super(instance, 271);
+	public WGIntermediateGUIGui(MushokuModElements instance) {
+		super(instance, 272);
 		elements.addNetworkMessage(ButtonPressedMessage.class, ButtonPressedMessage::buffer, ButtonPressedMessage::new,
 				ButtonPressedMessage::handler);
 		elements.addNetworkMessage(GUISlotChangedMessage.class, GUISlotChangedMessage::buffer, GUISlotChangedMessage::new,
@@ -50,13 +50,13 @@ public class NGBegGUIGui extends MushokuModElements.ModElement {
 	private static class ContainerRegisterHandler {
 		@SubscribeEvent
 		public void registerContainer(RegistryEvent.Register<ContainerType<?>> event) {
-			event.getRegistry().register(containerType.setRegistryName("ng_beg_gui"));
+			event.getRegistry().register(containerType.setRegistryName("wg_intermediate_gui"));
 		}
 	}
 
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
-		DeferredWorkQueue.runLater(() -> ScreenManager.registerFactory(containerType, NGBegGUIGuiWindow::new));
+		DeferredWorkQueue.runLater(() -> ScreenManager.registerFactory(containerType, WGIntermediateGUIGuiWindow::new));
 	}
 
 	public static class GuiContainerModFactory implements IContainerFactory {
@@ -188,15 +188,17 @@ public class NGBegGUIGui extends MushokuModElements.ModElement {
 			return;
 		if (buttonID == 0) {
 
-			NGStyleGUIOpenProcedure.executeProcedure(Stream
+			WGStyleGUIOpenProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
-		if (buttonID == 1) {
+		if (buttonID == 2) {
 
-			NGBegGetProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
-					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			OpenDeflectGUIProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 

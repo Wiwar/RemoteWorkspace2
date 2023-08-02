@@ -4065,7 +4065,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "water_god_gui",
-      "path": "~/Sword Techniques/WaterGodStyle/Beginner"
+      "path": "~/Sword Techniques/WaterGodStyle"
     },
     {
       "name": "WGIntermediateDispCond",
@@ -4083,7 +4083,7 @@
           }
         ]
       },
-      "path": "~/Sword Techniques/WaterGodStyle"
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/GUI"
     },
     {
       "name": "NGIntermediateDispCond",
@@ -4984,17 +4984,6 @@
       "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
     },
     {
-      "name": "Supersextime",
-      "type": "procedure",
-      "sortid": 258,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "supersextime",
-      "metadata": {
-        "dependencies": []
-      }
-    },
-    {
       "name": "BeginnerGUI",
       "type": "gui",
       "sortid": 259,
@@ -5224,6 +5213,219 @@
       "locked_code": false,
       "registry_name": "ng_beg_gui",
       "path": "~/Sword Techniques/NorthGodStyle/Beginner"
+    },
+    {
+      "name": "WGIntermediateGUI",
+      "type": "gui",
+      "sortid": 272,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wg_intermediate_gui",
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/GUI"
+    },
+    {
+      "name": "Deflect",
+      "type": "potioneffect",
+      "sortid": 273,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect",
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectEf",
+      "type": "procedure",
+      "sortid": 274,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_ef",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectGUI",
+      "type": "gui",
+      "sortid": 275,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_gui",
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectAquireButtVis",
+      "type": "procedure",
+      "sortid": 276,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_aquire_butt_vis",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectTogButtVis",
+      "type": "procedure",
+      "sortid": 277,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_tog_butt_vis",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectAquire",
+      "type": "procedure",
+      "sortid": 278,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_aquire",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectTogON",
+      "type": "procedure",
+      "sortid": 279,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_tog_on",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "DeflectToggleOFF",
+      "type": "procedure",
+      "sortid": 280,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deflect_toggle_off",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "OpenDeflectGUI",
+      "type": "procedure",
+      "sortid": 281,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_deflect_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Deflect"
+    },
+    {
+      "name": "WGOpenInterGUI",
+      "type": "procedure",
+      "sortid": 282,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wg_open_inter_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle/Intermediate/GUI"
     }
   ],
   "variable_elements": [
@@ -5346,6 +5548,12 @@
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
+    },
+    {
+      "name": "Deflect",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [],
@@ -5426,6 +5634,7 @@
       "effect.ls_os_ef": "LsOS",
       "item.mushoku.elementary_stone": "Elementary Stone",
       "item.mushoku.water_magic_tome": "Water Magic Tome",
+      "effect.deflect": "Deflect",
       "item.mushoku.wind_tome": "Wind Tome"
     }
   },
@@ -5901,6 +6110,19 @@
               {
                 "name": "Beginner",
                 "children": []
+              },
+              {
+                "name": "Intermediate",
+                "children": [
+                  {
+                    "name": "GUI",
+                    "children": []
+                  },
+                  {
+                    "name": "Deflect",
+                    "children": []
+                  }
+                ]
               }
             ]
           },
