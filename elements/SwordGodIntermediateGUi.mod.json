@@ -1,0 +1,77 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Intermediate",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Intermediate",
+          "x": 180,
+          "y": 41
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Arm Chop",
+          "onClick": {
+            "name": "ArmChopOpenGUI"
+          },
+          "width": 66,
+          "height": 20,
+          "name": "Arm Chop",
+          "x": 177,
+          "y": 78
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "SGStyleGUIOpen"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 185,
+          "y": 17
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Quick Stikes",
+          "onClick": {
+            "name": "QuickStrikesOpenGUI"
+          },
+          "width": 87,
+          "height": 20,
+          "name": "Quick Stikes",
+          "x": 168,
+          "y": 134
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

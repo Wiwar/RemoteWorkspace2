@@ -1,0 +1,77 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Advanced",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Advanced",
+          "x": 188,
+          "y": 42
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "SGIntermedGUIOpen"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 185,
+          "y": 16
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Touki",
+          "onClick": {
+            "name": "OpenToukiGUI"
+          },
+          "width": 51,
+          "height": 20,
+          "name": "Touki",
+          "x": 183,
+          "y": 79
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Longsword of Silence",
+          "onClick": {
+            "name": "LsOSOpendGUI"
+          },
+          "width": 129,
+          "height": 20,
+          "name": "Longsword of Silence",
+          "x": 147,
+          "y": 138
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

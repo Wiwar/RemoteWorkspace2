@@ -3538,54 +3538,6 @@
       "path": "~/Items/MagicStone"
     },
     {
-      "name": "Magictax",
-      "type": "procedure",
-      "sortid": 179,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "magictax",
-      "metadata": {
-        "dependencies": []
-      },
-      "path": "~/Magic/Anti Magic"
-    },
-    {
-      "name": "GrimoireRecipe",
-      "type": "recipe",
-      "sortid": 180,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "grimoire_recipe",
-      "path": "~/Items/Books/Grimoire"
-    },
-    {
-      "name": "MagicStoneOre",
-      "type": "block",
-      "sortid": 192,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "magic_stone_ore",
-      "path": "~/Items/MagicStone"
-    },
-    {
-      "name": "Wand",
-      "type": "tool",
-      "sortid": 187,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "wand",
-      "path": "~/Items/Staffs and Wands"
-    },
-    {
-      "name": "MigurdStaff",
-      "type": "tool",
-      "sortid": 183,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "migurd_staff",
-      "path": "~/Items/Staffs and Wands"
-    },
-    {
       "name": "ChantTest",
       "type": "procedure",
       "sortid": 179,
@@ -3623,43 +3575,31 @@
       "path": "~/Magic/Water Magic/Elementary/Waterball"
     },
     {
-      "name": "StaffImbue",
-      "type": "procedure",
-      "sortid": 186,
+      "name": "GrimoireRecipe",
+      "type": "recipe",
+      "sortid": 180,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "staff_imbue",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "guistate",
-            "type": "map"
-          }
-        ]
-      },
+      "registry_name": "grimoire_recipe",
+      "path": "~/Items/Books/Grimoire"
+    },
+    {
+      "name": "MigurdStaff",
+      "type": "tool",
+      "sortid": 183,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "migurd_staff",
       "path": "~/Items/Staffs and Wands"
     },
     {
-      "name": "ImbueingTable",
-      "type": "block",
+      "name": "ImeueTableGUI",
+      "type": "gui",
       "sortid": 184,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "imbueing_table",
+      "registry_name": "imeue_table_gui",
       "path": "~/Items/Staffs and Wands"
-    },
-    {
-      "name": "MagicStoneOreLoottable",
-      "type": "loottable",
-      "sortid": 193,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "magic_stone_ore_loottable",
-      "path": "~/Items/MagicStone"
     },
     {
       "name": "OpenImbueGUI",
@@ -3695,6 +3635,54 @@
       "path": "~/Items/Staffs and Wands"
     },
     {
+      "name": "ImbueingTable",
+      "type": "block",
+      "sortid": 184,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "imbueing_table",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "StaffImbue",
+      "type": "procedure",
+      "sortid": 186,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "staff_imbue",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "Wand",
+      "type": "tool",
+      "sortid": 187,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wand",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "AquaHeartia",
+      "type": "tool",
+      "sortid": 188,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aqua_heartia",
+      "path": "~/Items/Staffs and Wands"
+    },
+    {
       "name": "WandRecipe",
       "type": "recipe",
       "sortid": 187,
@@ -3710,24 +3698,6 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "aqua_heartia_recipe",
-      "path": "~/Items/Staffs and Wands"
-    },
-    {
-      "name": "ImeueTableGUI",
-      "type": "gui",
-      "sortid": 184,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "imeue_table_gui",
-      "path": "~/Items/Staffs and Wands"
-    },
-    {
-      "name": "AquaHeartia",
-      "type": "tool",
-      "sortid": 188,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "aqua_heartia",
       "path": "~/Items/Staffs and Wands"
     },
     {
@@ -3747,50 +3717,1358 @@
       "locked_code": false,
       "registry_name": "imbue_table_recipe",
       "path": "~/Items/Staffs and Wands"
+    },
+    {
+      "name": "MagicStoneOre",
+      "type": "block",
+      "sortid": 192,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "magic_stone_ore",
+      "path": "~/Items/MagicStone"
+    },
+    {
+      "name": "MagicStoneOreLoottable",
+      "type": "loottable",
+      "sortid": 193,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "magic_stone_ore_loottable",
+      "path": "~/Items/MagicStone"
+    },
+    {
+      "name": "Magictax",
+      "type": "procedure",
+      "sortid": 179,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "magictax",
+      "metadata": {
+        "dependencies": []
+      },
+      "path": "~/Magic/Anti Magic"
+    },
+    {
+      "name": "WaterGodEF",
+      "type": "potioneffect",
+      "sortid": 204,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_god_ef",
+      "path": "~/Sword Techniques/WaterGodStyle"
+    },
+    {
+      "name": "IntermediateDispCond",
+      "type": "procedure",
+      "sortid": 208,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "intermediate_disp_cond",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/GUI"
+    },
+    {
+      "name": "ArmChopAquire",
+      "type": "procedure",
+      "sortid": 228,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "arm_chop_aquire",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Arm Chop"
+    },
+    {
+      "name": "WaterGodPassive",
+      "type": "procedure",
+      "sortid": 203,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_god_passive",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle"
+    },
+    {
+      "name": "QuickStrikes",
+      "type": "procedure",
+      "sortid": 232,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "quick_strikes",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Quick Strikes"
+    },
+    {
+      "name": "ToukiLevelIncrease",
+      "type": "procedure",
+      "sortid": 247,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "touki_level_increase",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/Touki"
+    },
+    {
+      "name": "LsOSSkillButtCond",
+      "type": "procedure",
+      "sortid": 252,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_os_skill_butt_cond",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
+    },
+    {
+      "name": "ArmChopBindGUI",
+      "type": "gui",
+      "sortid": 224,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "arm_chop_bind_gui",
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Arm Chop"
+    },
+    {
+      "name": "NGIntermediateDispCond",
+      "type": "procedure",
+      "sortid": 213,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ng_intermediate_disp_cond",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/NorthGodStyle"
+    },
+    {
+      "name": "ArmChopSkillButtCond",
+      "type": "procedure",
+      "sortid": 225,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "arm_chop_skill_butt_cond",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Arm Chop"
+    },
+    {
+      "name": "WGIntermediateDispCond",
+      "type": "procedure",
+      "sortid": 212,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wg_intermediate_disp_cond",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/WaterGodStyle"
+    },
+    {
+      "name": "SorcererPick",
+      "type": "procedure",
+      "sortid": 195,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sorcerer_pick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/ClassPick"
+    },
+    {
+      "name": "NorthGodPassive",
+      "type": "procedure",
+      "sortid": 205,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "north_god_passive",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/NorthGodStyle"
+    },
+    {
+      "name": "SwordGodPassiveEF",
+      "type": "potioneffect",
+      "sortid": 202,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sword_god_passive_ef",
+      "path": "~/Sword Techniques/SwordGodStyle/SGPassive"
+    },
+    {
+      "name": "NorthGodPassiveEF",
+      "type": "potioneffect",
+      "sortid": 206,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "north_god_passive_ef",
+      "path": "~/Sword Techniques/NorthGodStyle"
+    },
+    {
+      "name": "LsOSAquire",
+      "type": "procedure",
+      "sortid": 251,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_os_aquire",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
+    },
+    {
+      "name": "QuickStrikesSkillButtCond",
+      "type": "procedure",
+      "sortid": 235,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "quick_strikes_skill_butt_cond",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Quick Strikes"
+    },
+    {
+      "name": "AddSPbind",
+      "type": "keybind",
+      "sortid": 239,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_s_pbind"
+    },
+    {
+      "name": "WaterGodGui",
+      "type": "gui",
+      "sortid": 211,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_god_gui",
+      "path": "~/Sword Techniques/WaterGodStyle"
+    },
+    {
+      "name": "OpenSGAdvancedGUi",
+      "type": "procedure",
+      "sortid": 242,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_sg_advanced_g_ui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/GUI"
+    },
+    {
+      "name": "ClassPickerGUI",
+      "type": "gui",
+      "sortid": 194,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "class_picker_gui",
+      "path": "~/ClassPick"
+    },
+    {
+      "name": "QuickStrikesOpenGUI",
+      "type": "procedure",
+      "sortid": 236,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "quick_strikes_open_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Quick Strikes"
+    },
+    {
+      "name": "NGStyleGUIOpen",
+      "type": "procedure",
+      "sortid": 218,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ng_style_gui_open",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "QuickStrikesSkillAquire",
+      "type": "procedure",
+      "sortid": 233,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "quick_strikes_skill_aquire",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Quick Strikes"
+    },
+    {
+      "name": "SwordsmanPick",
+      "type": "procedure",
+      "sortid": 196,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "swordsman_pick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/ClassPick"
+    },
+    {
+      "name": "SGAdvancedButtCond",
+      "type": "procedure",
+      "sortid": 243,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sg_advanced_butt_cond",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/GUI"
+    },
+    {
+      "name": "SGAdvancedGUI",
+      "type": "gui",
+      "sortid": 241,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sg_advanced_gui",
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/GUI"
+    },
+    {
+      "name": "SwordGodGui",
+      "type": "gui",
+      "sortid": 207,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sword_god_gui",
+      "path": "~/Sword Techniques/SwordGodStyle"
+    },
+    {
+      "name": "ToukiEf",
+      "type": "potioneffect",
+      "sortid": 246,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "touki_ef",
+      "path": "~/Sword Techniques/Touki"
+    },
+    {
+      "name": "StylesGui",
+      "type": "gui",
+      "sortid": 215,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "styles_gui",
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "ClassPick",
+      "type": "procedure",
+      "sortid": 194,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "class_pick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/ClassPick"
+    },
+    {
+      "name": "SwordGodPassive",
+      "type": "procedure",
+      "sortid": 201,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sword_god_passive",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/SGPassive"
+    },
+    {
+      "name": "WGStyleGUIOpen",
+      "type": "procedure",
+      "sortid": 217,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wg_style_gui_open",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "SwordStyleInitialPick",
+      "type": "gui",
+      "sortid": 197,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sword_style_initial_pick",
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "NorthGodAffinity",
+      "type": "procedure",
+      "sortid": 200,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "north_god_affinity",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "SGToukiGUi",
+      "type": "gui",
+      "sortid": 244,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sg_touki_g_ui",
+      "path": "~/Sword Techniques/Touki"
+    },
+    {
+      "name": "Touki",
+      "type": "procedure",
+      "sortid": 245,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "touki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/Touki"
+    },
+    {
+      "name": "LsOSOpendGUI",
+      "type": "procedure",
+      "sortid": 253,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_os_opend_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
+    },
+    {
+      "name": "SkillPointGain",
+      "type": "procedure",
+      "sortid": 209,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skill_point_gain",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques"
+    },
+    {
+      "name": "ArmChopOpenGUI",
+      "type": "procedure",
+      "sortid": 227,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "arm_chop_open_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Arm Chop"
+    },
+    {
+      "name": "SwordGodAffinityPick",
+      "type": "procedure",
+      "sortid": 198,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sword_god_affinity_pick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "WaterGodAffinityPick",
+      "type": "procedure",
+      "sortid": 199,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "water_god_affinity_pick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "ArmChopSkillAquire",
+      "type": "procedure",
+      "sortid": 226,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "arm_chop_skill_aquire",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Arm Chop"
+    },
+    {
+      "name": "SGIntermedGUIOpen",
+      "type": "procedure",
+      "sortid": 229,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sg_intermed_gui_open",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/GUI"
+    },
+    {
+      "name": "AddSP",
+      "type": "procedure",
+      "sortid": 238,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_sp",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SGStyleGUIOpen",
+      "type": "procedure",
+      "sortid": 216,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sg_style_gui_open",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "QuickStrikesAquire",
+      "type": "procedure",
+      "sortid": 234,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "quick_strikes_aquire",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Quick Strikes"
+    },
+    {
+      "name": "OpenToukiGUI",
+      "type": "procedure",
+      "sortid": 248,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_touki_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/Touki"
+    },
+    {
+      "name": "QuickStrikesSkillOneSet",
+      "type": "procedure",
+      "sortid": 237,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "quick_strikes_skill_one_set",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Quick Strikes"
+    },
+    {
+      "name": "LsOSSkillOneSet",
+      "type": "procedure",
+      "sortid": 254,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_os_skill_one_set",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
+    },
+    {
+      "name": "StyleGUIOpen",
+      "type": "procedure",
+      "sortid": 219,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "style_gui_open",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordsmenMenu"
+    },
+    {
+      "name": "ArmChopSkillOneSet",
+      "type": "procedure",
+      "sortid": 230,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "arm_chop_skill_one_set",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Arm Chop"
+    },
+    {
+      "name": "LsOSGUI",
+      "type": "gui",
+      "sortid": 249,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_osgui",
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
+    },
+    {
+      "name": "NorthGodGUI",
+      "type": "gui",
+      "sortid": 214,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "north_god_gui",
+      "path": "~/Sword Techniques/NorthGodStyle"
+    },
+    {
+      "name": "SkillOncActivate",
+      "type": "procedure",
+      "sortid": 220,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skill_onc_activate",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques"
+    },
+    {
+      "name": "LsOSSkillAquire",
+      "type": "procedure",
+      "sortid": 250,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_os_skill_aquire",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
+    },
+    {
+      "name": "LsOS",
+      "type": "procedure",
+      "sortid": 255,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ls_os",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
+    },
+    {
+      "name": "SwordGodIntermediateGUi",
+      "type": "gui",
+      "sortid": 223,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sword_god_intermediate_g_ui",
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/GUI"
+    },
+    {
+      "name": "ClassKey",
+      "type": "keybind",
+      "sortid": 210,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "class_key",
+      "path": "~/Incantations"
+    },
+    {
+      "name": "SkillOne",
+      "type": "keybind",
+      "sortid": 222,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skill_one",
+      "path": "~/Sword Techniques"
+    },
+    {
+      "name": "QuickStirkesGUI",
+      "type": "gui",
+      "sortid": 231,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "quick_stirkes_gui",
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Quick Strikes"
+    },
+    {
+      "name": "ArmChop",
+      "type": "procedure",
+      "sortid": 221,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "arm_chop",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Sword Techniques/SwordGodStyle/Intermediate/Arm Chop"
     }
   ],
   "variable_elements": [
     {
       "name": "MaxMana",
       "type": "number",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "100.0"
     },
     {
       "name": "WaterMagic",
       "type": "logic",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "false"
     },
     {
       "name": "FireMagic",
       "type": "logic",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "false"
     },
     {
       "name": "EarthMagic",
       "type": "logic",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "false"
     },
     {
       "name": "WindMagic",
       "type": "logic",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "false"
     },
     {
       "name": "Mana",
       "type": "number",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "100.0"
     },
     {
       "name": "ChantSpell",
       "type": "string",
-      "scope": "player_lifetime",
+      "scope": "player_persistent",
       "value": "\"\""
+    },
+    {
+      "name": "TechniqueSP",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "StyleAffinity",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "SkillTwo",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "SkillOne",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "ToukiLevel",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "QuickStrikes",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "Swordsman",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "None"
+    },
+    {
+      "name": "SkillThree",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "ArmChop",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "LsOS",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [],
@@ -3915,6 +5193,10 @@
             "children": []
           }
         ]
+      },
+      {
+        "name": "ClassPick",
+        "children": []
       },
       {
         "name": "Magic",
@@ -4284,6 +5566,66 @@
         "children": []
       },
       {
+        "name": "Sword Techniques",
+        "children": [
+          {
+            "name": "SwordGodStyle",
+            "children": [
+              {
+                "name": "SGPassive",
+                "children": []
+              },
+              {
+                "name": "Intermediate",
+                "children": [
+                  {
+                    "name": "Quick Strikes",
+                    "children": []
+                  },
+                  {
+                    "name": "Arm Chop",
+                    "children": []
+                  },
+                  {
+                    "name": "GUI",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Advanced",
+                "children": [
+                  {
+                    "name": "GUI",
+                    "children": []
+                  },
+                  {
+                    "name": "Longsword of Silence",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "WaterGodStyle",
+            "children": []
+          },
+          {
+            "name": "NorthGodStyle",
+            "children": []
+          },
+          {
+            "name": "SwordsmenMenu",
+            "children": []
+          },
+          {
+            "name": "Touki",
+            "children": []
+          }
+        ]
+      },
+      {
         "name": "Incantations",
         "children": []
       }
@@ -4307,5 +5649,5 @@
     "modElementsPackage": "net.mcreator.test",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202200348217
+  "mcreatorVersion": 202200120510
 }

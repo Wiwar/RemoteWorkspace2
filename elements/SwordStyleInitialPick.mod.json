@@ -1,0 +1,77 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Choose a Style",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Choose a Style",
+          "x": 177,
+          "y": 44
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Sword God Style",
+          "onClick": {
+            "name": "SwordGodAffinityPick"
+          },
+          "width": 103,
+          "height": 20,
+          "name": "Sword God Style",
+          "x": 159,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Water God Style",
+          "onClick": {
+            "name": "WaterGodAffinityPick"
+          },
+          "width": 103,
+          "height": 20,
+          "name": "Water God Style",
+          "x": 159,
+          "y": 107
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "North God Style",
+          "onClick": {
+            "name": "NorthGodAffinity"
+          },
+          "width": 103,
+          "height": 20,
+          "name": "North God Style",
+          "x": 159,
+          "y": 143
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

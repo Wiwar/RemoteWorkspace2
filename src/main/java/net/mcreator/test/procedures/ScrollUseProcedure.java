@@ -1,22 +1,6 @@
 package net.mcreator.test.procedures;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.test.MushokuModVariables;
-import net.mcreator.test.MushokuMod;
-
-import java.util.stream.Stream;
-import java.util.function.Function;
-import java.util.Random;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Comparator;
-import java.util.AbstractMap;
+import net.minecraftforge.eventbus.api.Event;
 
 public class ScrollUseProcedure {
 
@@ -46,11 +30,13 @@ public class ScrollUseProcedure {
 				MushokuMod.LOGGER.warn("Failed to load dependency entity for procedure ScrollUse!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		if ((((Entity) world
 				.getEntitiesWithinAABB(PlayerEntity.class,
 						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -154,6 +140,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				WaterballProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
 								new AbstractMap.SimpleEntry<>("entity", entity))
@@ -276,6 +263,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				IceSmashProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -397,6 +385,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				WaterArrowProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -518,6 +507,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				IceBladeproProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -640,6 +630,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				RockBulletProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -761,6 +752,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				FireBallProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -882,6 +874,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				HeatHandProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -1003,6 +996,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				BurningPlaceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -1124,6 +1118,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				EarthBladeProjProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -1246,6 +1241,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				DigProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -1387,6 +1383,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				BlastProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -1507,6 +1504,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				PushProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -1627,6 +1625,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				PullProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -1748,6 +1747,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				HealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -1879,6 +1879,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				IcePillarProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2000,6 +2001,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				WaterCannonProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
 								new AbstractMap.SimpleEntry<>("entity", entity))
@@ -2122,6 +2124,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				IcicleLanceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2243,6 +2246,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				StoneCannonProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2364,6 +2368,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				EarthPillarProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2485,6 +2490,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				ExplosionProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2606,6 +2612,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				FlameSliceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2727,6 +2734,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				FlamethrowerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -2847,6 +2855,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				ExFlameProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -2968,9 +2977,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-				EarthLanceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
-						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
-						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
 					ItemStack _ist = ((((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3089,9 +3095,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-				XHealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
-						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
-						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
 					ItemStack _ist = ((((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -3210,6 +3213,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				FeastProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -3330,6 +3334,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				WindBindProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -3451,6 +3456,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				WindSliceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -3572,6 +3578,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				SonicBoomProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -3703,6 +3710,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				BlizardStormProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -3824,6 +3832,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				SquallProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -3946,6 +3955,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				IceFortressProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -4067,6 +4077,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				EarthFortressProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -4190,6 +4201,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				EarthWallProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -4311,6 +4323,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				EarthHedgehogProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -4432,6 +4445,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				ShineHealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -4552,6 +4566,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				AddFallNegationProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -4672,6 +4687,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				TornadoImpactProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -4795,6 +4811,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				SonicBlastProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -4916,6 +4933,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				ExodusFlameProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5037,6 +5055,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				MagmaGushProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5168,6 +5187,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				CumulonimbusProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5289,6 +5309,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				SandStormProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5410,6 +5431,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				ViolentStormProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5531,6 +5553,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				FlashOverProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -5663,6 +5686,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				LightningStrikeProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5784,6 +5808,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				DesertStormProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -5905,9 +5930,6 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
-				TornadoIdleProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
-						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
-						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
 					ItemStack _ist = ((((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
@@ -6026,6 +6048,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				MineFieldProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -6158,6 +6181,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				AbsoluteZeroProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -6280,6 +6304,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				ElectricProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				{
@@ -6400,6 +6425,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				MountianProcedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -6521,6 +6547,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				EarthDrillProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -6642,6 +6669,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				EyeoftheStormProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("y", y),
 								new AbstractMap.SimpleEntry<>("entity", entity))
@@ -6764,6 +6792,7 @@ public class ScrollUseProcedure {
 												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
 							});
 				}
+
 				NuclearStrikeProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -6795,4 +6824,5 @@ public class ScrollUseProcedure {
 			}
 		}
 	}
+
 }

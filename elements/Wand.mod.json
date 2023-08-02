@@ -2,9 +2,9 @@
   "_fv": 34,
   "_type": "tool",
   "definition": {
-    "renderType": 0,
-    "texture": "wandplaceholder",
-    "customModelName": "Normal",
+    "renderType": 1,
+    "texture": "wand",
+    "customModelName": "wand:default",
     "name": "Wand",
     "specialInfo": [],
     "creativeTab": {

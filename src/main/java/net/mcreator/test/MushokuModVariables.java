@@ -78,6 +78,16 @@ public class MushokuModVariables {
 			nbt.putBoolean("WindMagic", instance.WindMagic);
 			nbt.putDouble("Mana", instance.Mana);
 			nbt.putString("ChantSpell", instance.ChantSpell);
+			nbt.putDouble("TechniqueSP", instance.TechniqueSP);
+			nbt.putString("StyleAffinity", instance.StyleAffinity);
+			nbt.putString("SkillTwo", instance.SkillTwo);
+			nbt.putString("SkillOne", instance.SkillOne);
+			nbt.putDouble("ToukiLevel", instance.ToukiLevel);
+			nbt.putBoolean("QuickStrikes", instance.QuickStrikes);
+			nbt.putString("Swordsman", instance.Swordsman);
+			nbt.putString("SkillThree", instance.SkillThree);
+			nbt.putBoolean("ArmChop", instance.ArmChop);
+			nbt.putBoolean("LsOS", instance.LsOS);
 			return nbt;
 		}
 
@@ -91,6 +101,16 @@ public class MushokuModVariables {
 			instance.WindMagic = nbt.getBoolean("WindMagic");
 			instance.Mana = nbt.getDouble("Mana");
 			instance.ChantSpell = nbt.getString("ChantSpell");
+			instance.TechniqueSP = nbt.getDouble("TechniqueSP");
+			instance.StyleAffinity = nbt.getString("StyleAffinity");
+			instance.SkillTwo = nbt.getString("SkillTwo");
+			instance.SkillOne = nbt.getString("SkillOne");
+			instance.ToukiLevel = nbt.getDouble("ToukiLevel");
+			instance.QuickStrikes = nbt.getBoolean("QuickStrikes");
+			instance.Swordsman = nbt.getString("Swordsman");
+			instance.SkillThree = nbt.getString("SkillThree");
+			instance.ArmChop = nbt.getBoolean("ArmChop");
+			instance.LsOS = nbt.getBoolean("LsOS");
 		}
 	}
 
@@ -102,6 +122,16 @@ public class MushokuModVariables {
 		public boolean WindMagic = false;
 		public double Mana = 100.0;
 		public String ChantSpell = "\"\"";
+		public double TechniqueSP = 0;
+		public String StyleAffinity = "\"\"";
+		public String SkillTwo = "\"\"";
+		public String SkillOne = "\"\"";
+		public double ToukiLevel = 0;
+		public boolean QuickStrikes = false;
+		public String Swordsman = "None";
+		public String SkillThree = "\"\"";
+		public boolean ArmChop = false;
+		public boolean LsOS = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -136,14 +166,24 @@ public class MushokuModVariables {
 		PlayerVariables original = ((PlayerVariables) event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new PlayerVariables()));
 		PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
+		clone.MaxMana = original.MaxMana;
+		clone.WaterMagic = original.WaterMagic;
+		clone.FireMagic = original.FireMagic;
+		clone.EarthMagic = original.EarthMagic;
+		clone.WindMagic = original.WindMagic;
+		clone.Mana = original.Mana;
+		clone.ChantSpell = original.ChantSpell;
+		clone.TechniqueSP = original.TechniqueSP;
+		clone.StyleAffinity = original.StyleAffinity;
+		clone.SkillTwo = original.SkillTwo;
+		clone.SkillOne = original.SkillOne;
+		clone.ToukiLevel = original.ToukiLevel;
+		clone.QuickStrikes = original.QuickStrikes;
+		clone.Swordsman = original.Swordsman;
+		clone.SkillThree = original.SkillThree;
+		clone.ArmChop = original.ArmChop;
+		clone.LsOS = original.LsOS;
 		if (!event.isWasDeath()) {
-			clone.MaxMana = original.MaxMana;
-			clone.WaterMagic = original.WaterMagic;
-			clone.FireMagic = original.FireMagic;
-			clone.EarthMagic = original.EarthMagic;
-			clone.WindMagic = original.WindMagic;
-			clone.Mana = original.Mana;
-			clone.ChantSpell = original.ChantSpell;
 		}
 	}
 
@@ -176,6 +216,16 @@ public class MushokuModVariables {
 					variables.WindMagic = message.data.WindMagic;
 					variables.Mana = message.data.Mana;
 					variables.ChantSpell = message.data.ChantSpell;
+					variables.TechniqueSP = message.data.TechniqueSP;
+					variables.StyleAffinity = message.data.StyleAffinity;
+					variables.SkillTwo = message.data.SkillTwo;
+					variables.SkillOne = message.data.SkillOne;
+					variables.ToukiLevel = message.data.ToukiLevel;
+					variables.QuickStrikes = message.data.QuickStrikes;
+					variables.Swordsman = message.data.Swordsman;
+					variables.SkillThree = message.data.SkillThree;
+					variables.ArmChop = message.data.ArmChop;
+					variables.LsOS = message.data.LsOS;
 				}
 			});
 			context.setPacketHandled(true);

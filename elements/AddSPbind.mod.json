@@ -1,0 +1,12 @@
+{
+  "_fv": 34,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "L",
+    "keyBindingName": "Add SP bind",
+    "keyBindingCategoryKey": "misc",
+    "onKeyPressed": {
+      "name": "AddSP"
+    }
+  }
+}

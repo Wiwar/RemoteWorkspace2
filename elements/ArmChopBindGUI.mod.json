@@ -1,0 +1,182 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Arm Chop",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Arm Chop",
+          "x": 188,
+          "y": 47
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Bind Skill",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "ArmChopSkillButtCond"
+          },
+          "name": "Bind Skill",
+          "x": 182,
+          "y": 138
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill One",
+          "onClick": {
+            "name": "ArmChopSkillOneSet"
+          },
+          "displayCondition": {
+            "name": "ArmChopSkillButtCond"
+          },
+          "width": 72,
+          "height": 20,
+          "name": "Skill One",
+          "x": 132,
+          "y": 152
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill Two",
+          "displayCondition": {
+            "name": "ArmChopSkillButtCond"
+          },
+          "width": 72,
+          "height": 20,
+          "name": "Skill Two",
+          "x": 221,
+          "y": 152
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill Three",
+          "displayCondition": {
+            "name": "ArmChopSkillButtCond"
+          },
+          "width": 82,
+          "height": 20,
+          "name": "Skill Three",
+          "x": 170,
+          "y": 176
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Swing at your enemys arm,",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Swing at your enemys arm,",
+          "x": 139,
+          "y": 60
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "breifly disarming them and ",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "breifly disarming them and ",
+          "x": 139,
+          "y": 73
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "causing damage",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "causing damage",
+          "x": 138,
+          "y": 86
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Unlock Skill",
+          "onClick": {
+            "name": "ArmChopAquire"
+          },
+          "displayCondition": {
+            "name": "ArmChopSkillAquire"
+          },
+          "width": 87,
+          "height": 20,
+          "name": "Unlock Skill",
+          "x": 165,
+          "y": 103
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "(Skill Point Cost 50)",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "ArmChopSkillAquire"
+          },
+          "name": "(Skill Point Cost 50)",
+          "x": 153,
+          "y": 125
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "SGIntermedGUIOpen"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 183,
+          "y": 18
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

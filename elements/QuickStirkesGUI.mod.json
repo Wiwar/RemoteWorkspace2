@@ -1,0 +1,169 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Quick Stikes",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Quick Stikes",
+          "x": 175,
+          "y": 46
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Bind Skill",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "QuickStrikesSkillButtCond"
+          },
+          "name": "Bind Skill",
+          "x": 182,
+          "y": 138
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill One",
+          "onClick": {
+            "name": "QuickStrikesSkillOneSet"
+          },
+          "displayCondition": {
+            "name": "QuickStrikesSkillButtCond"
+          },
+          "width": 72,
+          "height": 20,
+          "name": "Skill One",
+          "x": 132,
+          "y": 152
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill Two",
+          "displayCondition": {
+            "name": "QuickStrikesSkillButtCond"
+          },
+          "width": 72,
+          "height": 20,
+          "name": "Skill Two",
+          "x": 221,
+          "y": 152
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill Three",
+          "displayCondition": {
+            "name": "QuickStrikesSkillButtCond"
+          },
+          "width": 82,
+          "height": 20,
+          "name": "Skill Three",
+          "x": 170,
+          "y": 176
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Swing rapidly with a flurry",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Swing rapidly with a flurry",
+          "x": 139,
+          "y": 60
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "of smaller attacks",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "of smaller attacks",
+          "x": 138,
+          "y": 72
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Unlock Skill",
+          "onClick": {
+            "name": "QuickStrikesAquire"
+          },
+          "displayCondition": {
+            "name": "QuickStrikesSkillAquire"
+          },
+          "width": 87,
+          "height": 20,
+          "name": "Unlock Skill",
+          "x": 165,
+          "y": 102
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "(Skill Point Cost 25)",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "QuickStrikesSkillAquire"
+          },
+          "name": "(Skill Point Cost 25)",
+          "x": 153,
+          "y": 125
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "SGIntermedGUIOpen"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 183,
+          "y": 18
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}
