@@ -4945,7 +4945,7 @@
       "name": "LsOSEf",
       "type": "potioneffect",
       "sortid": 256,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "ls_os_ef",
       "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
@@ -4954,7 +4954,7 @@
       "name": "LsOSEfEf",
       "type": "procedure",
       "sortid": 257,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "ls_os_ef_ef",
       "metadata": {
@@ -4982,6 +4982,17 @@
         ]
       },
       "path": "~/Sword Techniques/SwordGodStyle/Advanced/Longsword of Silence"
+    },
+    {
+      "name": "Supersextime",
+      "type": "procedure",
+      "sortid": 258,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "supersextime",
+      "metadata": {
+        "dependencies": []
+      }
     }
   ],
   "variable_elements": [
