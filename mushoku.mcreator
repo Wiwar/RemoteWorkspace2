@@ -14,7 +14,7 @@
       "type": "gui",
       "sortid": 4,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "chant_gui",
       "path": "~/Incantations"
     },
@@ -5604,6 +5604,48 @@
         ]
       },
       "path": "~/Sword Techniques/WaterGodStyle/Intermediate/Flow"
+    },
+    {
+      "name": "CustomPacketHandler",
+      "type": "code",
+      "sortid": 292,
+      "compiles": false,
+      "locked_code": true,
+      "registry_name": "custom_packet_handler",
+      "path": "~/Incantations"
+    },
+    {
+      "name": "OnInit",
+      "type": "procedure",
+      "sortid": 294,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "on_init",
+      "metadata": {
+        "dependencies": []
+      },
+      "path": "~/Incantations"
+    },
+    {
+      "name": "ConvertPlayerVar",
+      "type": "procedure",
+      "sortid": 295,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "convert_player_var",
+      "metadata": {
+        "dependencies": []
+      },
+      "path": "~/Incantations"
+    },
+    {
+      "name": "OnKeyPressed",
+      "type": "code",
+      "sortid": 296,
+      "compiles": false,
+      "locked_code": true,
+      "registry_name": "on_key_pressed",
+      "path": "~/Incantations"
     }
   ],
   "variable_elements": [
@@ -5738,6 +5780,12 @@
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
+    },
+    {
+      "name": "tmpInputList",
+      "type": "string",
+      "scope": "world",
+      "value": ""
     }
   ],
   "sound_elements": [],
