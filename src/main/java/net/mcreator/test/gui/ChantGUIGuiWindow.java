@@ -24,7 +24,7 @@ public class ChantGUIGuiWindow extends ContainerScreen<ChantGUIGui.GuiContainerM
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = ChantGUIGui.guistate;
-	TextFieldWidget Chant;
+	public TextFieldWidget Chant;
 
 	public ChantGUIGuiWindow(ChantGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);

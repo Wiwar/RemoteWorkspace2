@@ -54,6 +54,9 @@
         "type": "button",
         "data": {
           "text": "Flow",
+          "onClick": {
+            "name": "FlowGUIOpen"
+          },
           "width": 46,
           "height": 20,
           "name": "Flow",

@@ -1,0 +1,182 @@
+{
+  "_fv": 34,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "text": "Back",
+          "onClick": {
+            "name": "WGOpenInterGUI"
+          },
+          "width": 46,
+          "height": 20,
+          "name": "Back",
+          "x": 187,
+          "y": 18
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Flow",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Flow",
+          "x": 200,
+          "y": 41
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Reflect incoming attacks back",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Reflect incoming attacks back",
+          "x": 132,
+          "y": 68
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "at your attacker",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "at your attacker",
+          "x": 133,
+          "y": 79
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Availible Skill Points : <VAR:TechniqueSP>",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Availible Skill Points : <VAR:TechniqueSP>",
+          "x": 129,
+          "y": 52
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Unlock Flow",
+          "onClick": {
+            "name": "AquireFlow"
+          },
+          "displayCondition": {
+            "name": "FlowAquireButtVis"
+          },
+          "width": 82,
+          "height": 20,
+          "name": "Unlock Flow",
+          "x": 167,
+          "y": 103
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "(Cost 50 Skill Points)",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "FlowAquireButtVis"
+          },
+          "name": "(Cost 50 Skill Points)",
+          "x": 152,
+          "y": 126
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Bind Skill",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "FlowSkillButtVis"
+          },
+          "name": "Bind Skill",
+          "x": 183,
+          "y": 139
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill One",
+          "onClick": {
+            "name": "FlowSkillOneBind"
+          },
+          "displayCondition": {
+            "name": "FlowSkillButtVis"
+          },
+          "width": 72,
+          "height": 20,
+          "name": "Skill One",
+          "x": 131,
+          "y": 151
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill Two",
+          "displayCondition": {
+            "name": "FlowSkillButtVis"
+          },
+          "width": 72,
+          "height": 20,
+          "name": "Skill Two",
+          "x": 220,
+          "y": 151
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Skill Three",
+          "displayCondition": {
+            "name": "FlowSkillButtVis"
+          },
+          "width": 82,
+          "height": 20,
+          "name": "Skill Three",
+          "x": 170,
+          "y": 174
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}
