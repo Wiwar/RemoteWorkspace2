@@ -18,6 +18,7 @@ import java.util.function.Function;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Comparator;
+import java.util.Collections;
 import java.util.AbstractMap;
 
 public class ChantProcedure {
@@ -1969,6 +1970,141 @@ public class ChantProcedure {
 				HealingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				new Object() {
+					private int ticks = 0;
+					private float waitTicks;
+					private IWorld world;
+
+					public void start(IWorld world, int waitTicks) {
+						this.waitTicks = waitTicks;
+						MinecraftForge.EVENT_BUS.register(this);
+						this.world = world;
+					}
+
+					@SubscribeEvent
+					public void tick(TickEvent.ServerTickEvent event) {
+						if (event.phase == TickEvent.Phase.END) {
+							this.ticks += 1;
+							if (this.ticks >= this.waitTicks)
+								run();
+						}
+					}
+
+					private void run() {
+						{
+							String _setval = "empty";
+							((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
+									new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
+									null).stream().sorted(new Object() {
+										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+										}
+									}.compareDistOf(x, y, z)).findFirst().orElse(null))
+									.getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+										capability.ChantSpell = _setval;
+										capability
+												.syncPlayerVariables(
+														((Entity) world
+																.getEntitiesWithinAABB(PlayerEntity.class,
+																		new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d),
+																				x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)),
+																		null)
+																.stream().sorted(new Object() {
+																	Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+																		return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd
+																				.getDistanceSq(_x, _y, _z)));
+																	}
+																}.compareDistOf(x, y, z)).findFirst().orElse(null)));
+									});
+						}
+						MinecraftForge.EVENT_BUS.unregister(this);
+					}
+				}.start(world, (int) 2);
+			}
+			if (((((Entity) world
+					.getEntitiesWithinAABB(PlayerEntity.class,
+							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
+					.stream().sorted(new Object() {
+						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+						}
+					}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new MushokuModVariables.PlayerVariables())).ChantSpell).equals("Cancer")) {
+				if (((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
+						new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
+						.stream().sorted(new Object() {
+							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+							}
+						}.compareDistOf(x, y, z)).findFirst().orElse(null)) instanceof PlayerEntity)
+					((PlayerEntity) ((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
+							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
+							.stream().sorted(new Object() {
+								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+								}
+							}.compareDistOf(x, y, z)).findFirst().orElse(null))).closeScreen();
+				{
+					double _setval = ((((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
+							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
+							.stream().sorted(new Object() {
+								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+								}
+							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).MaxMana + 5);
+					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
+							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
+							.stream().sorted(new Object() {
+								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+								}
+							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.ifPresent(capability -> {
+								capability.MaxMana = _setval;
+								capability
+										.syncPlayerVariables(((Entity) world
+												.getEntitiesWithinAABB(PlayerEntity.class, new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d),
+														z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
+												.stream().sorted(new Object() {
+													Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+														return Comparator
+																.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+													}
+												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
+							});
+				}
+				{
+					double _setval = ((((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
+							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
+							.stream().sorted(new Object() {
+								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+								}
+							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new MushokuModVariables.PlayerVariables())).Mana - 30);
+					((Entity) world.getEntitiesWithinAABB(PlayerEntity.class,
+							new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d), z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
+							.stream().sorted(new Object() {
+								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+								}
+							}.compareDistOf(x, y, z)).findFirst().orElse(null)).getCapability(MushokuModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.ifPresent(capability -> {
+								capability.Mana = _setval;
+								capability
+										.syncPlayerVariables(((Entity) world
+												.getEntitiesWithinAABB(PlayerEntity.class, new AxisAlignedBB(x - (0.5 / 2d), y - (0.5 / 2d),
+														z - (0.5 / 2d), x + (0.5 / 2d), y + (0.5 / 2d), z + (0.5 / 2d)), null)
+												.stream().sorted(new Object() {
+													Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+														return Comparator
+																.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+													}
+												}.compareDistOf(x, y, z)).findFirst().orElse(null)));
+							});
+				}
+				CancerProcedure.executeProcedure(Collections.emptyMap());
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;

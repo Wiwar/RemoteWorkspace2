@@ -22,7 +22,7 @@
       "name": "Chant",
       "type": "procedure",
       "sortid": 4,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "chant",
       "metadata": {
@@ -5426,6 +5426,15 @@
         ]
       },
       "path": "~/Sword Techniques/WaterGodStyle/Intermediate/GUI"
+    },
+    {
+      "name": "Cancer",
+      "type": "procedure",
+      "sortid": 283,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cancer",
+      "path": "~/Magic/Water Magic/Elementary/Ice Smash"
     }
   ],
   "variable_elements": [
